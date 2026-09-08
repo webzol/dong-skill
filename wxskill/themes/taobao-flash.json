@@ -1,0 +1,39 @@
+{
+  "name": "taobao-flash",
+  "label": "淘宝闪购",
+  "description": "白底 + 深黑字 + 蓝橙双强调;紧凑行高 1.4、紧凑段距 8px;电商促销 / 资讯快报感,标题用蓝色加粗强调、关键数字用橙色突出。",
+  "colors": {
+    "bg": "#ffffff",
+    "text": "#141414",
+    "muted": "#8c8c8c",
+    "accent": "#408bfb",
+    "accent2": "#ff6827",
+    "cardBg": "#f4f0ff",
+    "cardBorder": "#e8e8ef",
+    "divider": "#ececec",
+    "codeBg": "#f5f6f8",
+    "codeText": "#408bfb",
+    "titleBar": "#408bfb",
+    "quoteBorder": "#ff6827"
+  },
+  "typography": {
+    "bodyFontSize": "15px",
+    "titleFontSize": "28px",
+    "subtitleFontSize": "18px",
+    "bodyLineHeight": "1.4",
+    "titleLineHeight": "1.3",
+    "paragraphMargin": "8px",
+    "sectionGap": "24px",
+    "alignment": "left",
+    "fontWeight": "normal",
+    "titleWeight": "bold",
+    "letterSpacing": "0"
+  },
+  "paletteNotes": {
+    "accent": "#408bfb 淘宝蓝,标题加粗强调",
+    "accent2": "#ff6827 淘宝橙,关键数字/促销价/按钮",
+    "text": "#141414 深黑(非纯黑),正文",
+    "muted": "#8c8c8c 次要信息",
+    "cardBg": "#f4f0ff 极淡紫底,仅用于偶尔卡片"
+  }
+}

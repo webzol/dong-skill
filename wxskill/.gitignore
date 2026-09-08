@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node / 公共
+node_modules/
+dist/
+*.log
+
+# 临时参考(抓取公众号文章 + 分析脚本,不入库)
+.ref/
+
+# 每次排版产出(按日期归档,不入库;目录结构保留供新会话参考)
+generated/
+!generated/.gitkeep

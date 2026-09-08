@@ -1,0 +1,19 @@
+{
+  "name": "minimal-light",
+  "label": "极简白",
+  "description": "白底、灰字、克制的单色强调，最「简约」。默认主题。",
+  "colors": {
+    "bg": "#ffffff",
+    "text": "#1c1c1e",
+    "muted": "#8e8e93",
+    "accent": "#111111",
+    "accent2": "#7c8797",
+    "cardBg": "#f5f6f8",
+    "cardBorder": "#e3e6ec",
+    "divider": "#ececf0",
+    "codeBg": "#f2f3f5",
+    "codeText": "#44484d",
+    "titleBar": "#111111",
+    "quoteBorder": "#d0d3dc"
+  }
+}

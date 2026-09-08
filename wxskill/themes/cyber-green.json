@@ -1,0 +1,19 @@
+{
+  "name": "cyber-green",
+  "label": "赛博绿",
+  "description": "暗底 + 荧光绿，终端 / 矩阵 / 极客感，最「黑客风」。",
+  "colors": {
+    "bg": "#0a0f0c",
+    "text": "#d9ffe9",
+    "muted": "#6fa088",
+    "accent": "#00ff9c",
+    "accent2": "#7cf5c0",
+    "cardBg": "#0e1712",
+    "cardBorder": "#16331f",
+    "divider": "#143522",
+    "codeBg": "#07120c",
+    "codeText": "#62ffb0",
+    "titleBar": "#00ff9c",
+    "quoteBorder": "#00ff9c"
+  }
+}

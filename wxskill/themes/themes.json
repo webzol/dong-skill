@@ -1,0 +1,31 @@
+{
+  "$schema": "WXSkill wechat-typesetting 主题注册表",
+  "defaults": {
+    "theme": "minimal-light",
+    "template": "minimal-tech"
+  },
+  "themes": [
+    { "name": "minimal-light", "label": "极简白", "style": "白底灰字 · 简约 · 默认", "file": "themes/minimal-light.json" },
+    { "name": "minimal-dark",  "label": "极简黑", "style": "深底浅字 · 暗色极简",    "file": "themes/minimal-dark.json" },
+    { "name": "tech-blue",     "label": "科技蓝", "style": "深蓝+亮蓝/青 · 数据科技", "file": "themes/tech-blue.json" },
+    { "name": "cyber-green",   "label": "赛博绿", "style": "暗底+荧光绿 · 终端黑客",   "file": "themes/cyber-green.json" },
+    { "name": "neon-purple",   "label": "霓虹紫", "style": "暗底+紫/品红 · 新潮夜店",   "file": "themes/neon-purple.json" },
+    { "name": "taobao-flash",  "label": "淘宝闪购", "style": "白底+蓝橙双强调 · 紧凑电商风", "file": "themes/taobao-flash.json" },
+    { "name": "wechat-pai",    "label": "微信派",  "style": "白底+微信绿 · 文艺杂志感", "file": "themes/wechat-pai.json" },
+    { "name": "qianwen",       "label": "千问",     "style": "白底+近黑+苹果字体栈 · 1.95 行高 + 14px 圆角卡片", "file": "themes/qianwen.json" }
+  ],
+  "colorKeys": {
+    "bg": "页面背景",
+    "text": "正文文字",
+    "muted": "次要文字",
+    "accent": "主强调色",
+    "accent2": "辅强调色",
+    "cardBg": "卡片背景",
+    "cardBorder": "卡片描边",
+    "divider": "分隔线",
+    "codeBg": "代码块背景",
+    "codeText": "代码文字",
+    "titleBar": "标题栏色",
+    "quoteBorder": "引言边框色"
+  }
+}

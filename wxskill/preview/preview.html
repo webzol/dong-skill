@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WXSkill · 微信排版预览画廊</title>
+<style>
+  :root{--bg:#0c0e13;--panel:#14161d;--panel2:#1a1d26;--line:#262a35;--txt:#e7ebf3;--mut:#8b93a7;--acc:#3b82f6;--acc2:#22d3ee;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;}
+  header{padding:26px 22px 6px;border-bottom:1px solid var(--line);}
+  header h1{margin:0;font-size:22px;font-weight:700;letter-spacing:.5px;}
+  header p{margin:8px 0 0;color:var(--mut);font-size:13px;}
+  .controls{padding:16px 22px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;}
+  .label{color:var(--mut);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+  .pills{display:flex;gap:6px;flex-wrap:wrap;}
+  .pill{border:1px solid var(--line);background:var(--panel);color:var(--mut);padding:6px 12px;border-radius:20px;font-size:13px;cursor:pointer;transition:.15s;}
+  .pill:hover{border-color:var(--acc2);color:var(--txt);}
+  .pill.active{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600;}
+  .grid{padding:20px 22px 40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:.18s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.35);border-color:var(--acc2);}
+  .meta{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+  .meta .t{font-weight:700;font-size:13px;}
+  .meta .th{font-size:11px;color:var(--mut);}
+  .frame{position:relative;height:400px;overflow:hidden;}
+  .art{position:absolute;top:0;left:0;width:677px;transform:scale(0.335);transform-origin:top left;}
+  .frame::after{content:"点按放大";position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.45);color:#fff;font-size:11px;padding:3px 8px;border-radius:6px;opacity:0;transition:.15s;}
+  .card:hover .frame::after{opacity:1;}
+  /* 焦点大图 */
+  .modal{position:fixed;inset:0;background:rgba(6,8,12,.8);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow:auto;}
+  .modal.open{display:flex;}
+  .big{background:transparent;border-radius:12px;overflow:auto;max-width:calc(100% - 32px);}
+  .big .bmeta{display:flex;justify-content:space-between;margin-bottom:12px;color:var(--mut);font-size:13px;}
+  .big .bmeta b{color:var(--txt);}
+  .close{color:var(--txt);background:var(--panel);border:1px solid var(--line);padding:6px 14px;border-radius:8px;cursor:pointer;}
+  .foot{padding:18px 22px 34px;color:var(--mut);font-size:12px;border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+<header>
+  <h1>WXSkill · 微信排版预览画廊</h1>
+  <p>8 个色调 × 5 个模板 = 40 种组合。浏览器所见 ≈ 微信公众号里所见（微信会剥掉 flex/grid，画廊内每张卡片就是这个兼容方案的真实渲染）。</p>
+</header>
+<div class="controls">
+  <span class="label">色调</span>
+  <div id="tPills" class="pills"></div>
+  <span class="label" style="margin-left:12px;">模板</span>
+  <div id="mPills" class="pills"></div>
+</div>
+<div id="grid" class="grid"></div>
+<div class="foot">来源：themes/*.json（色板） · templates/*.md（骨架）。点卡片看大图；改动色值后重开本页即可刷新。</div>
+
+<div id="modal" class="modal"><div class="big"><div class="bmeta"><b id="bmTitle"></b><button class="close" onclick="closeModal()">关闭 ✕</button></div><div id="bmContent"></div></div></div>
+
+<script>
+/* 色板：与 themes/*.json 保持一致（本文件为浏览器侧的镜像） */
+const THEMES = {
+  "minimal-light":{label:"极简白",c:{bg:"#ffffff",text:"#1c1c1e",muted:"#8e8e93",accent:"#111111",accent2:"#7c8797",cardBg:"#f5f6f8",cardBorder:"#e3e6ec",divider:"#ececf0",codeBg:"#f2f3f5",codeText:"#44484d",titleBar:"#111111",quoteBorder:"#d0d3dc"}},
+  "minimal-dark":{label:"极简黑",c:{bg:"#0e0e10",text:"#ececee",muted:"#9a9aa2",accent:"#ffffff",accent2:"#b3b9c4",cardBg:"#1a1b1e",cardBorder:"#2a2b30",divider:"#26272c",codeBg:"#16171a",codeText:"#9aa4b2",titleBar:"#ffffff",quoteBorder:"#3a3b40"}},
+  "tech-blue":{label:"科技蓝",c:{bg:"#0b1220",text:"#e6edf7",muted:"#8b98ad",accent:"#3b82f6",accent2:"#22d3ee",cardBg:"#101b30",cardBorder:"#1f2d4a",divider:"#1c2942",codeBg:"#0d1626",codeText:"#7dd3fc",titleBar:"#3b82f6",quoteBorder:"#22d3ee"}},
+  "cyber-green":{label:"赛博绿",c:{bg:"#0a0f0c",text:"#d9ffe9",muted:"#6fa088",accent:"#00ff9c",accent2:"#7cf5c0",cardBg:"#0e1712",cardBorder:"#16331f",divider:"#143522",codeBg:"#07120c",codeText:"#62ffb0",titleBar:"#00ff9c",quoteBorder:"#00ff9c"}},
+  "neon-purple":{label:"霓虹紫",c:{bg:"#0e0b1a",text:"#f0eaff",muted:"#9a8fc4",accent:"#a855f7",accent2:"#e14eca",cardBg:"#161130",cardBorder:"#2a1f4d",divider:"#241a44",codeBg:"#120d24",codeText:"#c084fc",titleBar:"#a855f7",quoteBorder:"#e14eca"}},
+  "taobao-flash":{label:"淘宝闪购",c:{bg:"#ffffff",text:"#141414",muted:"#8c8c8c",accent:"#408bfb",accent2:"#ff6827",cardBg:"#f4f0ff",cardBorder:"#e8e8ef",divider:"#ececec",codeBg:"#f5f6f8",codeText:"#408bfb",titleBar:"#408bfb",quoteBorder:"#ff6827"}},
+  "wechat-pai":{label:"微信派",c:{bg:"#ffffff",text:"#4d4d4d",muted:"#888888",accent:"#07c160",accent2:"#1c53d6",cardBg:"#f7f7f7",cardBorder:"#ededf0",divider:"#efefef",codeBg:"#f4f4f4",codeText:"#07c160",titleBar:"#07c160",quoteBorder:"#07c160"}},
+  "qianwen":{label:"千问",c:{bg:"#ffffff",text:"#141414",muted:"#8a8a8a",accent:"#141414",accent2:"#615ced",cardBg:"#f7f7f7",cardBorder:"#ececec",divider:"#efefef",codeBg:"#f4f4f5",codeText:"#615ced",titleBar:"#141414",quoteBorder:"#615ced"}}
+};
+const TEMPLATES = ["minimal-tech","cyber-card","terminal-code","hud","wechat-pai-essay"];
+const TLABEL = {"minimal-tech":"简约科技","cyber-card":"卡片","terminal-code":"终端风","hud":"数据面板","wechat-pai-essay":"微信派长文"};
+
+/* 每个模板用同一段示例内容，产出它自己的微信兼容 HTML */
+function tMinimal(c){
+  return `<section style="max-width:677px;background:${c.bg};color:${c.text};padding:24px 18px;">
+    <section style="border-top:2px solid ${c.titleBar};padding-top:14px;"><section style="width:18px;height:18px;background:${c.titleBar};border-radius:3px;"></section></section>
+    <h1 style="margin:14px 0 6px;font-size:28px;line-height:1.3;font-weight:700;letter-spacing:1px;color:${c.text};">产品周报 · 第 12 期</h1>
+    <p style="margin:0 0 22px;font-size:14px;color:${c.muted};letter-spacing:.5px;">用科技感排版，3 分钟搞定一篇公众号</p>
+    <section style="height:1px;background:${c.divider};margin:0 0 26px;"></section>
+    <section style="border-left:4px solid ${c.accent};padding-left:10px;font-size:20px;font-weight:700;color:${c.text};margin:0 0 16px;line-height:1.4;">本周速览</section>
+    <p style="margin:0 0 18px;font-size:16px;line-height:1.8;color:${c.text};letter-spacing:.3px;">单页加载从 3.2s 降到 1.1s，靠 <strong style="color:${c.accent2};">按需加载</strong> 与构建拆分。</p>
+    <p style="margin:0 0 8px;border-left:3px solid ${c.accent};padding-left:10px;font-size:15px;line-height:1.6;color:${c.text};">首屏体积 −62%</p>
+    <p style="margin:0 0 8px;border-left:3px solid ${c.divider};padding-left:10px;font-size:15px;line-height:1.6;color:${c.text};">可交互时间 TTI −58%</p>
+    <p style="margin:0 0 8px;border-left:3px solid ${c.divider};padding-left:10px;font-size:15px;line-height:1.6;color:${c.text};">移动端 LCP 进入 1.5s</p>
+    <section style="margin:24px 0;padding:16px 18px;background:${c.cardBg};border-left:4px solid ${c.quoteBorder};border-radius:8px;"><p style="margin:0;font-size:15px;line-height:1.7;color:${c.text};">慢的地方不在网络，而在没拆分。</p></section>
+    <section style="margin-top:34px;padding-top:18px;border-top:1px solid ${c.divider};"><p style="margin:0;font-size:13px;color:${c.muted};letter-spacing:.5px;text-align:center;">欢迎留言交流 · 下期见</p></section>
+  </section>`;
+}
+function tCard(c){
+  return `<section style="max-width:677px;background:${c.bg};color:${c.text};padding:24px 18px;">
+    <section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:12px;padding:22px 20px;">
+      <p style="margin:0 0 6px;font-size:12px;letter-spacing:2px;color:${c.accent};">WEEKLY</p>
+      <h1 style="margin:0;font-size:26px;line-height:1.3;font-weight:700;color:${c.text};">产品周报 · 第 12 期</h1>
+      <p style="margin:10px 0 0;font-size:14px;color:${c.muted};">用科技感排版，3 分钟搞定</p>
+    </section>
+    <section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-top:3px solid ${c.accent};border-radius:10px;padding:16px;margin:16px 0;">
+      <p style="margin:0;font-size:15px;line-height:1.7;color:${c.text};">首屏加载 <strong style="color:${c.accent};">3.2s → 1.1s</strong>，关键手段是资源按需加载。</p>
+    </section>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:16px 0;"><tr>
+      <td width="50%" valign="top" style="padding-right:8px;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:10px;padding:16px 12px;"><p style="margin:0;font-weight:700;color:${c.text};">首屏体积</p><p style="margin:6px 0 0;font-size:13px;color:${c.muted};">−62%</p></section></td>
+      <td width="50%" valign="top" style="padding-left:8px;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:10px;padding:16px 12px;"><p style="margin:0;font-weight:700;color:${c.text};">TTI</p><p style="margin:6px 0 0;font-size:13px;color:${c.muted};">−58%</p></section></td>
+    </tr></table>
+    <section style="margin-top:32px;padding-top:16px;border-top:1px solid ${c.cardBorder};"><p style="margin:0;font-size:13px;color:${c.muted};text-align:center;">点击卡片 · 关注我们</p></section>
+  </section>`;
+}
+function tTerminal(c){
+  const mono="font-family:'Menlo','Consolas','Courier New',monospace;";
+  return `<section style="max-width:677px;background:${c.bg};color:${c.text};padding:24px 18px;${mono}">
+    <section style="margin-bottom:6px;font-size:13px;color:${c.accent};letter-spacing:1px;">&gt; ~/weekly/issue-12</section>
+    <h1 style="margin:0 0 6px;font-size:24px;line-height:1.3;font-weight:700;color:${c.text};letter-spacing:1px;">产品周报 = 第 12 期</h1>
+    <section style="height:2px;background:${c.accent};margin:14px 0 24px;"></section>
+    <p style="margin:0 0 6px;font-size:14px;color:${c.text};line-height:1.7;"><span style="color:${c.accent};">&gt;</span> <strong>npm run optimize</strong></p>
+    <p style="margin:0 0 16px 18px;font-size:13px;color:${c.muted};line-height:1.7;">首屏 3.2s → 1.1s</p>
+    <section style="border-left:3px solid ${c.accent};padding-left:10px;font-size:19px;font-weight:700;color:${c.text};margin:30px 0 14px;line-height:1.4;"><span style="color:${c.accent2};">##</span> 本周速览</section>
+    <section style="background:${c.codeBg};border-left:3px solid ${c.accent};border-radius:6px;padding:14px 16px;margin:16px 0;font-size:14px;line-height:1.7;"><p style="margin:0;color:${c.codeText};white-space:pre-wrap;">首屏体积 −62%
+TTI −58%
+LCP 1.4s</p></section>
+    <section style="margin:28px 0;color:${c.divider};font-size:12px;letter-spacing:2px;text-align:center;">- - -</section>
+    <section style="margin-top:30px;padding-top:16px;border-top:1px solid ${c.divider};"><p style="margin:0;font-size:13px;color:${c.muted};">&gt; exit</p></section>
+  </section>`;
+}
+function tHud(c){
+  return `<section style="max-width:677px;background:${c.bg};color:${c.text};padding:24px 18px;">
+    <section style="display:inline-block;background:${c.accent};color:${c.bg};font-size:12px;letter-spacing:2px;padding:3px 10px;border-radius:12px;">LIVE</section>
+    <h1 style="margin:12px 0 6px;font-size:26px;line-height:1.3;font-weight:800;color:${c.text};letter-spacing:1px;">本周性能面板</h1>
+    <p style="margin:0 0 22px;font-size:14px;color:${c.muted};">口径：生产环境均值</p>
+    <section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:12px;padding:20px 18px;margin:16px 0;">
+      <p style="margin:0;font-size:40px;font-weight:800;line-height:1;color:${c.accent};">1.1s</p>
+      <p style="margin:10px 0 0;font-size:14px;color:${c.muted};">首屏加载</p>
+      <section style="height:4px;background:${c.divider};border-radius:2px;margin-top:16px;"><section style="height:4px;width:66%;background:${c.accent2};border-radius:2px;"></section></section>
+    </section>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:16px 0;"><tr>
+      <td width="33%" valign="top" style="padding-right:6px;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:10px;padding:14px 10px;"><p style="margin:0;font-size:22px;font-weight:800;color:${c.accent};">−62%</p><p style="margin:6px 0 0;font-size:12px;color:${c.muted};">首屏体积</p></section></td>
+      <td width="33%" valign="top" style="padding:0 3px;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:10px;padding:14px 10px;"><p style="margin:0;font-size:22px;font-weight:800;color:${c.accent};">−58%</p><p style="margin:6px 0 0;font-size:12px;color:${c.muted};">TTI</p></section></td>
+      <td width="33%" valign="top" style="padding-left:6px;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:10px;padding:14px 10px;"><p style="margin:0;font-size:22px;font-weight:800;color:${c.accent};">1.4s</p><p style="margin:6px 0 0;font-size:12px;color:${c.muted};">LCP</p></section></td>
+    </tr></table>
+    <section style="margin-top:32px;padding-top:16px;border-top:1px solid ${c.divider};text-align:center;"><p style="margin:0 0 6px;font-size:20px;font-weight:800;color:${c.accent};">↑ 点个关注</p><p style="margin:0;font-size:13px;color:${c.muted};">下期聊构建缓存</p></section>
+  </section>`;
+}
+function tEssay(c){
+  const ff = "font-family:'PingFang SC','PingFang SC NEW',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;";
+  return `<section style="max-width:677px;background:${c.bg};color:${c.text};padding:32px 22px 56px;${ff}">
+    <p style="margin:0 0 18px;font-size:12px;letter-spacing:3px;color:${c.accent};font-weight:600;">BRAND · STORY</p>
+    <h1 style="margin:0 0 14px;font-size:24px;line-height:1.4;font-weight:700;letter-spacing:1px;color:${c.text};">从一只小程序的诞生说起</h1>
+    <p style="margin:0 0 24px;font-size:14px;letter-spacing:1px;color:${c.muted};">一个想法,如何走完从 0 到 1 的全过程。</p>
+    <section style="height:1px;background:${c.divider};margin:0 0 28px;"></section>
+    <p style="margin:0 0 8px;font-size:11px;letter-spacing:2px;color:${c.accent};font-weight:600;">N° 01</p>
+    <h2 style="margin:0 0 14px;font-size:18px;line-height:1.5;font-weight:700;letter-spacing:1px;color:${c.text};">起点：一个真实的痛点</h2>
+    <p style="margin:0 0 14px;font-size:15px;line-height:1.6;letter-spacing:1px;color:${c.text};text-align:justify;">一切的起点,是 <strong style="color:${c.accent};font-weight:600;">三年前的一次失败</strong>。那是一次很普通的项目复盘,我们发现团队并没有真正解决用户的问题。</p>
+    <p style="margin:0 0 14px;font-size:15px;line-height:1.6;letter-spacing:1px;color:${c.text};text-align:justify;">于是我们停下来,问自己一个最简单的问题:用户到底需要什么?答案,藏在三次深入的访谈里。</p>
+    <section style="margin:28px 0;padding:14px 0 14px 18px;border-left:2px dotted ${c.quoteBorder};">
+      <p style="margin:0;font-size:15px;line-height:1.7;letter-spacing:1px;color:${c.text};font-style:italic;">「如果它能帮我省下十分钟,我会每天都打开。」</p>
+      <p style="margin:10px 0 0;font-size:12px;letter-spacing:1.5px;color:${c.muted};">— 一位访谈用户</p>
+    </section>
+    <section style="margin:32px auto;text-align:center;color:${c.divider};letter-spacing:6px;">· · ·</section>
+    <p style="margin:0 0 8px;font-size:11px;letter-spacing:2px;color:${c.accent};font-weight:600;">N° 02</p>
+    <h2 style="margin:0 0 14px;font-size:18px;line-height:1.5;font-weight:700;letter-spacing:1px;color:${c.text};">第二步：克制地做减法</h2>
+    <p style="margin:0 0 14px;font-size:15px;line-height:1.6;letter-spacing:1px;color:${c.text};text-align:justify;">第一个版本我们做了 12 个功能,第二个版本砍到 5 个,第三个版本只剩 <strong style="color:${c.accent};font-weight:600;">3 个核心动作</strong>。每一次删减都是一次决心的考验。</p>
+    <table cellpadding="0" cellspacing="0" style="margin:18px 0;">
+      <tr>
+        <td style="padding:0 6px 6px 0;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:14px;padding:4px 12px;font-size:12px;letter-spacing:1px;color:${c.muted};">#产品</section></td>
+        <td style="padding:0 6px 6px 0;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:14px;padding:4px 12px;font-size:12px;letter-spacing:1px;color:${c.muted};">#设计</section></td>
+        <td style="padding:0 6px 6px 0;"><section style="background:${c.cardBg};border:1px solid ${c.cardBorder};border-radius:14px;padding:4px 12px;font-size:12px;letter-spacing:1px;color:${c.muted};">#品牌</section></td>
+      </tr>
+    </table>
+    <section style="background:${c.cardBg};border-left:2px solid ${c.accent};border-radius:6px;padding:16px 18px;margin:20px 0;">
+      <p style="margin:0 0 6px;font-size:13px;letter-spacing:1.5px;color:${c.accent};font-weight:600;">CASE</p>
+      <p style="margin:0;font-size:15px;line-height:1.7;letter-spacing:1px;color:${c.text};text-align:justify;">把"功能数量"从 KPI 拿掉,换成"次日留存"。团队开始为真正的价值工作。</p>
+    </section>
+    <table style="margin:30px auto;"><tr><td>
+      <a href="#" style="display:inline-block;background:${c.accent};color:#ffffff;font-size:14px;font-weight:600;letter-spacing:2px;padding:10px 26px;border-radius:24px;text-decoration:none;">阅读全文</a>
+    </td></tr></table>
+    <section style="margin-top:42px;padding-top:20px;border-top:1px solid ${c.divider};text-align:center;">
+      <p style="margin:0 0 4px;font-size:13px;letter-spacing:2px;color:${c.accent};font-weight:600;">品牌故事</p>
+      <p style="margin:0;font-size:12px;letter-spacing:1px;color:${c.muted};">扫码关注 · 下期聊「我们如何做用户访谈」</p>
+    </section>
+  </section>`;
+}
+const RENDER = {"minimal-tech":tMinimal,"cyber-card":tCard,"terminal-code":tTerminal,"hud":tHud,"wechat-pai-essay":tEssay};
+
+const state = {t:"all", m:"all"};
+const grid = document.getElementById("grid");
+function buildOptions(){
+  const tp = document.getElementById("tPills");
+  let thHtml = `<button class="pill ${state.t==="all"?"active":""}" onclick="setT('all')">全部</button>`;
+  for(const k in THEMES){ thHtml += `<button class="pill ${state.t===k?"active":""}" onclick="setT('${k}')">${THEMES[k].label}</button>`; }
+  tp.innerHTML = thHtml;
+  const mp = document.getElementById("mPills");
+  let tmHtml = `<button class="pill ${state.m==="all"?"active":""}" onclick="setM('all')">全部</button>`;
+  TEMPLATES.forEach(k=>{ tmHtml += `<button class="pill ${state.m===k?"active":""}" onclick="setM('${k}')">${TLABEL[k]}</button>`; });
+  mp.innerHTML = tmHtml;
+}
+function draw(){
+  buildOptions();
+  let html = "";
+  const tKeys = state.t==="all"? Object.keys(THEMES) : [state.t];
+  const mKeys = state.m==="all"? TEMPLATES : [state.m];
+  tKeys.forEach(t=>{ mKeys.forEach(m=>{
+    const c = THEMES[t].c;
+    const art = RENDER[m](c);
+    html += `<div class="card" onclick="focus('${t}','${m}')">
+      <div class="meta"><span class="t">${TLABEL[m]}</span><span class="th">${THEMES[t].label} · ${t}</span></div>
+      <div class="frame"><div class="art">${art}</div></div>
+    </div>`;
+  });});
+  grid.innerHTML = html;
+}
+function setT(v){ state.t=v; draw(); }
+function setM(v){ state.m=v; draw(); }
+function focus(t,m){
+  const c = THEMES[t].c;
+  document.getElementById("bmTitle").textContent = `${TLABEL[m]} × ${THEMES[t].label}（${t} / ${m}）`;
+  document.getElementById("bmContent").innerHTML = `<div style="max-width:677px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);">${RENDER[m](c)}</div>`;
+  document.getElementById("modal").classList.add("open");
+}
+function closeModal(){ document.getElementById("modal").classList.remove("open"); }
+document.getElementById("modal").addEventListener("click", e=>{ if(e.target.id==="modal") closeModal(); });
+draw();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "minimal-dark",
+  "label": "极简黑",
+  "description": "深底、浅字、细线边界，暗色极简。适合技术向、深度阅读。",
+  "colors": {
+    "bg": "#0e0e10",
+    "text": "#ececee",
+    "muted": "#9a9aa2",
+    "accent": "#ffffff",
+    "accent2": "#b3b9c4",
+    "cardBg": "#1a1b1e",
+    "cardBorder": "#2a2b30",
+    "divider": "#26272c",
+    "codeBg": "#16171a",
+    "codeText": "#9aa4b2",
+    "titleBar": "#ffffff",
+    "quoteBorder": "#3a3b40"
+  }
+}

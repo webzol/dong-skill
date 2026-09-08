@@ -1,0 +1,19 @@
+{
+  "name": "tech-blue",
+  "label": "科技蓝",
+  "description": "深蓝底 + 亮蓝/青，数据与产品感强，最有「科技感」。",
+  "colors": {
+    "bg": "#0b1220",
+    "text": "#e6edf7",
+    "muted": "#8b98ad",
+    "accent": "#3b82f6",
+    "accent2": "#22d3ee",
+    "cardBg": "#101b30",
+    "cardBorder": "#1f2d4a",
+    "divider": "#1c2942",
+    "codeBg": "#0d1626",
+    "codeText": "#7dd3fc",
+    "titleBar": "#3b82f6",
+    "quoteBorder": "#22d3ee"
+  }
+}

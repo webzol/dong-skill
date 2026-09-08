@@ -1,0 +1,19 @@
+{
+  "name": "neon-purple",
+  "label": "霓虹紫",
+  "description": "暗底 + 紫 / 品红，夜店科创感、新潮感，最「醒目」。",
+  "colors": {
+    "bg": "#0e0b1a",
+    "text": "#f0eaff",
+    "muted": "#9a8fc4",
+    "accent": "#a855f7",
+    "accent2": "#e14eca",
+    "cardBg": "#161130",
+    "cardBorder": "#2a1f4d",
+    "divider": "#241a44",
+    "codeBg": "#120d24",
+    "codeText": "#c084fc",
+    "titleBar": "#a855f7",
+    "quoteBorder": "#e14eca"
+  }
+}

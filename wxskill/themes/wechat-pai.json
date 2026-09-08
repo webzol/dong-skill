@@ -1,0 +1,40 @@
+{
+  "name": "wechat-pai",
+  "label": "微信派",
+  "description": "白底 + 中灰字 + 微信绿强调;PingFang SC 字体 + 1px 字距 + 1.6 行高 + 两端对齐;杂志文艺感,适合品牌叙事、产品故事、长文。",
+  "colors": {
+    "bg": "#ffffff",
+    "text": "#4d4d4d",
+    "muted": "#888888",
+    "accent": "#07c160",
+    "accent2": "#1c53d6",
+    "cardBg": "#f7f7f7",
+    "cardBorder": "#ededf0",
+    "divider": "#efefef",
+    "codeBg": "#f4f4f4",
+    "codeText": "#07c160",
+    "titleBar": "#07c160",
+    "quoteBorder": "#07c160"
+  },
+  "typography": {
+    "bodyFontSize": "15px",
+    "titleFontSize": "24px",
+    "subtitleFontSize": "16px",
+    "bodyLineHeight": "1.6",
+    "titleLineHeight": "1.4",
+    "paragraphMargin": "10px",
+    "sectionGap": "24px",
+    "alignment": "justify",
+    "fontWeight": "400",
+    "titleWeight": "bold",
+    "letterSpacing": "1px",
+    "fontFamily": "\"PingFang SC\",\"PingFang SC NEW\",-apple-system,\"Helvetica Neue\",\"Microsoft YaHei\",sans-serif"
+  },
+  "paletteNotes": {
+    "accent": "#07c160 微信绿,主强调(标题/品牌色/关键动作)",
+    "accent2": "#1c53d6 链接蓝,次强调(超链/数字)",
+    "text": "#4d4d4d 中灰(非纯黑),柔和不刺眼",
+    "muted": "#888888 次要信息",
+    "cardBg": "#f7f7f7 浅灰,卡片底"
+  }
+}
