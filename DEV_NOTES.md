@@ -111,7 +111,7 @@ Remove-Item -Recurse -Force 是不可逆操作，执行前确认当前工作区�
 
 ## 7. 待办 / 待 TD 决策
 
-- [ ] dong-skill 根目录是否加 README.md 索引所有 skill（目前访问者只能看到单个 commit message）
+- [ ] dong-skill 根目录是否加 README.md 索引所有 skill（目前访问者只能看到单个 commit message）→ ✅ 已加（2026-09-08，e8fe973）：索引两个 skill + 各自安装方式 + 维护约定
 - [ ] 是否加 CI（gzh-design-skill 自带 .github/，但没动它）
 - [ ] 是否把 webzol/dong-skill 改成 organization 名（目前是 user 仓库）
 - [ ] v1.0.0 之前的 tag（assets-v1）没同步到 dong-skill，需要的话 git push origin assets-v1
