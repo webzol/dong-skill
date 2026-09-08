@@ -63,41 +63,27 @@ version: 0.2.1
 正文宽度统一 677px（微信桌面容器）；深色主题里文字用浅色，对比度 ≥ 4.5:1。
 
 ### 第 4 步　交付
-- 用 ```` ```html ```` 代码块输出**完整可粘贴的 HTML**（不要省略，也不用展示生成过程）。
-- 给一句话操作说明：公众号编辑器「新建图文」→「粘贴」即可。
+- 产出写入**当天日期目录** `generated/<YYYY-MM-DD>/`（见第 4.5 步），只交付一个带「复制」按钮的 HTML 成品；**不再默认用 ```` ```html ```` 代码块整段输出**（用户明确要看源码时才贴）。
+- 给一句话操作说明：浏览器打开成品 → 点右上角「复制到公众号」→ 公众号编辑器「新建图文」→「粘贴」。
 - 若用户想看整体效果再定稿：生成或更新 `preview/preview.html`（见下），浏览器打开对比所见≈微信所见。
 - 结尾给一行「本版 = 模板 X + 主题 Y」，并提示可换组合。
-- **同时按下面的"输出归档"规范，把原稿、HTML、README 三件套落到 `generated/<YYYY-MM-DD>/` 目录**。
 
 ### 第 4.5 步　输出归档（每次必做）
 
-把当次产出落到 **相对路径** `generated/<YYYY-MM-DD>/`，跨 AI 工具通用。
+在当前工作目录下新建（或复用）**当天日期目录**，把产出放进去：
 
 ```
 generated/
 └── YYYY-MM-DD/                                  ← 生成当天的本地日期（ISO 格式）
-    ├── source.md                                 ← 原始草稿（用户提供的文本/链接/Markdown）
-    ├── <theme>-<template>-<slug>.html            ← 可粘贴到公众号的 HTML
-    └── README.md                                 ← 归档说明：参数 + 注意事项 + 风格切换指南
+    └── <theme>-<template>-<slug>.html            ← 带复制按钮的成品（唯一交付文件）
 ```
 
-**命名约定**：
-- 目录：`YYYY-MM-DD`（本地日期，4 位年-2 位月-2 位日）
-- HTML 文件：`<theme>-<template>-<slug>.html`，slug 用小写连字符概括主题（例：`news-flash` / `product-intro` / `brand-story`）
-- 原稿：固定 `source.md`
-- 说明：固定 `README.md`
-
-**README.md 必含字段**：
-- 排版参数（主题 / 模板 / 主色 / 字体族 / 行高字距 / 对齐）
-- 结构大纲（用了哪些 N° 段 / 卡片 / 标签）
-- 注意事项（图片外链 / 外部资源 / 已省略内容）
-- 可切换风格对照表（哪些色值替换即可换主题）
-
-**为什么归档**：
-- 同一天多次排版可放一起，便于人工二次挑选
-- 命名带 `theme-template`，一眼看出风格组合
-- README 记录参数与坑，下次接手不用从头推
-- 与 `examples/` 的边界：`examples/` 是**长期示例**（写进 git，作为文档），`generated/` 是**当日产出**（不入库）
+**规则（gzh-skill 合并版约定，覆盖旧三件套行为）**：
+- 目录：`YYYY-MM-DD`（本地日期，4 位年-2 位月-2 位日）；同一天多次排版共用同一天目录
+- **只交付一个文件**：用统一入口包的复制按钮脚本给正文包一层预览外壳
+  （`engine-design/scripts/wrap_preview.py <正文.html> <成品.html>`，按钮和脚本只在外壳里，粘贴出去的仍是干净正文）
+- `source.md` / `README.md` 归档三件套**不再默认生成**（用户明确要求时才附）
+- `generated/` 不入 git（.gitignore 已忽略）；与 `examples/` 的边界：examples 是长期示例，generated 是当日产出
 
 ---
 
@@ -168,4 +154,4 @@ generated/
 - `references/components.md` 版式块库 —— 拼版零件
 - `examples/sample-article.md` 示例草稿 —— 试跑一遍
 - `preview/preview.html` 预览画廊 —— 对比 20 种组合
-- `generated/<YYYY-MM-DD>/` 当日产出归档 —— 三件套（source.md / *.html / README.md）
+- `generated/<YYYY-MM-DD>/` 当日产出归档 —— 一个带「复制」按钮的 HTML 成品

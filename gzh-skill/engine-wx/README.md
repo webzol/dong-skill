@@ -1,10 +1,14 @@
-# WXSkill — 微信公众号排版 Skill
+# WXSkill — 微信公众号排版 Skill（wx 引擎）
+
+> 本目录已并入 **gzh-skill**（仓库 `webzol/dong-skill`），作为其 **wx 引擎**（模板 × 主题组合）。
+> 统一入口与路由规则见上级目录的 `gzh-skill/SKILL.md`；本目录的 SKILL.md 是 wx 引擎的执行手册。
+> 原独立开发主仓库：[webzol/WXSKill](https://github.com/webzol/WXSKill)。
 
 把公众号文章草稿，一键排版成**微信编辑器里真正能显示**的科技感 / 简约风 / 文艺风图文。
 
 - 🎨 **8 个色调主题**：极简白 / 极简黑 / 科技蓝 / 赛博绿 / 霓虹紫 / 淘宝闪购 / 微信派 / 千问（可自行加，任意改色值）
 - 🧱 **5 个排版模板**：简约科技 / 卡片 / 终端风 / 数据面板 / 微信派·文艺长文（可自行加）
-- 📁 **按日期归档产出**：每次排版自动落到 `generated/YYYY-MM-DD/`，三件套（原稿 + HTML + 说明）便于二次挑选
+- 📁 **按日期归档产出**：每次排版自动落到 `generated/YYYY-MM-DD/`，一个带「复制」按钮的 HTML 成品，点按钮即可粘贴公众号
 - 📱 **微信原生兼容**：内联样式 + `<section>/<table>`，无 flex/grid，粘贴即用不塌版
 - 🧰 **跨 AI 工具安装**：Claude Code / OpenAI Codex / Cursor / Gemini CLI / Copilot / Windsurf 通吃
 
@@ -12,41 +16,43 @@
 
 ## 一、一键安装（推荐）
 
-任选其一，自动复制到所有主流 AI 工具的技能目录：
+任选其一，自动复制到所有主流 AI 工具的技能目录（**安装脚本在上级 skill 根目录** `gzh-skill/`，会整体安装含两套引擎的包）：
 
 ```bash
-# Windows (PowerShell)
-.\\install.ps1
+# Windows (PowerShell)，在 gzh-skill/ 目录下
+.\install.ps1
 
 # macOS / Linux
 bash install.sh
 ```
 
-脚本会把本包复制到：
-- `~/.claude/skills/wechat-typesetting/`（Claude Code）
-- `~/.agents/skills/wechat-typesetting/`（Codex 及开放 Agent Skills 标准的工具）
+脚本会把整个 skill 复制到：
+- `~/.claude/skills/gzh-skill/`（Claude Code）
+- `~/.agents/skills/gzh-skill/`（Codex 及开放 Agent Skills 标准的工具）
 
 装完**重启你的 AI 会话**即可生效。
 
 ## 二、手动安装
+
+在 `dong-skill` 仓库根目录执行（安装的是整个 gzh-skill，不只是本引擎）：
 
 **Claude Code**（二选一）
 
 ```bash
 # 全局（所有项目可用）
 mkdir -p ~/.claude/skills
-cp -r . ~/.claude/skills/wechat-typesetting
+cp -r dong-skill/gzh-skill ~/.claude/skills/gzh-skill
 
 # 或仅当前项目
 mkdir -p .claude/skills
-cp -r . .claude/skills/wechat-typesetting
+cp -r dong-skill/gzh-skill .claude/skills/gzh-skill
 ```
 
 **OpenAI Codex**（开放标准路径）
 
 ```bash
 mkdir -p ~/.agents/skills
-cp -r . ~/.agents/skills/wechat-typesetting
+cp -r dong-skill/gzh-skill ~/.agents/skills/gzh-skill
 ```
 
 **其他支持 Agent Skills 标准的 AI 工具**（Cursor、Gemini CLI、Copilot…）
@@ -55,7 +61,7 @@ cp -r . ~/.agents/skills/wechat-typesetting
 ## 三、使用
 
 ```text
-/wechat-typesetting 我的文章.md --template cyber-card --theme tech-blue
+/gzh-skill 我的文章.md --template cyber-card --theme tech-blue
 ```
 
 或直接对它说：「把这篇排版成科技蓝、卡片模板」。参数可缺省（默认简约科技 + 极简白）。
@@ -68,8 +74,8 @@ cp -r . ~/.agents/skills/wechat-typesetting
 ## 五、目录
 
 ```
-wechat-typesetting/
-├── SKILL.md              # skill 主指令
+wx 引擎（engine-wx/，位于 gzh-skill/ 内）
+├── SKILL.md              # wx 引擎执行手册（统一入口在 gzh-skill/SKILL.md）
 ├── AGENTS.md             # 跨工具说明（Codex/Cursor/Copilot 读它）
 ├── templates/            # 版式骨架（5 模板）
 ├── themes/               # 色调色板（8 主题）
@@ -77,13 +83,11 @@ wechat-typesetting/
 ├── examples/             # 长期示例（写进 git）
 ├── generated/            # 当日产出归档（不入库，按 YYYY-MM-DD/ 组织）
 │   └── YYYY-MM-DD/
-│       ├── source.md
-│       ├── <theme>-<template>-<slug>.html
-│       └── README.md
+│       └── <theme>-<template>-<slug>.html   # 带复制按钮的成品（唯一交付文件）
 └── preview/              # 40 组合预览画廊（8 主题 × 5 模板）
 ```
 
-每次排版会自动落档到 `generated/<YYYY-MM-DD>/`，三件套齐全便于二次挑选与复盘。
+每次排版会自动落档到 `generated/<YYYY-MM-DD>/`，一个带「复制」按钮的 HTML 成品，点按钮即可粘贴公众号。
 
 ## 许可
 

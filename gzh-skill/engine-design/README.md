@@ -1,5 +1,7 @@
 > 🤝 **本项目由 甲木 × [「摸鱼小李」](https://mp.weixin.qq.com/s/EMahAzgfAbRQrYukWE7_IQ) 联名共建** —— 排版组件、主题设计与质量标准凝聚了两人的公众号实践与共同打磨，特别感谢小李。
 
+> 📦 本目录已并入 **gzh-skill**（仓库 `webzol/dong-skill`），作为其 **design 引擎**（主题组件库 + 质量校验）。统一入口与路由规则见上级目录的 `gzh-skill/SKILL.md`；本目录的 SKILL.md 是 design 引擎的执行手册。安装方式以 `gzh-skill/README.md` 为准（本文档内的安装说明为原上游仓库的）。
+
 <div align="center">
 
 # gzh-design-skill · 公众号排版技能
