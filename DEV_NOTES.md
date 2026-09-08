@@ -9,7 +9,9 @@
 dong-skill（GitHub: webzol/dong-skill）是 skill 集合仓库，托管 TD 自有或精选的 Codex skill。
 
 - 本地路径：E:\dong-skill
-- 当前内容：gzh-design-skill/（从 isjiamu/gzh-design-skill v1.0.0 import）
+- 当前内容：
+  - gzh-design-skill/（从 isjiamu/gzh-design-skill v1.0.0 import）
+  - wxskill/（自有 skill，v0.2.1，源自 webzol/WXSKill，2026-09-08 加入）
 
 ---
 
@@ -21,7 +23,8 @@ dong-skill（GitHub: webzol/dong-skill）是 skill 集合仓库，托管 TD 自�
 E:\dong-skill\
 ├── .git\
 ├── DEV_NOTES.md
-└── gzh-design-skill\      当前唯一 skill
+├── gzh-design-skill\      import 自 isjiamu/gzh-design-skill
+└── wxskill\               自有 skill（webzol/WXSKill 镜像快照）
     ├── SKILL.md
     ├── README.md / README.en.md
     ├── LICENSE
@@ -49,6 +52,12 @@ E:\dong-skill\
 ### 3.3 保留 gzh-design-skill remote
 - 后续升级不需要重填 URL
 - 升级命令固化（见第 5 节）
+
+### 3.4 wxskill 的引入方式（2026-09-08）
+- wxskill 是自有仓库（webzol/WXSKill），与 gzh-design-skill 的「upstream import」性质不同
+- 处理：直接 cp -r 快照进 dong-skill/wxskill/，删除其内嵌 .git（避免嵌套仓库/子模块歧义）
+- 原仓库 E:\wxskill 仍是开发主目录，继续独立维护
+- 后续同步：wxskill 有更新时，重复 cp -r + rm .git + commit 即可（可写个小脚本固化）
 
 ---
 
