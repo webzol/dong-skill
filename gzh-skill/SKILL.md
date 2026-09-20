@@ -1,6 +1,6 @@
 ---
 name: gzh-skill
-description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskill 两套引擎合并而成）。将 Markdown / Word(.docx) / PDF / 纯文本草稿转换为可直接粘贴进公众号编辑器、粘贴后样式不丢失的内联样式 HTML。内含两套引擎：design 引擎（主题组件库：6 套主题 + 主题生成器 + Python 校验脚本 + 一键复制预览页）与 wx 引擎（5 模板 × 8 主题自由组合 + 产出按日期归档）。触发场景：(1) 用户提到"公众号排版""公众号文章""微信排版""gzh""自动排版""一键排版""wechat-typesetting"，(2) 想把文章（md/docx/pdf/纯文本）转成公众号 HTML，(3) 想换模板/换配色/模板×主题组合，(4) 想生成自定义主题/按参考图做组件库。不用于生成普通网页/落地页/PPT。
+description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskill 两套引擎合并而成）。将 Markdown / Word(.docx) / PDF / 纯文本草稿转换为可直接粘贴进公众号编辑器、粘贴后样式不丢失的内联样式 HTML。内含两套引擎：design 引擎（主题组件库：9 套主题 + 主题生成器 + Python 校验脚本 + 一键复制预览页）与 wx 引擎（5 模板 × 8 主题自由组合 + 产出按日期归档）。触发场景：(1) 用户提到"公众号排版""公众号文章""微信排版""gzh""自动排版""一键排版""wechat-typesetting"，(2) 想把文章（md/docx/pdf/纯文本）转成公众号 HTML，(3) 想换模板/换配色/模板×主题组合，(4) 想生成自定义主题/按参考图做组件库。不用于生成普通网页/落地页/PPT。
 ---
 
 # 公众号排版 Skill（统一入口）
@@ -13,7 +13,7 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 | 引擎 | 位置 | 架构 | 强项 |
 |---|---|---|---|
-| design 引擎（原 gzh-design-skill v1.0.0） | `engine-design/` | 主题组件库：每套主题 = 一份完整组件库（6 套主题 + 主题生成器） | docx/PDF 输入归一化、章节自动编号、正文关键词下划线、`validate_gzh_html.py` 校验到 0 ERROR、带「复制」按钮的预览页 |
+| design 引擎（原 gzh-design-skill，2026-09 同步至 9 套主题版） | `engine-design/` | 主题组件库：每套主题 = 一份完整组件库（9 套主题 + 主题生成器） | docx/PDF 输入归一化、章节自动编号、正文关键词下划线、`validate_gzh_html.py` 校验到 0 ERROR、带「复制」按钮的预览页 |
 | wx 引擎（原 wxskill v0.2.1） | `engine-wx/` | 模板 × 主题正交组合：5 版式骨架 × 8 色板，自由搭配 | 模板/配色随时可换、677px 宽度约束明确、`generated/<日期>/` 单文件归档（带「复制」按钮成品） |
 
 ## 路由规则（按顺序判定，命中即停）

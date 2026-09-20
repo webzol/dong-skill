@@ -4,7 +4,7 @@
 
 | 引擎 | 目录 | 来源 / 许可 | 架构与强项 |
 |---|---|---|---|
-| **design 引擎** | `engine-design/` | 原 `gzh-design-skill`（import 自 [isjiamu/gzh-design-skill](https://github.com/isjiamu/gzh-design-skill) v1.0.0）· AGPL-3.0 | 主题组件库（6 套主题 + 主题生成器）、docx/PDF 归一化、章节编号/关键词下划线、Python 校验到 0 ERROR、一键复制预览页 |
+| **design 引擎** | `engine-design/` | 原 `gzh-design-skill`（import 自 [isjiamu/gzh-design-skill](https://github.com/isjiamu/gzh-design-skill)，2026-09 同步至 9 套主题版）· AGPL-3.0 | 主题组件库（9 套主题 + 主题生成器）、docx/PDF 归一化、章节编号/关键词下划线、Python 校验到 0 ERROR、一键复制预览页 |
 | **wx 引擎** | `engine-wx/` | 原 `wxskill`（自有，开发主仓库 [webzol/WXSKill](https://github.com/webzol/WXSKill) v0.2.1）· MIT | 5 模板 × 8 主题正交组合、677px 宽度约束、`generated/<日期>/` 单文件归档（带「复制」按钮成品） |
 
 **引擎怎么选**：由 AI 按请求自动路由（规则见 [`SKILL.md`](SKILL.md) 的「路由规则」）。速记版——
@@ -36,9 +36,9 @@ gzh-skill/
 ├── SKILL.md                # 统一入口：定位 + 引擎路由规则（AI 先读这份）
 ├── README.md
 ├── install.sh / install.ps1
-├── engine-design/          # design 引擎（原 gzh-design-skill，内容原样保留）
+├── engine-design/          # design 引擎（原 gzh-design-skill，2026-09 同步至 9 套主题）
 │   ├── SKILL.md            # design 引擎执行手册
-│   ├── references/         # 主题组件库（6 套）+ 主题生成器
+│   ├── references/         # 主题组件库（9 套）+ 主题生成器 + theme-previews
 │   ├── scripts/            # validate_gzh_html.py 等校验脚本
 │   ├── assets/ docs/ archive/ .github/
 │   └── LICENSE             # AGPL-3.0

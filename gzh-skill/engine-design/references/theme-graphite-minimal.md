@@ -1,4 +1,4 @@
-# 公众号排版组件库 —— 石墨极简
+﻿# 公众号排版组件库 —— 石墨极简
 
 > **使用说明**：本组件库为「石墨极简（Graphite Minimal）」主题（经典编辑风的极简变体），所有组件使用**内联样式**，可直接复制粘贴到微信公众号编辑器。
 >
@@ -130,11 +130,11 @@
 
 ```html
 <section style="margin-top:56px;margin-bottom:32px;padding:0 10px;">
-  <section style="position:relative;padding-bottom:20px;border-bottom:1px solid #E4E4E7;">
+  <section style="padding-bottom:20px;border-bottom:1px solid #E4E4E7;">
     <p style="font-size:48px;font-weight:900;color:#E4E4E7;margin:0;line-height:1;letter-spacing:-2px;">
       <span leaf="">01</span>
     </p>
-    <section style="margin-top:-8px;">
+    <section style="">
       <p style="font-size:10px;color:#A1A1AA;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;">
         <span leaf="">{{ENGLISH TAG}}</span>
       </p>
@@ -700,3 +700,23 @@ GIF 动图角标改极简描边胶囊：边框与字色用石墨主色 `#52525B`
 | 文末 | 组件 15 END + 16 签名 | END线 + 签名 |
 </content>
 </invoke>
+
+---
+
+## 留白控制规则（全局强制）
+
+> **必须遵守，否则文章整体松散、阅读体验差。**
+
+- 段落间 margin-bottom 控制在 **14-20px**，不超过 22px（禅意风 24px 例外）
+- 章节标题上方 margin-top 第一章 **16px**，后续章节 **32-48px**，不超过 48px
+- 章节标题下方 margin-bottom 控制在 **16-24px**
+- 组件与组件之间**不要重复叠加 margin**：如果相邻两个组件都有 margin-bottom，外层不要额外加 padding-top/margin-top
+- 引言卡/金句卡上下留白控制在 **24-40px**，不超过 48px
+- 结尾签名区/互动区上方留白控制在 **20-32px**
+- 图片容器下方 margin-bottom **8-16px**，图注再加 margin-top: 4-8px
+- 列表项之间 margin-bottom **6-10px**
+- 数据卡片/要点卡片组上下 margin-bottom **16-24px**
+- 分割线两侧留白 **24-32px**，不超过 40px
+- **一句话原则**：宁可紧凑，不可松散。读者的眼睛需要连续的视觉流，大面积空白会打断阅读节奏
+
+
