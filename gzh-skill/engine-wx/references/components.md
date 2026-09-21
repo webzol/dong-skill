@@ -18,13 +18,13 @@
 ## 2. 标题栏（页眉）
 
 ```html
-<section style="border-top:2px solid {{titleBar}};padding-top:14px;">
-  <section style="width:18px;height:18px;background:{{titleBar}};border-radius:3px;"></section>
-</section>
-<h1 style="margin:14px 0 6px;font-size:28px;line-height:1.3;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
+<h1 style="margin:0 0 6px;font-size:28px;line-height:1.3;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
 <p style="margin:0 0 22px;font-size:14px;color:{{muted}};letter-spacing:.5px;">{{副标题}}</p>
-<section style="height:1px;background:{{divider}};margin:0 0 26px;"></section>
 ```
+
+> 顶部只放文字，**不加**装饰块（黑色粗线 / 色块 / 分隔线）——用户明确要求「只要文字」时用这版。
+> 需要装饰感时可在标题前加 `<section style="border-top:2px solid {{titleBar}};padding-top:14px;"></section>`，或标题下加
+> `<section style="height:1px;background:{{divider}};margin:0 0 26px;"></section>` 分隔线。
 
 ## 3. 小节标题（左竖线式）
 
@@ -116,7 +116,21 @@
 <img src="{{图片URL}}" style="max-width:100%;width:100%;border-radius:8px;margin:16px 0;" alt="{{描述}}"/>
 <p style="margin:-8px 0 16px;font-size:12px;color:{{muted}};text-align:center;">{{图片说明}}</p>
 ```
+
 > 图片 `src` 必须是**公网可访问**的 URL（微信不会本地存图）；`.gif` 也支持。
+
+## 13b. 图片占位（预留上传位置）
+
+```html
+<section style="margin:16px 0;padding:32px 16px;background:{{cardBg}};border:1px dashed #d8d8d8;border-radius:14px;text-align:center;">
+  <p style="margin:0 0 6px;font-size:15px;font-weight:700;color:{{text}};letter-spacing:.5px;">图片占位</p>
+  <p style="margin:0;font-size:13px;color:{{muted}};letter-spacing:.3px;">上传 {{图片来源说明}}</p>
+</section>
+```
+
+> 用途：正文需要配图但图还没准备好时，先占住位置。粘进公众号后删掉占位框、插入真实图片即可。
+> 虚线框用 `#d8d8d8`（中性灰，不随主题变，避免彩色虚线在浅色主题上刺眼）；文字色仍取主题 `{{text}}` / `{{muted}}`。
+
 
 ## 14. 数据指标（单条）
 

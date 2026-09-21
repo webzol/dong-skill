@@ -14,7 +14,7 @@
     "codeBg": "#f4f4f5",
     "codeText": "#615ced",
     "titleBar": "#141414",
-    "quoteBorder": "#615ced"
+    "quoteBorder": "#141414"
   },
   "typography": {
     "bodyFontSize": "16px",
@@ -36,6 +36,7 @@
   "paletteNotes": {
     "accent": "#141414 近黑,标题加粗强调(不用彩色,纯黑最强)",
     "accent2": "#615ced 紫蓝,关键链接 / 代码 / 行动号召",
+    "quoteBorder": "#141414 近黑(不用紫,引言块左侧线保持克制)",
     "text": "#141414 近黑正文,比纯黑柔和一点点",
     "muted": "#8a8a8a 次要信息",
     "cardBg": "#f7f7f7 极浅灰,大量使用(文章里 card 元素 899 次)"
