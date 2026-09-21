@@ -13,7 +13,7 @@
     { "name": "taobao-flash",  "label": "淘宝闪购", "style": "白底+蓝橙双强调 · 紧凑电商风", "file": "themes/taobao-flash.json" },
     { "name": "wechat-pai",    "label": "微信派",  "style": "白底+微信绿 · 文艺杂志感", "file": "themes/wechat-pai.json" },
     { "name": "qianwen",       "label": "千问",     "style": "白底+近黑+苹果字体栈 · 1.95 行高 + 14px 圆角卡片", "file": "themes/qianwen.json" },
-    { "name": "dongpro",   "label": "DONGPro极简科技", "style": "白底+近黑+苹果字体栈 · 1.95 行高 + 14px 圆角卡片", "file": "themes/dongpro.json" }
+    { "name": "dongpro",   "label": "DONGPro极简科技 · 排版推荐", "style": "白底+近黑+苹果字体栈 · 1.95 行高 + 14px 圆角卡片", "file": "themes/dongpro.json" }
   ],
   "colorKeys": {
     "bg": "页面背景",

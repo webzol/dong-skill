@@ -121,7 +121,7 @@
 
 <footer>
   <div style="display:flex;align-items:center;">
-    <button class="btn-recommend" onclick="pickRecommend()">★ 推荐：简约科技 × DONGPro</button>
+    <button class="btn-recommend" onclick="pickRecommend()">★ 排版推荐：简约科技 × DONGPro</button>
     <span class="hint">点击选项切换 · 点击预览放大</span>
   </div>
   <button class="btn-apply" onclick="applySelection()">确认使用此组合</button>
@@ -160,7 +160,7 @@ const THEMES={
   "neon-purple":  {label:"霓虹紫",c:{bg:"#0e0b1a",text:"#f0eaff",muted:"#9a8fc4",accent:"#a855f7",accent2:"#e14eca",cardBg:"#161130",cardBorder:"#2a1f4d",divider:"#241a44",codeBg:"#120d24",codeText:"#c084fc",titleBar:"#a855f7",quoteBorder:"#e14eca"}},
   "taobao-flash": {label:"淘宝闪购",c:{bg:"#ffffff",text:"#141414",muted:"#8c8c8c",accent:"#408bfb",accent2:"#ff6827",cardBg:"#f4f0ff",cardBorder:"#e8e8ef",divider:"#ececec",codeBg:"#f5f6f8",codeText:"#408bfb",titleBar:"#408bfb",quoteBorder:"#ff6827"}},
   "wechat-pai":   {label:"微信派",c:{bg:"#ffffff",text:"#4d4d4d",muted:"#888888",accent:"#07c160",accent2:"#1c53d6",cardBg:"#f7f7f7",cardBorder:"#ededf0",divider:"#efefef",codeBg:"#f4f4f4",codeText:"#07c160",titleBar:"#07c160",quoteBorder:"#07c160"}},
-  "dongpro":      {label:"DONGPro极简科技",rec:true,c:{bg:"#ffffff",text:"#141414",muted:"#8a8a8a",accent:"#141414",accent2:"#615ced",cardBg:"#f7f7f7",cardBorder:"#ececec",divider:"#efefef",codeBg:"#f4f4f5",codeText:"#615ced",titleBar:"#141414",quoteBorder:"#615ced"}}
+  "dongpro":      {label:"DONGPro极简科技 · 排版推荐",rec:true,c:{bg:"#ffffff",text:"#141414",muted:"#8a8a8a",accent:"#141414",accent2:"#615ced",cardBg:"#f7f7f7",cardBorder:"#ececec",divider:"#efefef",codeBg:"#f4f4f5",codeText:"#615ced",titleBar:"#141414",quoteBorder:"#141414"}}
 };
 const TEMPLATES=["minimal-tech","cyber-card","terminal-code","hud","wechat-pai-essay"];
 const TLABEL={"minimal-tech":"简约科技","cyber-card":"卡片风","terminal-code":"终端风","hud":"数据面板","wechat-pai-essay":"微信派长文"};
@@ -315,7 +315,7 @@ function renderThemeList(){
         <div style="width:14px;height:14px;border-radius:50%;background:${c.accent};border:1px solid ${c.cardBorder};"></div>
       </div>
       <div class="info"><div class="name">${th.label}</div><div class="desc" style="color:${c.accent};font-size:10px;font-family:monospace;">${c.bg} / ${c.accent}</div></div>
-      ${th.rec?'<span class="badge badge-rec">推荐</span>':''}
+      ${th.rec?'<span class="badge badge-rec">排版推荐</span>':''}
     `;
     div.onclick=()=>{activeTheme=k;renderAll();};
     el.appendChild(div);
