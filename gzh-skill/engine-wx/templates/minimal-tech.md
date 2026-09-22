@@ -8,7 +8,7 @@
 ### 页眉
 ```html
 <section class="gzh-article" style="max-width:677px;margin:0 auto;background:{{bg}};color:{{text}};padding:24px 18px;box-sizing:border-box;">
-  <h1 class="gzh-title" style="margin:14px 0 6px;font-size:18px;line-height:1.3;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
+  <h1 class="gzh-title" style="margin:14px 0 6px;font-size:16px;line-height:1.3;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
   <section class="gzh-divider" style="height:1px;background:{{divider}};margin:0 0 26px;"></section>
 ```
 
@@ -42,7 +42,7 @@
 
 ### 页脚
 ```html
-<section style="margin-top:34px;padding-top:18px;border-top:1px solid {{divider}};">
+<section style="margin-top:34px;padding-top:18px;">
   <p style="margin:0;font-size:13px;color:{{muted}};letter-spacing:.5px;text-align:center;">
     关注我们 · 获取更多
   </p>

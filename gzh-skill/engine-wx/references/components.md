@@ -18,7 +18,7 @@
 ## 2. 标题栏（页眉）
 
 ```html
-<h1 style="margin:0 0 6px;font-size:28px;line-height:1.3;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
+<h1 style="margin:0 0 6px;font-size:16px;line-height:1.3;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
 <p style="margin:0 0 22px;font-size:14px;color:{{muted}};letter-spacing:.5px;">{{副标题}}</p>
 ```
 
@@ -119,7 +119,7 @@
 
 > 图片 `src` 必须是**公网可访问**的 URL（微信不会本地存图）；`.gif` 也支持。
 
-## 13b. 图片占位（预留上传位置）
+## 13b. 图片占位（预留上传位置，默认排版必须留）
 
 ```html
 <section style="margin:16px 0;padding:32px 16px;background:{{cardBg}};border:1px dashed #d8d8d8;border-radius:14px;text-align:center;">
@@ -130,6 +130,8 @@
 
 > 用途：正文需要配图但图还没准备好时，先占住位置。粘进公众号后删掉占位框、插入真实图片即可。
 > 虚线框用 `#d8d8d8`（中性灰，不随主题变，避免彩色虚线在浅色主题上刺眼）；文字色仍取主题 `{{text}}` / `{{muted}}`。
+> **默认规则**：凡需要截图/配图的位置（如博主原帖、榜单、实测画面、主页等），一律先放此占位框，不要留空。
+> **默认要求**：排版时凡是预期插入截图的位置（原帖、榜单、实测画面、博主主页等），一律先放此占位框，不要留空白。
 
 
 ## 14. 数据指标（单条）
@@ -144,7 +146,7 @@
 ## 15. 脚注 / 关注引导
 
 ```html
-<section style="margin-top:34px;padding-top:18px;border-top:1px solid {{divider}};">
+<section style="margin-top:34px;padding-top:18px;">
   <p style="margin:0;font-size:13px;color:{{muted}};letter-spacing:.5px;text-align:center;">{{脚注文字}}</p>
 </section>
 ```
