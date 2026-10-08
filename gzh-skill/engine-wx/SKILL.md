@@ -79,6 +79,11 @@ version: 0.2.1
 3. 读对应模板文件，拿到它的**块骨架与占位符**。
 4. 读对应主题文件，取出它的**色彩字典**（`bg / text / muted / accent / accent2 / cardBg / cardBorder / divider / codeBg / codeText / titleBar / quoteBorder`）。
 5. 用主题色填模板骨架里的占位符（如 `{{accent}}`），把草稿内容塞进合适块里。
+6. **配图**（草稿带图时，规范见 `references/components.md` §13）：
+   - 图片**内嵌到与它对应的正文内容之后**（原帖链接后、基准数据后、宣传图段落后），**禁止统一堆到文末**
+   - 每张图下方紧跟一行 12px 主题 `muted` 色居中图注，一句话说明图内容
+   - 图片样式固定：`max-width:100%;width:100%;border:1px solid #ececec;border-radius:8px;margin:16px 0;box-sizing:border-box;`
+   - `src` 一律 **base64 data URI 内嵌**（成品保持单文件）；用户没给图的位置用 §13b 占位框
 
 **产出：一段 `<section style="max-width:677px;margin:0 auto;">…</section>` 包裹的 HTML**，
 全部内联样式，**禁止** flex / grid / `var()` / `:hover` / `@media` / 伪元素 / class 选择器依赖 / 外部样式表。
@@ -115,7 +120,7 @@ generated/
 - ❌ **禁止**：`Flexbox`、`Grid`、`position`、`z-index`、`var(--x)`、`:hover/:before/:after`、
   `@media`、`@font-face`、依赖 class 选择器的 `<style>`、外部 `<link>`、`backdrop-filter`、`filter`、`transform`
 - ⚠️ **谨慎**：`box-shadow`、`border-radius`、`letter-spacing`（多数版本可用，个别机型失效；**布局切勿依赖**）
-- `img` 必须有 `src`（微信外链图），宽度用 `width:100%` 或固定值；不要用背景图承载关键内容
+- `img` 必须有 `src`：交付成品一律 **base64 data URI 内嵌**（单文件可直接复制；公网 URL 亦可，本地 `file://` 路径无效）；宽度 `width:100%`，样式与「内嵌对应位置 + 12px 图注」规范见 `references/components.md` §13；不要用背景图承载关键内容
 - 字距、行高、留白是「简约科技感」的灵魂——优先用 `letter-spacing`、`line-height`、`margin/padding` 的节奏，而不是复杂装饰
 
 ---

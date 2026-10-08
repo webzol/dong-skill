@@ -14,12 +14,14 @@
 5. **模板管版式骨架，主题管颜色**，两者自由组合（v0.2.0 起为 8×5=40）。占位符 `{{accent}}` 等用法见各模板/组件。
 6. **颜色唯一来源是 themes/*.json**，生成时禁止硬编码主题之外的色值。
 7. **theme JSON 可选 `typography` 字段**：当一个风格的视觉签名包含强 typography 习惯（行高/字号/字距/对齐/字体族）时，写进 theme.json 的 `typography` 子字段。生成时可读取覆盖默认节奏。
+8. **配图三件套（2026-10-08 定稿，TD 指定）**：①图片**内嵌对应正文位置**（不堆文末）；②每张图配 12px `muted` 居中图注（一句话点明图内容）；③`src` 一律 **base64 data URI 内嵌**保持单文件交付。样式与细则见 `references/components.md` §13，SKILL.md 第 3 步第 6 条已挂钩。参考成品：`generated/2026-09-29/dongpro-minimal-tech-devday2026-dots.html`。
 
 ## 踩过的坑 / 注意点
 
 - **`display:flex` 在微信多数版本失效**。`minimal-tech.md` 里我故意写了个 flex 版并紧跟「改为 border-left」的修正，生成时**用修正版**。
 - **预览页是 themes/*.json 的浏览器侧镜像**（JS 里内联了一份色板）。改色值要**同步**改 `preview/preview.html` 里的 `THEMES` 对象，否则预览与真实脱节。
-- **图片必须公网 URL**，微信不本地存图；别用背景图承载关键内容。
+- **图片交付 = base64 data URI 内嵌**（v0.2 起既定路径，见「关键决策 8」）：本地 `file://` 路径微信不认，公网 URL 会让成品不再单文件；正文图片一律 `src="data:image/png;base64,…"`，粘贴时由公众号编辑器转存。别用背景图承载关键内容。
+- **用户贴进会话的图片提取**（OpenCode 环境备忘）：贴图不落文件系统，存在 `~/.local/share/opencode/opencode.db` 的 `session_message.data`（JSON）→ `files[].data`（base64 字段）里；用 Python `sqlite3` 只读打开、遍历该消息的 `files` 解码即可，别在 Temp 目录里瞎找。
 - **空 `<section></section>` 会被编辑器吃掉**，别留。
 - 个别机型 `box-shadow`/`border-radius`/`letter-spacing` 会弱化，**布局不能依赖它们**（去掉仍成立）。
 - `install.ps1` / `install.sh` 会复制到 `~/.claude/skills/` 和 `~/.agents/skills/`；Codex 读 `.agents/skills/`，Claude Code 读 `~/.claude/skills/`。
