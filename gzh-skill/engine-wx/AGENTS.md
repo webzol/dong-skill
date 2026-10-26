@@ -22,3 +22,19 @@
 3. 生成前务必看 `references/wechat-compat.md`，输出内联样式 HTML，禁 flex/grid/var()/伪元素/外部样式表。
 
 若你是用户来安装这个 skill，请直接看 `README.md` 即最简安装路径。
+
+## 每日热点写作（固定流程，跨模型通用）
+
+当用户说 **`早报` / `今天的热点` / `每日 3 篇` / `按每日流程跑`**，或直接贴 X「Today's News」截图时：
+
+1. 读 `DAILY_NEWS_WORKFLOW.md`，严格按里面 9 个环节执行；
+2. 产出 **3 篇** AI 大模型热点文章，模板 `minimal-tech` + 主题 `dongpro`；
+3. 配图必须**内嵌在对应正文位置**（`components.md` §13 样式），图下 12px 灰色居中图注；
+4. 图片获取用 `scripts/xshot.ps1`（Chrome headless + 普通 UA）→ `scripts/bands.py` 探内容块边界 → `scripts/crop.py` 裁；
+   各站截图参数、裁剪坐标、落点约定见 `DAILY_NEWS_WORKFLOW.md` §3.5 / §3.6，**不要**用 `browser.*` 去开 x.com（连不上）；
+5. 组装用 `scripts/inject_images.py` → `engine-design/scripts/wrap_preview.py`，串行执行；
+6. 落盘 `E:\WX\<YYYY-MM-DD>\`，并在 `generated/<date>/` 留一份备份；
+7. 写信源台账 `generated/<date>/sources.md`（结论/配图 ← URL + 页面位置），格式见 §7.1；
+8. 交付三句用法 + 「本版 = 模板 X + 主题 Y」。
+
+细节、坑位与命令示例都在 `DAILY_NEWS_WORKFLOW.md`，不要凭记忆简化。
