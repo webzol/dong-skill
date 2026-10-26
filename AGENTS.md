@@ -38,7 +38,7 @@
 4. 写稿：先硬事实、再解读，标注官方 / 媒体 / 社区三类口径，不编数字；
 5. 组装：`scripts/inject_images.py` → `engine-design/scripts/wrap_preview.py`，**串行**；
 6. 质检：无 `{{` 残留、`data:image` 数 = 图张数、目录只留成品；
-7. 写信源台账 `generated/<date>/sources.md`（哪个数字/哪张图 ← 哪个 URL 的哪一块）；
+7. 写信源台账 `docs/sources/<date>.md`（哪个数字/哪张图 ← 哪个 URL 的哪一块；**入库**）；
 8. 预览 + 交付清单。
 
 ## 三、已知坑

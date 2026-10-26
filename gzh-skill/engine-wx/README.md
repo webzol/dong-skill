@@ -11,6 +11,8 @@
 - 📁 **按日期归档产出**：每次排版自动落到 `generated/YYYY-MM-DD/`，一个带「复制」按钮的 HTML 成品，点按钮即可粘贴公众号
 - 📱 **微信原生兼容**：内联样式 + `<section>/<table>`，无 flex/grid，粘贴即用不塌版
 - 🧰 **跨 AI 工具安装**：Claude Code / OpenAI Codex / Cursor / Gemini CLI / Copilot / Windsurf 通吃
+- 📰 **每日 AI 热点（3 篇）**：说一句 `早报` 就跑完整流程（选题 → 抓推文截图 → 写稿 → 排版 → 落盘），
+  详见 [`DAILY_NEWS_WORKFLOW.md`](./DAILY_NEWS_WORKFLOW.md)
 
 ---
 

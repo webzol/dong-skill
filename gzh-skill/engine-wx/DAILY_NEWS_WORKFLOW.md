@@ -104,30 +104,34 @@ websearch: "<产品名> pricing change <月份> <年份>"
 **关键**：X 会 403 掉 `HeadlessChrome` UA；必须传普通 Chrome UA。
 **另一个坑**：预览面板里的 `browser.*` 工具**连不上 x.com**（`ERR_CONNECTION_CLOSED`），别在那上面浪费时间。
 
+> 本节命令默认在 `gzh-skill\engine-wx\` 目录下执行（脚本用相对路径 `.\scripts\`）；
+> 用 `powershell -ExecutionPolicy Bypass -File` 而不是 `pwsh -File`，免得目标机只有 PowerShell 5.1。
+
 ```powershell
 # 单条推文：窄窗 640 宽 → 侧栏消失，只剩单列推文
-pwsh -File .\scripts\xshot.ps1 -Url "https://x.com/<user>/status/<id>" -Name "tweet1" -W 640 -H 1500
+powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://x.com/<user>/status/<id>" -Name "tweet1" -W 640 -H 1500
 
 # 主页（含置顶/首条）：同参数即可
-pwsh -File .\scripts\xshot.ps1 -Url "https://x.com/nanbeige" -Name "nb_profile" -W 640 -H 1600
+powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://x.com/nanbeige" -Name "nb_profile" -W 640 -H 1600
 ```
 
 截图里会带「发帖 / 登录 注册」顶栏和底部「继续前往 X」按钮 → 用 `scripts/crop.py` 裁掉：
 
 ```powershell
-python .\scripts\crop.py in.png out.png 60 55 640 1120
-# 参数：左 上 右 下（像素），窗口 640 宽时正文从 x≈60 开始
+python .\scripts\crop.py in.png out.png 52 50 640 1180
+# 参数：左 上 右 下（像素），窗口 640 宽时正文从 x≈52 开始
 ```
 
-窄窗 640 下，单条推文通常落在 `y = 55 … 1100`；多条推文页按边界裁单条。
+窄窗 640 下，单条推文通常落在 `y = 55 … 1180`；具体坐标照 §3.5 的表，别凭感觉。
 
 ### 3.2 官方页面 → 截图
 
 Hugging Face 模型卡、OpenAI help center、官方 blog 都可以直接整页截，再裁关键表格：
 
 ```powershell
-pwsh -File .\scripts\xshot.ps1 -Url "https://huggingface.co/<org>/<model>" -Name "hf_model" -W 1500 -H 3400
-python .\scripts\crop.py hf_model.png hf_table.png 88 1130 560 2310
+powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://huggingface.co/<org>/<model>" -Name "hf_model" -W 1500 -H 3400
+python .\scripts\bands.py "$env:TEMP\opencode\hf_model.png" 80 770   # 先看内容块落在哪几行
+python .\scripts\crop.py hf_model.png hf_table.png 86 1448 770 2524  # 再按 §3.5 的坐标裁
 ```
 
 建议宽度：官方文档 1200；HF 表格 1500（否则第 4 列会被裁）。
@@ -182,7 +186,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 | 裁好的配图 | `%TEMP%\opencode\<name>.png` | 否，注入后即删 |
 | 正文 + `{{IMG_*}}` 占位符 | `E:\dong-skill\generated\<date>\<slug>-body.html` | 否，组装后删 |
 | 图片映射 | `generated\<date>\<slug>-images.json` | 否，组装后删 |
-| 信源台账 | `generated\<date>\sources.md` | 否，但**必须写**（见 §7） |
+| 信源台账 | `E:\dong-skill\docs\sources\<date>.md` | **是**（入库，供下次复用） |
 | 成品 | `E:\WX\<date>\<标题>.html` | **是** |
 | 成品备份 | `generated\<date>\<标题>.html` | 否（gitignored） |
 
@@ -237,12 +241,13 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 ```powershell
 $env:PYTHONIOENCODING='utf-8'
+# 仍在 gzh-skill\engine-wx 目录下执行
 
 # 1) 正文 HTML 写占位符 {{IMG_A}} {{IMG_B}} ...
 # 2) 注入 base64 并包预览壳（必须串行，曾因并行竞态留下未替换占位符）
 python .\scripts\inject_images.py body.html images.json out.html
 if ($LASTEXITCODE -eq 0) {
-  python E:\dong-skill\gzh-skill\engine-design\scripts\wrap_preview.py out.html final.html
+  python ..\engine-design\scripts\wrap_preview.py out.html final.html
   if ($LASTEXITCODE -eq 0) { Remove-Item body.html, out.html -Force }
 }
 ```
@@ -269,8 +274,10 @@ Get-ChildItem <dir>                              # 只留最终成品
 
 ### 7.1 信源台账（每天必写一份）
 
-写到 `generated\<date>\sources.md`，一条一行：**哪个结论 / 哪张图 → 来自哪个 URL 的哪一块**。
-作用有两个：复核数字；页面改版后能按"位置"快速找回。不写台账 = 这一步没做完。
+写到 `E:\dong-skill\docs\sources\<date>.md`（**入库**，不跟 `generated/` 一起被清），
+一条一行：**哪个结论 / 哪张图 → 来自哪个 URL 的哪一块**。
+作用有三个：复核数字；页面改版后按"位置"快速找回；换机器的人能接着用同一批信源。
+不写台账 = 这一步没做完。
 
 | 用于 | 结论 / 数字 | 来源 URL | 页面位置 |
 |---|---|---|---|
@@ -278,7 +285,7 @@ Get-ChildItem <dir>                              # 只留最终成品
 | 例：正文 | Pro 200 10/30 起 10× | `https://help.openai.com/en/articles/...` | 「About ChatGPT Pro tiers」额度段 |
 
 写台账时顺手记下**抓不到的东西**（登录墙、403、已删除），免得第二天重复踩。
-首份实例：`generated/2026-10-26/sources.md`。
+首份实例：`docs/sources/2026-10-26.md`。
 
 ---
 

@@ -41,3 +41,6 @@ if (Test-Path $out) {
   if (Test-Path $log) { Get-Content $log -Tail 5 }
   exit 2
 }
+
+# 清理临时用户目录，避免每次截图留几十 MB 的 prof-<name>
+if (Test-Path $prof) { try { Remove-Item $prof -Recurse -Force -ErrorAction Stop } catch { } }

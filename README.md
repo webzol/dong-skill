@@ -26,6 +26,16 @@ cp -R dong-skill/gzh-skill ~/.claude/skills/gzh-skill
 
 安装后重启 AI 会话生效。触发方式：斜杠命令 `/gzh-skill`，或自然语言「公众号排版」「gzh」「自动排版」「wechat-typesetting」等（详见 [gzh-skill/SKILL.md](gzh-skill/SKILL.md)）。
 
+## 每日 AI 热点（3 篇/天）
+
+在本仓库目录里对 AI 说 **`早报`** / `今天的热点` / `每日 3 篇` / `按每日流程跑`，或直接贴 X「Today's News」截图，即按
+[`gzh-skill/engine-wx/DAILY_NEWS_WORKFLOW.md`](gzh-skill/engine-wx/DAILY_NEWS_WORKFLOW.md) 跑完整流程：
+选题 → 定信源 → 截推文/官方页面 → 写 3 篇 → 排版（`minimal-tech` × `dongpro`）→ 落盘。
+
+- 成品：`E:\WX\<日期>\`（可在工作流 §0.2 改），备份 `generated/<日期>/`
+- 信源台账：`docs/sources/<日期>.md`（哪个数字/哪张图 ← 哪个 URL 的哪一块）
+- 没有触发词不会自动跑；换机器只需改 §0.2 里的三处路径
+
 ## 维护约定
 
 - 根目录 `DEV_NOTES.md` 记录架构决策、升级流程、踩坑，**接手前必读**
