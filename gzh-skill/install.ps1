@@ -59,6 +59,40 @@ if (Test-Path $cmdSrc) {
 Write-Host ""
 Write-Host "==> 完成。请重启你的 AI 会话使技能生效。" -ForegroundColor Cyan
 Write-Host ""
+Write-Host "==> 换机器核对清单（对应 DAILY_NEWS_WORKFLOW.md §0.2，装完先看一眼）" -ForegroundColor Yellow
+
+# 1) 成品根目录
+$wxOut = "E:\WX"
+$wxState = if (Test-Path $wxOut) { "已存在" } else { "不存在" }
+if (-not (Test-Path $wxOut) -and (Test-Path "E:\")) {
+    try { New-Item -ItemType Directory -Force -Path $wxOut | Out-Null; $wxState = "已自动创建" } catch { }
+}
+Write-Host ("    1) 成品根目录  {0}  [{1}]" -f $wxOut, $wxState)
+Write-Host "       要改就改：DAILY_NEWS_WORKFLOW.md §0.2 第 1 行 + §7，以及 AGENTS.md「常驻约定」"
+if (-not (Test-Path $wxOut)) {
+    Write-Host ("       E: 盘不存在或建不了 → 手动建：New-Item -ItemType Directory -Force -Path <你的目录>") -ForegroundColor Yellow
+}
+
+# 2) 仓库路径
+$repoRoot = Split-Path $src -Parent
+Write-Host ("    2) 仓库路径    {0}" -f $repoRoot)
+Write-Host "       通常不用改：脚本全用相对路径，只有 §6 的 wrap_preview.py 靠 ..\engine-design 定位"
+
+# 3) 浏览器
+$browser = @(
+    "$env:ProgramFiles\Google\Chrome\Application\chrome.exe",
+    "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe",
+    "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe",
+    "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
+) | Where-Object { Test-Path $_ } | Select-Object -First 1
+if ($browser) {
+    Write-Host ("    3) 浏览器      {0}  [OK]" -f $browser)
+} else {
+    Write-Host "    3) 浏览器      未找到 Chrome / Edge  [缺] → xshot.ps1 截图会失败，先装一个" -ForegroundColor Yellow
+}
+
+Write-Host "    · 这三处就够，其余脚本会自动探测；改完不用重装，直接跑 /zaobao"
+Write-Host ""
 Write-Host "==> 使用提示：" -ForegroundColor Cyan
 Write-Host "    · 每日 AI 热点：说「早报」/「今天的热点」/「每日 3 篇」，或运行 /zaobao"
 Write-Host "    · 排版：说「公众号排版」或运行 /gzh-skill；默认 minimal-tech × dongpro"

@@ -44,6 +44,34 @@ fi
 echo ""
 echo "==> 完成。请重启你的 AI 会话使技能生效。"
 echo ""
+echo "==> 换机器核对清单（对应 DAILY_NEWS_WORKFLOW.md §0.2，装完先看一眼）"
+
+# 1) 成品根目录：文档默认是 Windows 的 E:\WX
+if grep -q 'E:\\WX' "$SRC/engine-wx/DAILY_NEWS_WORKFLOW.md" 2>/dev/null; then
+  echo "    1) 成品根目录  文档里仍是 Windows 路径 E:\\WX  [本机 macOS/Linux 需改]"
+  echo "       改：DAILY_NEWS_WORKFLOW.md §0.2 第 1 行 + §7，以及 AGENTS.md「常驻约定」→ 建议 ~/WX"
+  echo "       建目录：mkdir -p ~/WX"
+else
+  echo "    1) 成品根目录  已是非 Windows 路径  [OK]"
+fi
+
+# 2) 仓库路径
+echo "    2) 仓库路径    $(cd "$SRC/.." && pwd)"
+echo "       通常不用改：脚本全用相对路径，只有 §6 的 wrap_preview.py 靠 ../engine-design 定位"
+
+# 3) 浏览器
+if command -v google-chrome >/dev/null 2>&1; then
+  echo "    3) 浏览器      $(command -v google-chrome)  [OK]"
+elif [ -x "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]; then
+  echo "    3) 浏览器      /Applications/Google Chrome.app  [OK]"
+elif command -v chromium >/dev/null 2>&1; then
+  echo "    3) 浏览器      $(command -v chromium)  [OK]"
+else
+  echo "    3) 浏览器      未找到 Chrome / Chromium  [缺] → 截图会失败，先装一个"
+fi
+
+echo "    · 这三处就够，其余脚本会自动探测；改完不用重装，直接跑 /zaobao"
+echo ""
 echo "==> 📖 使用提示："
 echo "    · 每日 AI 热点：说「早报」/「今天的热点」/「每日 3 篇」，或运行 /zaobao"
 echo "    · 排版：说「公众号排版」或运行 /gzh-skill；默认 minimal-tech × dongpro"

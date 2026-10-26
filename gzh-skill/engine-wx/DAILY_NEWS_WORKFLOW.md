@@ -34,12 +34,13 @@
 
 ### 0.2 换电脑要改的三处
 
-这份流程默认跑在 TD 的 Windows 机上，路径写死的地方只有三个，换机器照改：
+这份流程默认跑在 TD 的 Windows 机上，路径写死的地方只有三个，换机器照改。
+**`install.ps1` / `install.sh` 跑完会自动打印这份清单并体检**（目录在不在、浏览器找没找到），照着改即可。
 
 | 项 | 默认值 | 改哪里 |
 |---|---|---|
 | 成品根目录 | `E:\WX` | 本文件 §7、`AGENTS.md` |
-| 仓库路径 | `E:\dong-skill` | 本文件 §6（`wrap_preview.py` 的绝对路径）、§7 |
+| 仓库路径 | `E:\dong-skill` | 本文件 §6（`wrap_preview.py` 走相对路径 `..\engine-design`，别把目录拆散）、§7 |
 | 浏览器 | 自动探测 Chrome / Edge | 一般不用改，`xshot.ps1` 会依次找 Program Files 与 x86 |
 
 其余脚本（`crop.py` / `bands.py` / `inject_images.py`）都用相对路径，跟着仓库走。
