@@ -3,6 +3,18 @@
 本仓库是公众号排版 skill（`gzh-skill/`，两套引擎）及其产出目录。
 任何 AI 工具（OpenCode / Claude Code / Codex / Cursor / Gemini CLI）读到这里，都按以下约定工作。
 
+## 〇、怎么生效（先读这一节）
+
+| 你的情况 | 结果 |
+|---|---|
+| 在**本仓库目录**里开 AI 会话 | `AGENTS.md` / `CLAUDE.md` / `GEMINI.md` / `.cursorrules` 等会被自动读入，默认规则直接生效 |
+| clone 到别处、在**别的项目目录**里问 | 不生效。要么在本仓库里开，要么跑 `gzh-skill\install.ps1`（或 `install.sh`）装成 skill，要么把 `DAILY_NEWS_WORKFLOW.md` 的路径明确告诉它 |
+| 想让它**开始收集今天的 3 篇** | **必须给触发词**：`早报` / `今天的热点` / `每日 3 篇` / `按每日流程跑`，或贴 X「Today's News」截图。AI 没有定时器，不会自己起床 |
+
+- 在本仓库里被唤醒、用户又没给具体任务时：**先问一句「跑今天的早报，还是排版某篇稿子？」**，不要沉默等着。
+- 一旦触发，一律以 `gzh-skill/engine-wx/DAILY_NEWS_WORKFLOW.md` 为准，不要凭记忆简化。
+- 换电脑时只需改三处：成品根目录（默认 `E:\WX`）、仓库路径、Chrome 路径（`xshot.ps1` 已自动探测）。
+
 ## 一、常驻约定
 
 - 排版默认组合：**模板 `minimal-tech` × 主题 `dongpro`**。
