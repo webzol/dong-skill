@@ -28,7 +28,7 @@ cp -R dong-skill/gzh-skill ~/.claude/skills/gzh-skill
 
 ## 每日 AI 热点（3 篇/天）
 
-在本仓库目录里对 AI 说 **`早报`** / `今天的热点` / `每日 3 篇` / `按每日流程跑`，或直接贴 X「Today's News」截图，即按
+在本仓库目录里对 AI 说 **`早报`** / `今天的热点` / `每日 3 篇` / `按每日流程跑`，或运行斜杠命令 **`/zaobao`**，或直接贴 X「Today's News」截图，即按
 [`gzh-skill/engine-wx/DAILY_NEWS_WORKFLOW.md`](gzh-skill/engine-wx/DAILY_NEWS_WORKFLOW.md) 跑完整流程：
 选题 → 定信源 → 截推文/官方页面 → 写 3 篇 → 排版（`minimal-tech` × `dongpro`）→ 落盘。
 

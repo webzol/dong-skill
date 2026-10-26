@@ -12,10 +12,10 @@
 
 | 项 | 规格 |
 |---|---|
-| 篇幅 | 每篇 900–1600 字，2–5 个小节 |
+| 篇幅 | 每篇 900–1600 汉字（成稿后数一遍，别估） |
 | 模板 | `minimal-tech`（默认） |
 | 主题 | `dongpro` |
-| 配图 | 每篇 2–4 张，**内嵌在对应正文位置**，不堆文末 |
+| 配图 | 每篇 2–5 张（证据特别多可到 6，再多就拆篇），**内嵌在对应正文位置**，不堆文末 |
 | 图注 | 图下 12px、`#8a8a8a`、居中，`margin:-8px 0 16px` |
 | 资源 | 单文件 HTML，图片一律 `data:image/png;base64,...` |
 | 外壳 | `wrap_preview.py` 包一层，右上角「复制到公众号」按钮 |
@@ -253,6 +253,15 @@ if ($LASTEXITCODE -eq 0) {
 ```
 
 `images.json` 形如 `{"{{IMG_A}}": "C:\\path\\a.png", "{{IMG_B}}": "C:\\path\\b.png"}`。
+PowerShell 5.1 用 `Set-Content -Encoding UTF8` 写出来会带 BOM，脚本已用 `utf-8-sig` 读，不用手改。
+
+`inject_images.py` 自带两条硬校验，失败会直接退出、不产出半成品：
+
+| 退出码 | 含义 | 处理 |
+|---|---|---|
+| 2 / 3 | 占位符没出现在正文 / 图片文件不存在 | 补占位符或改路径 |
+| 4 | 残留 `{{` | 说明有图没配进 images.json |
+| 5 | **一图一注对不上** | 每张图下方补 12px 灰色居中图注；确实不要图注才加 `--allow-missing-captions` |
 
 质检（三查）：
 
@@ -268,7 +277,11 @@ Get-ChildItem <dir>                              # 只留最终成品
 
 - 成品：`E:\WX\<YYYY-MM-DD>\<标题>.html`（用户主目录，按日期分文件夹）
 - 备份：`E:\dong-skill\generated\<YYYY-MM-DD>\<slug>.html`（gitignored，不入库）
-- 预览：`browser.preview` 打开成品；若文件名含全角「／」等字符导致预览打不开，复制一份 ASCII 文件名到 `.tmp-preview\` 再预览
+- **文件名规范**：标题里**禁用全角「：」「／」和半角 `/ \ : * ? " < > |`**；
+  冒号改「 · 」或「 - 」，斜杠改「／→ · 」。原因：全角冒号会让预览面板打不开文件。
+  例：`OpenAI 把 Pro 200 的 Codex 额度砍半 - 10 月 30 日起 20 倍变 10 倍.html`
+- 预览：`browser.preview` 打开成品；万一文件名仍带全角字符打不开，复制 ASCII 副本到 `.tmp-preview\`：
+  `Copy-Item "<成品>" "E:\dong-skill\.tmp-preview\<slug>.html"`（交付的仍是原文件）
 - 交付话术固定三句：① 浏览器打开成品 → ② 点右上角「复制到公众号」 → ③ 公众号编辑器新建图文后粘贴
 - 结尾必须写：**本版 = 模板 `minimal-tech` + 主题 `dongpro`**
 
