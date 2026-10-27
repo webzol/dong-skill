@@ -231,7 +231,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 ```
 
 3. 正文容器：`max-width:677px;margin:0 auto;background:#ffffff;padding:24px 18px 56px;`。
-4. **不要多余底色**：卡片只用 `1px #ececec` 细边框，不加 `#f7f7f7` 灰填充；表格表头/行内代码的浅灰除外（有信息作用）。
+4. **不要多余底色**：卡片只用 `1px #ececec` 细边框，不加 `#f7f7f7` 灰填充；表格表头/行内代码的浅灰除外（有信息作用）。预览页外围（`preview-template.html` 的 `body`）一律纯白，2026-10-27 已把模板里的 `#eef0f2` 灰底永久改为 `#ffffff`，以后任何产出都不要灰底。
 5. 强调色 `#615ced`，正文 `#141414`，次要 `#8a8a8a`，分隔线 `#efefef`。
 6. **字号定版（2026-10-26 用户确认）**：
    - 文章大标题 `h1`：**16px**，字重 700，行高 1.35
