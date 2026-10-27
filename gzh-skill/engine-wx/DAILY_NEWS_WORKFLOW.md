@@ -117,6 +117,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://x.com
 
 # 需要更清晰的字（价目表、提示框等小字截图）：加 -Scale 2，出 2 倍像素
 powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://docs.devin.ai/desktop/models" -Name "devin_2x" -W 1300 -H 2600 -Scale 2
+
+# 需要登录态的页面（x.com/explore/tabs/news、x.com/i/trending）：先弹出可见 Chrome 登录一次，
+# 存到持久 profile；登录完关掉窗口，再传 -ProfileDir 复用登录态（不传则仍是一次性 profile）
+#   第一步（弹窗登录，用户手动操作）：
+#   chrome.exe --user-data-dir=%TEMP%\opencode\xprof https://x.com/i/flow/login
+#   第二步（带登录态截图）：
+powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://x.com/explore/tabs/news" -Name "explore" -W 640 -H 1600 -ProfileDir "$env:TEMP\opencode\xprof"
 ```
 
 截图里会带「发帖 / 登录 注册」顶栏和底部「继续前往 X」按钮 → 用 `scripts/crop.py` 裁掉：
