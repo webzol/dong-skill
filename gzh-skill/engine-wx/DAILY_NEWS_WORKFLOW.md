@@ -114,6 +114,9 @@ powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://x.com
 
 # 主页（含置顶/首条）：同参数即可
 powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://x.com/nanbeige" -Name "nb_profile" -W 640 -H 1600
+
+# 需要更清晰的字（价目表、提示框等小字截图）：加 -Scale 2，出 2 倍像素
+powershell -ExecutionPolicy Bypass -File .\scripts\xshot.ps1 -Url "https://docs.devin.ai/desktop/models" -Name "devin_2x" -W 1300 -H 2600 -Scale 2
 ```
 
 截图里会带「发帖 / 登录 注册」顶栏和底部「继续前往 X」按钮 → 用 `scripts/crop.py` 裁掉：

@@ -4,6 +4,7 @@
   [int]$W = 640,
   [int]$H = 1500,
   [int]$Wait = 25000,
+  [double]$Scale = 1,
   [string]$OutDir = "$env:TEMP\opencode"
 )
 
@@ -30,12 +31,13 @@ $ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 $args = @(
   '--headless=new','--disable-gpu','--no-sandbox','--hide-scrollbars',
   "--user-data-dir=$prof","--window-size=$W,$H","--virtual-time-budget=$Wait",
+  "--force-device-scale-factor=$Scale",
   "--user-agent=`"$ua`"","--screenshot=$out",$Url
 )
 $p = Start-Process -FilePath $chrome -ArgumentList $args -Wait -PassThru -NoNewWindow -RedirectStandardError $log
 
 if (Test-Path $out) {
-  Write-Output ("OK  {0}  {1} bytes  ({2})" -f $out, (Get-Item $out).Length, "${W}x${H}")
+  Write-Output ("OK  {0}  {1} bytes  ({2}x{3})" -f $out, (Get-Item $out).Length, $W, $H)
 } else {
   Write-Output ("FAIL {0}  exit={1}" -f $Url, $p.ExitCode)
   if (Test-Path $log) { Get-Content $log -Tail 5 }
