@@ -19,6 +19,7 @@
 
 - 排版默认组合：**模板 `minimal-tech` × 主题 `dongpro`**。
 - 配图规范：图片**内嵌在对应正文位置**，不堆文末；每图下方 12px `#8a8a8a` 居中图注；
+  间距固定为「图 `display:block;margin:14px 0 6px`，图注 `margin:0 0 14px`」——不要再用 `margin:16px 0` + 图注 `-8px` 的写法，视觉上会多出 20px 空档；
   图片一律 base64 内嵌，交付单文件 HTML（含右上角「复制到公众号」按钮）。
 - 不要多余底色：卡片只用 `1px #ececec` 细边框，不加 `#f7f7f7` 灰填充（表格表头 / 行内代码除外）。
 - 成品落盘：`E:\WX\<YYYY-MM-DD>\`；同时备份 `generated/<date>/`（gitignored，不入库）。
