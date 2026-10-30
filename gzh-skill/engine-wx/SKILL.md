@@ -86,7 +86,7 @@ version: 0.2.1
 6. **配图**（草稿带图时，规范见 `references/components.md` §13）：
    - 图片**内嵌到与它对应的正文内容之后**（原帖链接后、基准数据后、宣传图段落后），**禁止统一堆到文末**
    - 每张图**下方不写文字**（2026-10-30 定版），说明写进紧邻的正文段落
-   - 图片样式固定：`max-width:100%;width:100%;display:block;border:1px solid #ececec;border-radius:8px;margin:14px 0 20px;box-sizing:border-box;`
+   - 图片样式固定：`max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;`
    - `src` 一律 **base64 data URI 内嵌**（成品保持单文件）；用户没给图的位置用 §13b 占位框
 
 **产出：一段 `<section style="max-width:677px;margin:0 auto;">…</section>` 包裹的 HTML**，

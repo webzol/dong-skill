@@ -113,7 +113,7 @@
 ## 13. 图片 + 说明（配图默认规范，每次都照此办）
 
 ```html
-<img src="{{base64或图片URL}}" style="max-width:100%;width:100%;display:block;border:1px solid #ececec;border-radius:8px;margin:14px 0 20px;box-sizing:border-box;" alt="{{描述}}"/>
+<img src="{{base64或图片URL}}" style="max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
 > **固定用法（TD 定稿，以后一律如此）：**

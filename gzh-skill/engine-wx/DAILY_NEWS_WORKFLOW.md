@@ -232,7 +232,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 2. 读 `references/components.md` §13 配图块（**唯一允许的图片样式**）：
 
 ```html
-<img src="{{IMG_X}}" style="max-width:100%;width:100%;display:block;border:1px solid #ececec;border-radius:8px;margin:14px 0 20px;box-sizing:border-box;" alt="..."/>
+<img src="{{IMG_X}}" style="max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;" alt="..."/>
 ```
 
 图下**不加图注**（2026-10-30 定版）。`inject_images.py` 的一图一注校验因此需要加 `--allow-missing-captions`。
