@@ -15,6 +15,7 @@
 6. **颜色唯一来源是 themes/*.json**，生成时禁止硬编码主题之外的色值。
 7. **theme JSON 可选 `typography` 字段**：当一个风格的视觉签名包含强 typography 习惯（行高/字号/字距/对齐/字体族）时，写进 theme.json 的 `typography` 子字段。生成时可读取覆盖默认节奏。
 8. **配图三件套（2026-10-08 定稿，TD 指定）**：①图片**内嵌对应正文位置**（不堆文末）；②每张图配 12px `muted` 居中图注（一句话点明图内容）；③`src` 一律 **base64 data URI 内嵌**保持单文件交付。样式与细则见 `references/components.md` §13，SKILL.md 第 3 步第 6 条已挂钩。参考成品：`generated/2026-09-29/dongpro-minimal-tech-devday2026-dots.html`。
+9. **配图改版（2026-10-30 定稿，TD 指定，覆盖第 8 条的②）**：图下**不再写任何文字**（取消 12px 灰图注），图与下文间距由 `margin:14px 0 20px` 提供；图要说明什么写进紧邻正文。长截图不整张放，按 `-Scale 3` 截取后切成 2–4 段嵌入；`inject_images.py` 因此需带 `--allow-missing-captions`。同批定版：开头不写时间、正文不点名平台（不写「X 上」、不挂 `@handle`）。
 
 ## 踩过的坑 / 注意点
 

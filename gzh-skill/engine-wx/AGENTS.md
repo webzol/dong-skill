@@ -29,7 +29,8 @@
 
 1. 读 `DAILY_NEWS_WORKFLOW.md`，严格按里面 9 个环节执行；
 2. 产出 **3 篇** AI 大模型热点文章，模板 `minimal-tech` + 主题 `dongpro`；
-3. 配图必须**内嵌在对应正文位置**（`components.md` §13 样式），图下 12px 灰色居中图注；
+3. 配图必须**内嵌在对应正文位置**（`components.md` §13 样式），**图下不加任何文字**；
+   长截图不整张放，按 `-Scale 3` 截取后切段嵌入；
 4. 图片获取用 `scripts/xshot.ps1`（Chrome headless + 普通 UA）→ `scripts/bands.py` 探内容块边界 → `scripts/crop.py` 裁；
    各站截图参数、裁剪坐标、落点约定见 `DAILY_NEWS_WORKFLOW.md` §3.5 / §3.6，**不要**用 `browser.*` 去开 x.com（连不上）；
 5. 组装用 `scripts/inject_images.py` → `engine-design/scripts/wrap_preview.py`，串行执行；

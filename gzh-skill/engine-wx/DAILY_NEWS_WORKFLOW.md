@@ -16,7 +16,7 @@
 | 模板 | `minimal-tech`（默认） |
 | 主题 | `dongpro` |
 | 配图 | 每篇 2–5 张（证据特别多可到 6，再多就拆篇），**内嵌在对应正文位置**，不堆文末 |
-| 图注 | 图下 12px、`#8a8a8a`、居中，`margin:-8px 0 16px` |
+| 图注 | **不写**（2026-10-30 定版）。图下不加任何文字，间距 `margin:14px 0 20px` |
 | 资源 | 单文件 HTML，图片一律 `data:image/png;base64,...` |
 | 外壳 | `wrap_preview.py` 包一层，右上角「复制到公众号」按钮 |
 | 归档 | 同时存一份 `E:\dong-skill\generated\<date>\`（gitignored） |
@@ -163,7 +163,7 @@ $r = Invoke-WebRequest "https://x.com/<user>/status/<id>" -UseBasicParsing `
 
 - 优先要**能证伪的图**：官方定价表、官方 benchmark 表、help center 条款、当事人推文；
 - 不要同一条推文的截图 + 原图重复放；
-- 一张图只服务一个论点，图注写"这张图证明什么"，不要写"图片来源"。
+- 一张图只服务一个论点；图下不写文字，这张图证明什么，写进紧邻的正文段落。
 
 ### 3.5 抓取位置（实测坐标，2026-10-26 验证）
 
@@ -206,21 +206,20 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 ## 4. 写稿骨架（沿用 Terra / WorkBuddy 那几篇）
 
 ```html
-<h1>标题（≤ 30 字，含主体 + 冲突/结论）</h1>
-<p>导语（1–3 句，说清"硬事实"；灰色 13px）</p>
+<h1>标题（≤ 16 字，带悬念，不要剧透结论）</h1>
+<p>导语（1–3 句，直接进事件；**不写日期/时刻**，灰色 13px）</p>
 <hr 1px divider>
 
-<p>背景段：为什么今天讨论这件事</p>
-<h2>一、硬事实 / 核心数据</h2>
+<p>背景段：这件事是怎么被发现的</p>
+<h2>硬事实 / 核心数据（不带「一、二、三」序号）</h2>
   表格或卡片：官方数字，标注来源
-<h2>二、争议 / 差异</h2>
+<h2>争议 / 差异</h2>
   对比表或左竖线列表
-<h2>三、能用到什么程度</h2>
+<h2>能用到什么程度</h2>
   适用 / 不适用 两张卡片
-<h2>四、怎么读这条消息</h2>
+<h2>怎么读这条消息</h2>
   判断 + 置信度边界
-<p>来源链接（14px 灰）</p>
-<p>页脚一行：品牌 · 产品 · 状态</p>
+<p>页脚一行：品牌 · 产品 · 状态（**不放来源列表**）</p>
 ```
 
 写作口吻：克制的科技媒体，**先给可核验事实，再给解读**；不吹、不踩，不用"炸裂/王炸/彻底改变"。
@@ -233,9 +232,10 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 2. 读 `references/components.md` §13 配图块（**唯一允许的图片样式**）：
 
 ```html
-<img src="{{IMG_X}}" style="max-width:100%;width:100%;border:1px solid #ececec;border-radius:8px;margin:16px 0;box-sizing:border-box;" alt="..."/>
-<p style="margin:-8px 0 16px;font-size:12px;color:#8a8a8a;text-align:center;">图注</p>
+<img src="{{IMG_X}}" style="max-width:100%;width:100%;display:block;border:1px solid #ececec;border-radius:8px;margin:14px 0 20px;box-sizing:border-box;" alt="..."/>
 ```
+
+图下**不加图注**（2026-10-30 定版）。`inject_images.py` 的一图一注校验因此需要加 `--allow-missing-captions`。
 
 3. 正文容器：`max-width:677px;margin:0 auto;background:#ffffff;padding:24px 18px 56px;`。
 4. **不要多余底色**：卡片只用 `1px #ececec` 细边框，不加 `#f7f7f7` 灰填充；表格表头/行内代码的浅灰除外（有信息作用）。预览页外围（`preview-template.html` 的 `body`）一律纯白，2026-10-27 已把模板里的 `#eef0f2` 灰底永久改为 `#ffffff`，以后任何产出都不要灰底。
@@ -244,7 +244,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
    - 文章大标题 `h1`：**16px**，字重 700，行高 1.35
    - 小节标题 `h2`：**17px**，字重 700（不要做成 20px 的大标题）
    - 小节标题**不带「一、二、三、」中文序号**，直接写内容标题
-   - 正文 15–16px / 行高 1.9–1.95；导语 13px 灰；图注 12px 灰；来源链接 14px 灰
+   - 正文 15–16px / 行高 1.9–1.95；导语 13px 灰；图下无文字；来源链接 14px 灰（成稿一般不放来源段）
 
 ---
 
@@ -256,7 +256,7 @@ $env:PYTHONIOENCODING='utf-8'
 
 # 1) 正文 HTML 写占位符 {{IMG_A}} {{IMG_B}} ...
 # 2) 注入 base64 并包预览壳（必须串行，曾因并行竞态留下未替换占位符）
-python .\scripts\inject_images.py body.html images.json out.html
+python .\scripts\inject_images.py body.html images.json out.html --allow-missing-captions
 if ($LASTEXITCODE -eq 0) {
   python ..\engine-design\scripts\wrap_preview.py out.html final.html
   if ($LASTEXITCODE -eq 0) { Remove-Item body.html, out.html -Force }
@@ -272,7 +272,7 @@ PowerShell 5.1 用 `Set-Content -Encoding UTF8` 写出来会带 BOM，脚本已�
 |---|---|---|
 | 2 / 3 | 占位符没出现在正文 / 图片文件不存在 | 补占位符或改路径 |
 | 4 | 残留 `{{` | 说明有图没配进 images.json |
-| 5 | **一图一注对不上** | 每张图下方补 12px 灰色居中图注；确实不要图注才加 `--allow-missing-captions` |
+| 5 | **一图一注对不上** | 本仓库口径是「图下不写文字」，一律加 `--allow-missing-captions`；不带这个参数会报 5 |
 
 质检（三查）：
 
