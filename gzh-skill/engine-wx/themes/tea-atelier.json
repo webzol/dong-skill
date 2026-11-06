@@ -1,0 +1,43 @@
+{
+  "name": "tea-atelier",
+  "label": "茶志",
+  "description": "白底 + 墨黑字 + 古铜与青灰双强调;宋体标题 + 苹方正文 + 1.95 行高 + 两端对齐;博物馆图录式的克制排版,适合茶文化、茶器、茶知识系列长文。",
+  "colors": {
+    "bg": "#ffffff",
+    "text": "#1c1a17",
+    "muted": "#8a8276",
+    "accent": "#8a6a3f",
+    "accent2": "#5f7358",
+    "cardBg": "#ffffff",
+    "cardBorder": "#e3ddd1",
+    "divider": "#ebe5da",
+    "codeBg": "#f7f3ea",
+    "codeText": "#7a5a34",
+    "titleBar": "#8a6a3f",
+    "quoteBorder": "#b08a55"
+  },
+  "typography": {
+    "bodyFontSize": "15px",
+    "titleFontSize": "16px",
+    "subtitleFontSize": "14px",
+    "bodyLineHeight": "1.95",
+    "titleLineHeight": "1.4",
+    "paragraphMargin": "18px",
+    "sectionGap": "34px",
+    "alignment": "justify",
+    "fontWeight": "400",
+    "titleWeight": "700",
+    "letterSpacing": ".5px",
+    "fontFamily": "\"PingFang SC\",-apple-system,\"Helvetica Neue\",\"Microsoft YaHei\",sans-serif",
+    "headingFontFamily": "\"Songti SC\",\"STSong\",\"SimSun\",\"Noto Serif CJK SC\",serif"
+  },
+  "paletteNotes": {
+    "accent": "#8a6a3f 古铜,栏目签 / 编号 / 关键词",
+    "accent2": "#5f7358 青灰,英文微标 / 次强调",
+    "text": "#1c1a17 墨黑,比纯黑略暖",
+    "muted": "#8a8276 灰褐,注释与表头",
+    "cardBorder": "#e3ddd1 宣纸边,只用 1px 细线",
+    "divider": "#ebe5da 极浅茶色分隔线",
+    "quoteBorder": "#b08a55 引文竖线"
+  }
+}
