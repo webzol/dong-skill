@@ -63,7 +63,28 @@
 7. 写信源台账 `docs/sources/<date>.md`（哪个数字/哪张图 ← 哪个 URL 的哪一块；**入库**）；
 8. 预览 + 交付清单。
 
-## 四、已知坑
+## 四、茶类内容（自动调用）
+
+**只要涉及茶，就不用问、直接走茶模板**：茶知识、茶文化、茶器、茶史、茶席、冲泡、存茶、茶叶、茶单，
+都算。显式指令是 **`茶模型`**（或 `/chamo`），效果相同。
+
+- 主题固定 **`tea-atelier`**（白底 + 墨黑 + 古铜 `#8a6a3f` + 青灰 `#5f7358`，宋体标题 1.95 行高）。
+- 模板六选一：
+
+| 内容 | 首选 | 备选 |
+|---|---|---|
+| 茶知识 · 风味 / 参数 / 冲泡 / 存茶 | `tea-notes` | `tea-almanac` |
+| 茶知识 · 时间 / 节气 / 一天四泡 | `tea-almanac` | `tea-notes` |
+| 茶文化 · 茶史 / 点茶 / 茶礼 / 茶书茶画 | `tea-culture` | `tea-scroll` |
+| 茶文化 · 公案 / 茶人 / 茶席随笔 | `tea-scroll` | `tea-culture` |
+| 茶器 · 多器对比 / 怎么选 | `tea-ware` | `tea-catalog` |
+| 茶器 · 单件拆解 / 部位 / 手感 | `tea-catalog` | `tea-ware` |
+
+- 用户没说方向时，先问一句「茶知识、茶文化，还是茶器？」，不要自己猜。
+- 完整流程与硬规则见 `gzh-skill/commands/chamo.md`；模板骨架在 `gzh-skill/engine-wx/templates/`。
+- 茶稿同样守常驻约定：不放 h1、不放灰字导语、图下不写字、无边框圆角、文末无页脚、base64 单文件、改完必须 push。
+
+## 五、已知坑
 
 - `browser.*` 工具连不上 `x.com`（`ERR_CONNECTION_CLOSED`），截图必须走本机 Chrome 脚本；
 - X 会 403 掉 `HeadlessChrome` UA，`xshot.ps1` 已内置普通 Chrome UA；

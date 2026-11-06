@@ -18,6 +18,12 @@
 5. 交付三句用法 + 结尾「本版 = 模板 X + 主题 Y」；
 6. **铁律**：每次改完立刻 `git add -A` → `commit` → `push`，回复报 commit 短号，工作区不留未提交改动。
 
+## 茶模型
+
+只要内容涉及茶（茶知识 / 茶文化 / 茶器 / 茶史 / 茶席 / 冲泡 / 存茶），或用户说 `茶模型` / `/chamo`：
+主题固定 `tea-atelier`，模板六选一（`tea-notes` / `tea-almanac` / `tea-culture` / `tea-scroll` / `tea-ware` / `tea-catalog`），
+细则见 `gzh-skill/commands/chamo.md`。
+
 ## 硬约束速记
 
 - 截图用 `gzh-skill/engine-wx/scripts/xshot.ps1`（本机 Chrome headless + 普通 UA），

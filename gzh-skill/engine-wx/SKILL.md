@@ -7,6 +7,8 @@ description: >-
   HTML，粘贴进公众号编辑器即得：「简约 + 科技感」风格、模板可换、色调（微信可显示的配色）可选。
   WeChat-official-account typesetting: minimal + tech-style inline-styled HTML with selectable
   templates and multiple color themes.
+  茶类内容（茶知识 / 茶文化 / 茶器 / 茶史 / 茶席 / 冲泡）自动启用茶模板 + tea-atelier 主题；
+  显式指令「茶模型」或 /chamo。
 version: 0.2.1
 ---
 
@@ -33,7 +35,9 @@ version: 0.2.1
 **参数（均可缺省，缺省用默认「简约科技 × DONGPro极简科技（排版推荐）」）：**
 
 - `--template` 模板名：`minimal-tech`（简约科技·默认）/ `cyber-card`（卡片）/ `terminal-code`（终端风）/ `hud`（数据面板）/ `wechat-pai-essay`（微信派·文艺长文）
+  / 茶系列：`tea-culture`（茶文化）/ `tea-scroll`（手卷）/ `tea-ware`（茶器）/ `tea-catalog`（图录）/ `tea-notes`（茶知识）/ `tea-almanac`（茶历）
 - `--theme` 主题名：`dongpro`（DONGPro极简科技 · **排版推荐**·默认）/ `minimal-light`（极简白）/ `minimal-dark`（极简黑）/ `tech-blue`（科技蓝）/ `cyber-green`（赛博绿）/ `neon-purple`（霓虹紫）/ `taobao-flash`（淘宝闪购）/ `wechat-pai`（微信派）/ `qianwen`（千问）
+  / 茶系列：`tea-garden`（茶席）/ `tea-atelier`（茶志 · 茶模板默认）
 - `[草稿]` 文章内容：文件路径，或直接内联
 
 不指定时自动用一个合理默认，并**明确告知所选模板/主题**，方便用户反悔重选。
@@ -45,6 +49,11 @@ version: 0.2.1
 > **每日热点模式**：当用户说 `早报` / `今天的热点` / `每日 3 篇`，或贴 X「Today's News」截图时，
 > 走 `DAILY_NEWS_WORKFLOW.md`（选题 → 抓推文截图 → 写 3 篇 → 排版 → 落盘 `E:\WX\<date>\`）。
 > 该文件是本工作流的固定扩展，含图片获取脚本与已知坑清单。
+>
+> **茶模式**：只要内容涉及茶（茶知识 / 茶文化 / 茶器 / 茶史 / 茶席 / 冲泡 / 存茶 / 茶单），
+> 直接切茶模板 + `tea-atelier`，不要用默认科技风；显式指令为「茶模型」或 `/chamo`。
+> 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
+> 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
 
 ### 第 1 步　读懂草稿
 - 若是文件，用 Read 读取；若是粘贴文本，直接读正文。

@@ -11,6 +11,12 @@
 
 模板 `minimal-tech` × 主题 `dongpro`。
 
+## 茶模型（涉及茶就自动切）
+
+内容涉及茶（茶知识 / 茶文化 / 茶器 / 茶史 / 茶席 / 冲泡 / 存茶），或用户说 `茶模型` / `/chamo`：
+主题固定 `tea-atelier`，模板六选一（`tea-notes` / `tea-almanac` / `tea-culture` / `tea-scroll` / `tea-ware` / `tea-catalog`），
+细则见 `gzh-skill/commands/chamo.md`。
+
 ## 每日 AI 热点（触发词：早报 / 今天的热点 / 每日 3 篇 / 按每日流程跑）
 
 1. 按 `DAILY_NEWS_WORKFLOW.md` 的 9 个环节执行；
