@@ -54,19 +54,19 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:20px 0 22px;font-size:13px;line-height:1.7;letter-spacing:.2px;">
   <tr>
-    <th style="padding:8px 6px;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">茶类</th>
-    <th style="padding:8px 6px;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">关键一步</th>
-    <th style="padding:8px 6px;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">氧化程度</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">茶类</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">关键一步</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">氧化程度</th>
   </tr>
   <tr>
-    <td style="padding:8px 6px;color:{{text}};border-bottom:1px solid {{divider}};">{{绿茶}}</td>
-    <td style="padding:8px 6px;color:{{text}};border-bottom:1px solid {{divider}};">{{杀青}}</td>
-    <td style="padding:8px 6px;color:{{muted}};border-bottom:1px solid {{divider}};">{{尽量不氧化}}</td>
+    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{绿茶}}</td>
+    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{杀青}}</td>
+    <td style="padding:12px 14px;color:{{muted}};border-bottom:1px solid {{divider}};">{{尽量不氧化}}</td>
   </tr>
 </table>
 ```
 
-> 列数控制在 3–4 列；手机端 5 列会挤。代表茶名放在第二行小字，不另开一列。
+> 对照表单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px，首列宋体加重。列数控制在 3–4 列；手机端 5 列会挤。代表茶名放在第二行小字，不另开一列。
 
 ### 冲泡参数面板（三列，无填充）
 

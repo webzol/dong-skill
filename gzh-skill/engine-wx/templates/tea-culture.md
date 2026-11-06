@@ -67,15 +67,17 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 12px;font-size:13px;line-height:1.75;">
   <tr>
-    <th style="padding:8px 8px 8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
-    <th style="padding:8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
   </tr>
   <tr>
-    <td style="padding:10px 10px 10px 0;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
-    <td style="padding:10px 0;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
+    <td style="padding:12px 14px;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
+    <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
   </tr>
 </table>
 ```
+
+> 对照表单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px，首列宋体加重。
 
 ### 图片位（真图无边框无圆角，图下不写字）
 

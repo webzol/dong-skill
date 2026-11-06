@@ -40,19 +40,19 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:24px 0 12px;font-size:13px;line-height:1.75;">
   <tr>
-    <th style="padding:8px 8px 8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">变量</th>
-    <th style="padding:8px 8px 8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调高</th>
-    <th style="padding:8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调低</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">变量</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调高</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调低</th>
   </tr>
   <tr>
-    <td style="padding:10px 8px 10px 0;color:{{text}};border-bottom:1px solid {{divider}};">水温</td>
-    <td style="padding:10px 8px 10px 0;color:{{text}};border-bottom:1px solid {{divider}};">香气出得快，苦涩也快</td>
-    <td style="padding:10px 0;color:{{text}};border-bottom:1px solid {{divider}};">鲜甜更明显，香气偏闷</td>
+    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">水温</td>
+    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">香气出得快，苦涩也快</td>
+    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">鲜甜更明显，香气偏闷</td>
   </tr>
 </table>
 ```
 
-> 表头 `{{codeBg}}`，正文白底；三列刚好，不要加第四列。
+> 带表头色块的对照表：表头宋体 + `{{accent}}` + 字距 2px，单元格四向 padding（横向 ≥14px），文字不贴边，首列宋体加重；表头 `{{codeBg}}`，正文白底；三列刚好，不要加第四列。
 
 ### 顺序清单（降苦三步，用编号不用卡片）
 

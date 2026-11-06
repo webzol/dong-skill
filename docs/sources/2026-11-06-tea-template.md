@@ -43,3 +43,11 @@
 - 图片样式：`display:block;width:100%;margin:14px 0 20px;`，无边框、无圆角、图下无文字。
 - 原始下载图在 `%TEMP%\opencode\tea_img\`，裁好的图在 `generated\2026-11-06\tea-template\img\`。
 
+
+## 修订记录
+
+### 2026-11-06 · 茶类对照表样式重做
+
+- 两张带表头色块的表（茶类 × 关键一步 × 氧化程度、茶类 × 水温 × 投茶比·出汤）按新口径重排：表头宋体 + `#9a6b3f` + 字距 2px，单元格四向 `12px 14px`，首列宋体加重；文字不再贴边。
+- 详细改前改后见 `docs/sources/2026-11-06-tea-series.md` 修订记录；模板口径已回写至 `templates/tea-essay.md`。
+- 重新生成并质检：data:image = 4、`{{` 残留 0，`E:\WX\2026-11-06\` 副本一致。

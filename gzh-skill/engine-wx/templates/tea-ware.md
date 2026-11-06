@@ -48,19 +48,19 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:24px 0 12px;font-size:13px;line-height:1.75;">
   <tr>
-    <th style="padding:8px 8px 8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">材质</th>
-    <th style="padding:8px 8px 8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">香气</th>
-    <th style="padding:8px 0;text-align:left;font-weight:600;color:{{muted}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">温度</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">材质</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">香气</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">温度</th>
   </tr>
   <tr>
-    <td style="padding:10px 8px 10px 0;color:{{text}};border-bottom:1px solid {{divider}};">白瓷</td>
-    <td style="padding:10px 8px 10px 0;color:{{text}};border-bottom:1px solid {{divider}};">不吸香</td>
-    <td style="padding:10px 0;color:{{text}};border-bottom:1px solid {{divider}};">散热中等</td>
+    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">白瓷</td>
+    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">不吸香</td>
+    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">散热中等</td>
   </tr>
 </table>
 ```
 
-> 表头允许 `{{codeBg}}` 浅茶色，正文单元格一律白底；列数不超过 3，手机端 4 列会挤。
+> 带表头色块的对照表：表头用宋体 + `{{accent}}` 古铜 + 字距 2px，**所有单元格四向 padding（横向 ≥14px），文字不许贴边**；首列正文宋体加重做行头；表头允许 `{{codeBg}}` 浅茶色，正文单元格一律白底；不加外框、不加圆角；列数不超过 3，手机端 4 列会挤。
 
 ### 选器三问（编号列表，不用卡片）
 
