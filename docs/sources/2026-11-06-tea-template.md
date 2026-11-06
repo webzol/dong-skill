@@ -30,3 +30,16 @@
 | 存茶 | 避光、密封、干燥、无异味；绿茶与清香乌龙冷藏，其余常温 | 通用存茶建议 |
 
 > 本稿不写保健功效，不做「越陈越香」的绝对判断；白茶、黑茶只写「越存越不同」。
+
+## 配图（4 张，均为 CC0 1.0，已 base64 内嵌）
+
+| 位置 | 文件 | 内容 | 来源 |
+|---|---|---|---|
+| 开篇后 | `a_leaves.jpg` | 茶树新梢与嫩叶，3:2 横裁 | Diganta Sarkar / WordPress Photos，`https://wordpress.org/photos/photo/70669bba3d/` |
+| 六大茶类表后 | `b_dry.jpg` | 干燥后的条索状茶叶 | rawpixel，`https://www.rawpixel.com/image/3296169/free-photo-image-animal-beverage-cc0` |
+| 水温表后 | `c_pour.jpg` | 白瓷壶向杯中出汤，4:5 竖裁 | Burst / StockSnap，`https://stocksnap.io/photo/hands-pouring-H1SR2TNSL9` |
+| 茶史段后 | `d_history.jpg` | 清代茶事绘画，挑茶、筛茶 | rawpixel，`https://www.rawpixel.com/image/13969605/image-plant-person-grass` |
+
+- 图片样式：`display:block;width:100%;margin:14px 0 20px;`，无边框、无圆角、图下无文字。
+- 原始下载图在 `%TEMP%\opencode\tea_img\`，裁好的图在 `generated\2026-11-06\tea-template\img\`。
+
