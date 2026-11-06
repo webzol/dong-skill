@@ -1,0 +1,43 @@
+{
+  "name": "tea-garden",
+  "label": "茶席",
+  "description": "白底 + 墨褐字 + 茶汤琥珀与茶青双强调;宋体标题 + 苹方正文 + 1.9 行高 + 两端对齐;克制的茶知识 / 茶文化长文版式,不靠底色和卡片堆叠。",
+  "colors": {
+    "bg": "#ffffff",
+    "text": "#26231e",
+    "muted": "#8c8578",
+    "accent": "#9a6b3f",
+    "accent2": "#5f7a52",
+    "cardBg": "#ffffff",
+    "cardBorder": "#e7e0d4",
+    "divider": "#ece6da",
+    "codeBg": "#f7f3ea",
+    "codeText": "#7a5a34",
+    "titleBar": "#9a6b3f",
+    "quoteBorder": "#c9a468"
+  },
+  "typography": {
+    "bodyFontSize": "15px",
+    "titleFontSize": "16px",
+    "subtitleFontSize": "14px",
+    "bodyLineHeight": "1.9",
+    "titleLineHeight": "1.4",
+    "paragraphMargin": "18px",
+    "sectionGap": "32px",
+    "alignment": "justify",
+    "fontWeight": "400",
+    "titleWeight": "700",
+    "letterSpacing": ".4px",
+    "fontFamily": "\"PingFang SC\",-apple-system,\"Helvetica Neue\",\"Microsoft YaHei\",sans-serif",
+    "headingFontFamily": "\"Songti SC\",\"STSong\",\"SimSun\",\"Noto Serif CJK SC\",serif"
+  },
+  "paletteNotes": {
+    "accent": "#9a6b3f 茶汤琥珀,栏目签 / 小节英文标 / 关键词",
+    "accent2": "#5f7a52 茶青,次强调(数字、产地、对照项)",
+    "text": "#26231e 墨褐,比纯黑柔和",
+    "muted": "#8c8578 茶灰,注释与表头",
+    "cardBorder": "#e7e0d4 宣纸边,只用 1px 细线,不加填充",
+    "divider": "#ece6da 极浅茶色分隔线",
+    "quoteBorder": "#c9a468 引文竖线,配宋体引文"
+  }
+}

@@ -311,6 +311,18 @@ Get-ChildItem <dir>                              # 只留最终成品
 写台账时顺手记下**抓不到的东西**（登录墙、403、已删除），免得第二天重复踩。
 首份实例：`docs/sources/2026-10-26.md`。
 
+### 7.2 修订同步（每次改稿都要走完）
+
+用户提一次修改意见，不是「改完 HTML 就结束」，下面五件事要**同一轮做完**：
+
+1. 改 `generated\<date>\<slug>\body.html`（源头），不手改成品；
+2. `inject_images.py --allow-missing-captions` → `wrap_preview.py` 串行重跑，`E:\WX\<date>\` 与 `generated\<date>\` 两份都覆盖；
+3. 台账 `docs/sources\<date>.md` 追加「修订记录」：改了什么、为什么、改前改后；
+4. 新口径回写规则文件（`AGENTS.md` / 本文件 / `SKILL.md` / `components.md`），旧口径就地替换，不留两套；
+5. `git add -A` → `commit` → `push`，回复里报 commit 短号。
+
+自查：`git status --short` 为空；成品 `data:image` 数 = 图张数、`{{` 残留 0。
+
 ---
 
 ## 8. 已知坑清单

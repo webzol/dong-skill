@@ -36,7 +36,8 @@
 5. 组装用 `scripts/inject_images.py` → `engine-design/scripts/wrap_preview.py`，串行执行；
 6. 落盘 `E:\WX\<YYYY-MM-DD>\`，并在 `generated/<date>/` 留一份备份；
 7. 写信源台账 `generated/<date>/sources.md`（结论/配图 ← URL + 页面位置），格式见 §7.1；
-8. 交付三句用法 + 「本版 = 模板 X + 主题 Y」。
+8. 交付三句用法 + 「本版 = 模板 X + 主题 Y」；
+9. **铁律**：每次改完立刻 `git add -A` → `commit` → `push`，回复报 commit 短号，工作区不留未提交改动。
 
 细节、坑位与命令示例都在 `DAILY_NEWS_WORKFLOW.md`，不要凭记忆简化。
 
