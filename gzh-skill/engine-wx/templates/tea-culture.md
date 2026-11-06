@@ -71,13 +71,13 @@
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
   </tr>
   <tr>
-    <td style="padding:12px 14px;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
+    <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
     <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
   </tr>
 </table>
 ```
 
-> 对照表单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px，首列宋体加重。
+> 对照表单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px。两列并列对照（宋 / 明这类）正文格一律同 weigh，不加重首列；首列加重只用于「行头式」对照表（如材质表）。
 
 ### 图片位（真图无边框无圆角，图下不写字）
 

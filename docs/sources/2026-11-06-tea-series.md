@@ -80,3 +80,9 @@
   - 首列行头：与正文同 weigh → 宋体加重。
 - **重新生成**：`inject_images.py --allow-missing-captions` → `wrap_preview.py` 串行；质检 data:image = 3/2/4（对应该篇图数）、`{{` 残留 0；`E:\WX\2026-11-06\` 三份成品同步覆盖。
 - **规则回写**：`gzh-skill/engine-wx/templates/` 下 `tea-ware.md`、`tea-notes.md`、`tea-culture.md`、`tea-essay.md` 四个模板的对照表骨架同步为新口径（无表头色块的 label-value 参数表维持原样）。
+
+### 2026-11-06（二）· 宋人点茶篇对照表补排
+
+- **改了什么**：`茶文化模板 · 宋人点茶，点的不是茶` 的「宋 · 点茶 / 明 · 瀹饮」对照表按新口径重排（表头宋体 + `#8a6a3f` + 字距 2px，单元格四向 `12px 14px`）。该篇表格写法与前三篇不同，第一轮重排时漏网，本轮全树扫 `<th` 确认无其他遗漏。
+- **口径修正**：宋/明两列是并列对照，正文格一律同 weigh，不加重首列；「首列宋体加重」只适用于行头式对照表（材质表、变量表、茶类表）。`templates/tea-culture.md` 骨架与说明已同步改掉上一轮的误写。
+- **重新生成**：串行 inject → wrap；data:image = 2、`{{` 残留 0，`E:\WX\2026-11-06\` 副本一致。
