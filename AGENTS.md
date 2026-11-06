@@ -81,6 +81,7 @@
 | 茶器 · 单件拆解 / 部位 / 手感 | `tea-catalog` | `tea-ware` |
 
 - 用户没说方向时，先问一句「茶知识、茶文化，还是茶器？」，不要自己猜。
+- 茶知识写作与核验见 `gzh-skill/engine-wx/references/tea-knowledge.md`（分类、工艺、风味、冲泡、存茶；参数附适用条件）。
 - 完整流程与硬规则见 `gzh-skill/commands/chamo.md`；模板骨架在 `gzh-skill/engine-wx/templates/`。
 - 茶稿同样守常驻约定：不放 h1、不放灰字导语、图下不写字、无边框圆角、文末无页脚、base64 单文件、改完必须 push。
 

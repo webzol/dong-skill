@@ -20,6 +20,8 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 
 - 用户没说方向：先问一句「茶知识、茶文化，还是茶器？」，别自己猜。
 - 用户只给了「茶」+ 一篇稿：按稿子内容判断；判断不出按 `tea-notes` 走。
+- 已明确“茶知识”但没有选题或草稿：只问具体要解决的问题，不再追问三大方向。维护模板或技能的请求直接做维护，不自动写一篇文章。
+- 茶知识写作或审稿先读 `gzh-skill/engine-wx/references/tea-knowledge.md`，按其中的选题、事实核验、参数与台账口径执行。
 
 ## 硬规则
 
@@ -28,18 +30,20 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 3. 图片一律 base64，交付单文件 HTML（带右上角「复制到公众号」按钮）；
 4. 不用底色卡片、圆角、阴影；表头只允许 `#f7f3ea`；
 5. 宋体标题 + 苹方正文，15px / 1.95 行高 / 两端对齐；
-6. 不写保健功效，不做「越陈越香」的绝对判断；参数只给区间。
+6. 不写保健功效，不做「越陈越香」的绝对判断；冲泡建议给有依据的起始区间及适用条件，实测值和引用数据保持原值。
 
 ## 执行
 
 1. 读模板骨架：`gzh-skill/engine-wx/templates/<模板>.md`；主题：`themes/tea-atelier.json`；
 2. 写 `generated/<date>/<slug>/body.html`（内联样式，占位 `{{IMG_A}}`）；
 3. 配图放 `generated/<date>/<slug>/img/`，写 `images.json`；
-4. 串行跑：`validate_gzh_html.py`（需 `<span leaf="">`）→ `inject_images.py --allow-missing-captions` → `wrap_preview.py`；
+4. 所有正文文本按校验器要求包 `<span leaf="">`；串行跑 `validate_gzh_html.py` → `inject_images.py --allow-missing-captions` → 对注入后的正文再跑 `validate_gzh_html.py` → `wrap_preview.py`。任一步失败先修复，不能继续包装；校验对象是正文，不是带脚本的预览外壳；
 5. 落盘 `E:\WX\<YYYY-MM-DD>\`，备份 `generated\<date>\<slug>\`；
-6. 台账 `docs/sources/<date>-<slug>.md`（事实出处 + 配图来源）；
+6. 台账 `docs/sources/<date>-<slug>.md`（事实出处、适用条件、配图来源与修订记录），在 `docs/sources/<date>.md` 链接；保留 `body.html`、`images.json` 和源图用于后续改稿，交付目录只放成品；
 7. `git add` → `commit` → `push`，回复报 commit 短号；
 8. 交付三句用法 + 「本版 = 模板 X + 主题 tea-atelier」。
+
+仅维护规则、未修改文章源稿时，不重生成历史文章；在台账与 `DEV_NOTES.md` 说明变更范围、验证结果及旧稿待核验项。提交推送遵守仓库授权边界；主分支推送未获确认时使用 `codex/` 分支。
 
 用户这次给的内容：
 $ARGUMENTS

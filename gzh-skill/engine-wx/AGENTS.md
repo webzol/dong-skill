@@ -50,6 +50,7 @@
 - 茶文化 → `tea-culture`（茶史/茶礼），公案或随笔 → `tea-scroll`；
 - 茶器 → `tea-ware`（多器对比），单件拆解 → `tea-catalog`；
 - 没说方向先问一句「茶知识、茶文化，还是茶器？」，别猜。
+- 茶知识写作与审稿先读 `references/tea-knowledge.md`；维护技能不自动写稿。
 - 完整流程见 `../commands/chamo.md`；骨架在 `templates/`，主题在 `themes/tea-atelier.json`。
 - 茶稿守同一套硬规则：不放 h1、不放灰字导语、图下不写字、无边框圆角、文末无页脚、base64 单文件。
 

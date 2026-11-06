@@ -9,7 +9,8 @@ description: >-
   templates and multiple color themes.
   茶类内容（茶知识 / 茶文化 / 茶器 / 茶史 / 茶席 / 冲泡）自动启用茶模板 + tea-atelier 主题；
   显式指令「茶模型」或 /chamo。
-version: 0.2.1
+metadata:
+  version: "0.2.1"
 ---
 
 # 微信公众号排版 Skill
@@ -54,6 +55,7 @@ version: 0.2.1
 > 直接切茶模板 + `tea-atelier`，不要用默认科技风；显式指令为「茶模型」或 `/chamo`。
 > 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
 > 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
+> 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。茶模式跳过第 1.5 步，第 2 步使用已选茶模板与 `tea-atelier`；维护规则不启动文章生成。
 
 ### 第 1 步　读懂草稿
 - 若是文件，用 Read 读取；若是粘贴文本，直接读正文。
@@ -61,7 +63,7 @@ version: 0.2.1
 
 ### 第 1.5 步　打开模板 × 主题选择页（首次排版时必做）
 
-**触发条件**：用户没有明确指定 `--template` 和 `--theme`（或只指定了其一）。
+**触发条件**：非茶模式、没有项目默认或已知用户偏好，且用户没有明确指定 `--template` 和 `--theme`（或只指定了其一）。
 
 1. 用 `Start-Process` 在浏览器中打开 `preview/selection.html`（相对于本 skill 目录的路径）。该页面是一个类软件设置面板风格的深色交互页：
    - 左侧「模板」面板：5 个模板选项，每个带 SVG 缩略图 + 名称 + 描述，点击切换激活模板；`简约科技` 标有「默认」标签
@@ -84,7 +86,7 @@ version: 0.2.1
 ### 第 2 步　锁定模板 + 主题
 - 读 `templates/_index.md` 与 `themes/themes.json`，看清单与各自风格一句话说明。
 - 模板决定**版式骨架**（怎么摆块），主题决定**颜色**（色板）。两者自由组合。
-- 默认 `minimal-tech` + `dongpro`。除非用户点名，否则别自作主张换更强效果的组合。
+- 茶模式默认所选茶模板 + `tea-atelier`；普通稿默认 `minimal-tech` + `dongpro`。除非用户点名，否则别自作主张换更强效果的组合。
 
 ### 第 3 步　生成微信兼容 HTML（核心）
 1. 通读 `references/wechat-compat.md`——**铁律**，逐条遵守。
@@ -133,7 +135,7 @@ generated/
 - ❌ **禁止**：`Flexbox`、`Grid`、`position`、`z-index`、`var(--x)`、`:hover/:before/:after`、
   `@media`、`@font-face`、依赖 class 选择器的 `<style>`、外部 `<link>`、`backdrop-filter`、`filter`、`transform`
 - ⚠️ **谨慎**：`box-shadow`、`border-radius`、`letter-spacing`（多数版本可用，个别机型失效；**布局切勿依赖**）
-- `img` 必须有 `src`：交付成品一律 **base64 data URI 内嵌**（单文件可直接复制；公网 URL 亦可，本地 `file://` 路径无效）；宽度 `width:100%`，样式与「内嵌对应位置 + 12px 图注」规范见 `references/components.md` §13；不要用背景图承载关键内容
+- `img` 必须有 `src`：交付成品一律 **base64 data URI 内嵌**（本地 `file://` 路径无效）；宽度 `width:100%`，样式与「内嵌对应位置、图下不写字」规范见 `references/components.md` §13；不要用背景图承载关键内容
 - 字距、行高、留白是「简约科技感」的灵魂——优先用 `letter-spacing`、`line-height`、`margin/padding` 的节奏，而不是复杂装饰
 
 ---

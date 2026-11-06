@@ -168,3 +168,13 @@ git push origin main
 - [ ] 是否加 CI（gzh-design-skill 自带 .github/，但没动它）
 - [ ] 是否把 webzol/dong-skill 改成 organization 名（目前是 user 仓库）
 - [ ] v1.0.0 之前的 tag（assets-v1）没同步到 dong-skill，需要的话 git push origin assets-v1
+
+## 2026-11-06 · 茶知识技能完善
+
+- 补齐统一入口 → chamo → tea-knowledge 的路径，避免已进入茶模式仍弹主题选择；规则维护不启动写稿。
+- 茶知识支持分类、工艺、风味、冲泡、存茶与辨识；不再强行套四味结构。固定降苦顺序改为单变量试泡，参数附茶样、单位、泡次、计时及依据。
+- 保留题签、书衣线与四向留白；两套茶知识模板图片间距对齐 14px 0 20px。
+- 保留文章源稿与图片映射，补注入后正文校验；只有规则变化时不重生成历史稿件。台账见 docs/sources/2026-11-06-tea-knowledge-rules.md。
+- 校验发现 wx 入口原顶层 version 不受 quick_validate 支持，移入 metadata 并保留 0.2.1。统一入口和 wx 入口均通过技能校验；git diff --check 通过。
+- 待验证：历史茶稿台账中的泛称来源需逐篇补证，未复测公众号粘贴。此次不新增茶学事实或改旧成品。
+- 同步到 codex/tea-knowledge-improvements 分支；main 推送按 TD 的先确认约定执行。

@@ -18,6 +18,8 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 ## 路由规则（按顺序判定，命中即停）
 
+0. **茶类稿件或「茶模型」/ `/chamo`** → **wx 引擎**，先读 `commands/chamo.md`；默认茶模板 × `tea-atelier`，跳过主题选择。茶知识补写或审稿还须读 `engine-wx/references/tea-knowledge.md`。若输入是 Word/PDF，先提取内容再回到茶模板。维护茶类规则时只做所请求的维护。
+
 1. 用户**点名 wx 引擎的模板或主题名**——模板：`minimal-tech` / `cyber-card` / `terminal-code` / `hud` / `wechat-pai-essay`；主题：`minimal-light` / `minimal-dark` / `tech-blue` / `cyber-green` / `neon-purple` / `taobao-flash` / `wechat-pai` / `qianwen`；或要求「模板 × 配色自由组合 / 换模板 / 换配色」→ **wx 引擎**
 2. 输入是 **.docx 或 .pdf** → **design 引擎**（走其 format-normalize + extract_docx 流程）
 3. 要求**生成新主题 / 自定义风格 / 按参考图做一套组件库** → **design 引擎**（theme-generator 工作流）
@@ -34,6 +36,7 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 ## 主题选择约定（覆盖两引擎的默认主题行为，用户体验第一）
 
+- **茶模式及项目约定优先**：茶稿执行 `commands/chamo.md`，本仓库普通稿默认 `minimal-tech × dongpro`；已有用户偏好不重复询问。以下选主题流程仅适用于没有项目默认或已知偏好的其他稿件。
 - **用户没指定主题时，必须立即自动弹出交互式风格选择框让用户点选，不得自行默认，也不得只列纯文本清单等用户打字回复**。清单范围 = 两引擎全部主题：design 引擎 6 套（摸鱼绿 / 橄榄手记 / 摸鱼票据风 / 红白色系 / 石墨极简风 / 留白禅意风）+ wx 引擎 8 套色板（minimal-light 极简白 / minimal-dark 极简黑 / tech-blue 科技蓝 / cyber-green 赛博绿 / neon-purple 霓虹紫 / taobao-flash 淘宝闪购 / wechat-pai 微信派 / qianwen 千问）。
 - **弹框体验要求（UX 优先）**：
   - 用 AI 工具的交互选择组件（如 Claude Code 的 AskUserQuestion / ZCode 的 AskUserQuestion）弹出，用户点选即回，**不打字、不来回追问**。
@@ -42,7 +45,7 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
   - 选题与问其他问题（如确认结构）**合并成一轮**，能一次问完的不拆两次。
   - 用户选 wx 色板后，模板选择框**紧接着弹出**（minimal-tech / cyber-card / terminal-code / hud / wechat-pai-essay），除非已一并点名。
   - 可在弹框中附画廊路径供先看效果：design 画廊 `engine-design/docs/gallery/index.html`、wx 画廊 `engine-wx/preview/preview.html`。
-- **唯一例外**：用户明确说「直接排 / 一键 / 不用问」放弃选择时，才自动选最契合的主题（wx 引擎用其默认组合）并在交付时说明理由。
+- **其他免选情形**：用户明确说「直接排 / 一键 / 不用问」放弃选择时，才自动选最契合的主题（wx 引擎用其默认组合）并在交付时说明理由。
 - 两引擎文档中与此冲突的默认规则（design 引擎「默认首选第一行」、wx 引擎「缺省用默认组合」），以本节为准。
 
 ## 输出归档约定（两引擎文档已同步此约定，此处为总纲）
@@ -51,7 +54,7 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 1. **先建当天文件夹**：在当前工作目录下新建 `generated/<YYYY-MM-DD>/`（本地日期），当次产物只放这一个文件夹；同一天多次排版共用同一天的文件夹。
 2. **只交付一个成品文件**：文件夹里最终只留**一个**带「复制」按钮、可直接粘贴公众号编辑器的 HTML（文件名用简短主题概括，如 `两个AI排版skill合并复盘.html`）。
-   - design 引擎：干净 `<section>` 正文只作为校验中间产物——`validate_gzh_html.py` 跑到 0 ERROR 0 WARNING 后，用 `engine-design/scripts/wrap_preview.py <干净正文> <成品文件名>` 包出带「复制」按钮的成品，**随后删除中间的干净正文**，不留两份。
+   - design 引擎：干净 `<section>` 正文只作为校验中间产物——`validate_gzh_html.py` 跑到 0 ERROR 0 WARNING 后，用 `engine-design/scripts/wrap_preview.py <干净正文> <成品文件名>` 包出带「复制」按钮的成品，交付目录只放成品；茶稿与本仓库稿件的 `body.html`、图片映射和源图保留在稿件子目录，供后续修订。
    - wx 引擎：生成内联 HTML 后，同样用 `engine-design/scripts/wrap_preview.py` 包一层带「复制」按钮的预览外壳再交付；`source.md` / `README.md` 归档三件套不再默认生成（用户明确要求时才附）。
 3. `generated/` 不入库：仓库根 `.gitignore` 已忽略该目录。
 4. 交付说明固定三句：浏览器打开成品 HTML → 点右上角「复制到公众号」→ 到公众号编辑器粘贴；正文含 `{{作者名}}` 等占位时提醒替换。
