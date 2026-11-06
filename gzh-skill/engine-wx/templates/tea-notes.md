@@ -69,21 +69,22 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 8px;font-size:13px;line-height:1.75;">
   <tr>
-    <td style="padding:8px 0;width:30%;color:{{muted}};border-bottom:1px solid {{divider}};">水温</td>
-    <td style="padding:8px 0;color:{{text}};border-bottom:1px solid {{divider}};">{{85℃}}</td>
+    <td style="padding:10px 14px;width:30%;color:{{muted}};border-bottom:1px solid {{divider}};">水温</td>
+    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{85℃}}</td>
   </tr>
   <tr>
-    <td style="padding:8px 0;width:30%;color:{{muted}};border-bottom:1px solid {{divider}};">投茶比</td>
-    <td style="padding:8px 0;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
+    <td style="padding:10px 14px;width:30%;color:{{muted}};border-bottom:1px solid {{divider}};">投茶比</td>
+    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
   </tr>
   <tr>
-    <td style="padding:8px 0;width:30%;color:{{muted}};">出汤</td>
-    <td style="padding:8px 0;color:{{text}};">{{60–90 秒}}</td>
+    <td style="padding:10px 14px;width:30%;color:{{muted}};">出汤</td>
+    <td style="padding:10px 14px;color:{{text}};">{{60–90 秒}}</td>
   </tr>
 </table>
 <p style="margin:0 0 22px;font-size:12px;line-height:1.7;letter-spacing:.4px;color:{{muted}};">{{以 150ml 水为基准，器容量不同按同比例换算。}}</p>
 ```
 
+> 无表头参数表同样四向留白：纵向 10px、横向 14px，文字不贴边；标签列维持 `{{muted}}`，不加重。
 ### 图片位
 
 ```html

@@ -73,16 +73,16 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:13px;line-height:1.7;">
   <tr>
-    <td style="padding:7px 0;color:{{muted}};border-bottom:1px solid {{divider}};width:30%;">{{水温}}</td>
-    <td style="padding:7px 0;color:{{text}};border-bottom:1px solid {{divider}};">{{80–85℃}}</td>
+    <td style="padding:10px 14px;color:{{muted}};border-bottom:1px solid {{divider}};width:30%;">{{水温}}</td>
+    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{80–85℃}}</td>
   </tr>
   <tr>
-    <td style="padding:7px 0;color:{{muted}};border-bottom:1px solid {{divider}};">{{投茶比}}</td>
-    <td style="padding:7px 0;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
+    <td style="padding:10px 14px;color:{{muted}};border-bottom:1px solid {{divider}};">{{投茶比}}</td>
+    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
   </tr>
   <tr>
-    <td style="padding:7px 0;color:{{muted}};">{{出汤}}</td>
-    <td style="padding:7px 0;color:{{text}};">{{1–2 分钟}}</td>
+    <td style="padding:10px 14px;color:{{muted}};">{{出汤}}</td>
+    <td style="padding:10px 14px;color:{{text}};">{{1–2 分钟}}</td>
   </tr>
 </table>
 <p style="margin:0 0 22px;font-size:12px;line-height:1.7;letter-spacing:.3px;color:{{muted}};">{{注：比例以 150ml 水为基准，器具容量不同按同比例换算。}}</p>
@@ -104,12 +104,13 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14px;line-height:1.8;">
   <tr>
-    <td style="padding:10px 10px 10px 0;width:34%;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{常见说法}}</td>
-    <td style="padding:10px 0;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{实际怎么回事}}</td>
+    <td style="padding:10px 14px;width:34%;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{常见说法}}</td>
+    <td style="padding:10px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{实际怎么回事}}</td>
   </tr>
 </table>
 ```
 
+> 说法对照同样四向留白（纵向 10px、横向 14px），文字不贴边。
 ### 图片位（用户没给图时占位；给了图按 §13，不加边框圆角）
 
 ```html

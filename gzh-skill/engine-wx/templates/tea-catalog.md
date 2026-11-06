@@ -55,12 +55,13 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:4px 0 8px;font-size:13px;line-height:1.7;">
   <tr>
-    <td style="padding:7px 0;width:26%;color:{{muted}};border-bottom:1px solid {{divider}};">{{看什么}}</td>
-    <td style="padding:7px 0;color:{{text}};border-bottom:1px solid {{divider}};">{{出水是否成线}}</td>
+    <td style="padding:10px 14px;width:26%;color:{{muted}};border-bottom:1px solid {{divider}};">{{看什么}}</td>
+    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{出水是否成线}}</td>
   </tr>
 </table>
 ```
 
+> 规格行同样四向留白（纵向 10px、横向 14px），文字不贴边；标签列维持 `{{muted}}`。
 ### 局部图（可选，紧贴对应条目）
 
 ```html
