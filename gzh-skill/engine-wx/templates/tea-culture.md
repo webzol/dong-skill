@@ -43,13 +43,13 @@
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 10px;font-size:13px;line-height:1.75;">
   <tr>
     <td style="padding:10px 14px;width:14%;vertical-align:top;color:{{accent}};font-family:'Songti SC','STSong',serif;border-bottom:1px solid {{divider}};">壹</td>
-    <td style="padding:10px 14px;width:22%;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{炙}}</td>
+    <td style="padding:10px 14px;width:22%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{炙}}</td>
     <td style="padding:10px 14px;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{微火烘乾茶饼，去水气与青气}}</td>
   </tr>
 </table>
 ```
 
-> 三列：序号 / 动作 / 一句解释。单元格四向留白（纵向 10px、横向 14px），文字不贴边。最多五步，超过五步改用正文叙述。
+> 三列：序号 / 动作 / 一句解释。单元格四向留白（纵向 10px、横向 14px），文字不贴边；动作名列宋体加重做行头。最多五步，超过五步改用正文叙述。
 
 ### 引文（宋体 + 古铜竖线）
 
@@ -65,7 +65,8 @@
 ### 对照表（两种做法 / 两个时代）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 12px;font-size:13px;line-height:1.75;">
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 宋明对照 ·</p>
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
@@ -77,7 +78,7 @@
 </table>
 ```
 
-> 对照表单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px。两列并列对照（宋 / 明这类）正文格一律同 weigh，不加重首列；首列加重只用于「行头式」对照表（如材质表）。
+> 对照表：表上方加**题签**（宋体 `{{accent}}` 居中，11px、字距 4px、「· 四字名 ·」），表顶部一条 `2px solid {{accent}}` 书衣线；单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px。两列并列对照（宋 / 明这类）正文格一律同 weigh，不加重首列；首列加重只用于「行头式」对照表（如材质表）。
 
 ### 图片位（真图无边框无圆角，图下不写字）
 

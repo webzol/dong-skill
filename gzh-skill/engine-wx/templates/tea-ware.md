@@ -46,7 +46,8 @@
 ### 材质对照表（三列以内）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:24px 0 12px;font-size:13px;line-height:1.75;">
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 材质对照 ·</p>
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">材质</th>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">香气</th>
@@ -60,7 +61,7 @@
 </table>
 ```
 
-> 带表头色块的对照表：表头用宋体 + `{{accent}}` 古铜 + 字距 2px，**所有单元格四向 padding（横向 ≥14px），文字不许贴边**；首列正文宋体加重做行头；表头允许 `{{codeBg}}` 浅茶色，正文单元格一律白底；不加外框、不加圆角；列数不超过 3，手机端 4 列会挤。
+> 带表头色块的对照表：表上方加**题签**——居中一行宋体 `{{accent}}` 小字（11px、字距 4px、格式「· 四字名 ·」），表顶部一条 `2px solid {{accent}}` **书衣线**（只压顶，其余三边无框、无圆角）；表头宋体 + `{{accent}}` + 字距 2px，**所有单元格四向 padding（横向 ≥14px），文字不许贴边**；首列正文宋体加重做行头；表头允许 `{{codeBg}}` 浅茶色，正文单元格一律白底；列数不超过 3，手机端 4 列会挤。
 
 ### 选器三问（编号列表，不用卡片）
 

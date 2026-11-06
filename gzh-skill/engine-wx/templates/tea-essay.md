@@ -52,7 +52,8 @@
 ### 茶类对照表（表头浅茶色，仅表头允许底色）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:20px 0 22px;font-size:13px;line-height:1.7;letter-spacing:.2px;">
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 六大茶类 ·</p>
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 22px;font-size:13px;line-height:1.7;letter-spacing:.2px;border-top:2px solid {{accent}};">
   <tr>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">茶类</th>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">关键一步</th>
@@ -66,22 +67,22 @@
 </table>
 ```
 
-> 对照表单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px，首列宋体加重。列数控制在 3–4 列；手机端 5 列会挤。代表茶名放在第二行小字，不另开一列。
+> 对照表：表上方加**题签**（宋体 `{{accent}}` 居中，11px、字距 4px、「· 四字名 ·」），表顶部一条 `2px solid {{accent}}` 书衣线；单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px，首列宋体加重。列数控制在 3–4 列；手机端 5 列会挤。代表茶名放在第二行小字，不另开一列。
 
 ### 冲泡参数面板（三列，无填充）
 
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:13px;line-height:1.7;">
   <tr>
-    <td style="padding:10px 14px;color:{{muted}};border-bottom:1px solid {{divider}};width:30%;">{{水温}}</td>
+    <td style="padding:10px 14px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};width:30%;">{{水温}}</td>
     <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{80–85℃}}</td>
   </tr>
   <tr>
-    <td style="padding:10px 14px;color:{{muted}};border-bottom:1px solid {{divider}};">{{投茶比}}</td>
+    <td style="padding:10px 14px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{投茶比}}</td>
     <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
   </tr>
   <tr>
-    <td style="padding:10px 14px;color:{{muted}};">{{出汤}}</td>
+    <td style="padding:10px 14px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};">{{出汤}}</td>
     <td style="padding:10px 14px;color:{{text}};">{{1–2 分钟}}</td>
   </tr>
 </table>
@@ -104,7 +105,7 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14px;line-height:1.8;">
   <tr>
-    <td style="padding:10px 14px;width:34%;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{常见说法}}</td>
+    <td style="padding:10px 14px;width:34%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{常见说法}}</td>
     <td style="padding:10px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{实际怎么回事}}</td>
   </tr>
 </table>

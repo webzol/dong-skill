@@ -38,7 +38,8 @@
 ### 变量表（三列：变量 / 调高会怎样 / 调低会怎样）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:24px 0 12px;font-size:13px;line-height:1.75;">
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 变量与滋味 ·</p>
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">变量</th>
     <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调高</th>
@@ -52,7 +53,7 @@
 </table>
 ```
 
-> 带表头色块的对照表：表头宋体 + `{{accent}}` + 字距 2px，单元格四向 padding（横向 ≥14px），文字不贴边，首列宋体加重；表头 `{{codeBg}}`，正文白底；三列刚好，不要加第四列。
+> 带表头色块的对照表：表上方加**题签**（宋体 `{{accent}}` 居中，11px、字距 4px、「· 四字名 ·」），表顶部一条 `2px solid {{accent}}` 书衣线；表头宋体 + `{{accent}}` + 字距 2px，单元格四向 padding（横向 ≥14px），文字不贴边，首列宋体加重；表头 `{{codeBg}}`，正文白底；三列刚好，不要加第四列。
 
 ### 顺序清单（降苦三步，用编号不用卡片）
 
@@ -69,22 +70,22 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 8px;font-size:13px;line-height:1.75;">
   <tr>
-    <td style="padding:10px 14px;width:30%;color:{{muted}};border-bottom:1px solid {{divider}};">水温</td>
+    <td style="padding:10px 14px;width:30%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">水温</td>
     <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{85℃}}</td>
   </tr>
   <tr>
-    <td style="padding:10px 14px;width:30%;color:{{muted}};border-bottom:1px solid {{divider}};">投茶比</td>
+    <td style="padding:10px 14px;width:30%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">投茶比</td>
     <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
   </tr>
   <tr>
-    <td style="padding:10px 14px;width:30%;color:{{muted}};">出汤</td>
+    <td style="padding:10px 14px;width:30%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};">出汤</td>
     <td style="padding:10px 14px;color:{{text}};">{{60–90 秒}}</td>
   </tr>
 </table>
 <p style="margin:0 0 22px;font-size:12px;line-height:1.7;letter-spacing:.4px;color:{{muted}};">{{以 150ml 水为基准，器容量不同按同比例换算。}}</p>
 ```
 
-> 无表头参数表同样四向留白：纵向 10px、横向 14px，文字不贴边；标签列维持 `{{muted}}`，不加重。
+> 无表头参数表同样四向留白：纵向 10px、横向 14px，文字不贴边；标签列宋体、维持 `{{muted}}`，不加重。
 ### 图片位
 
 ```html
