@@ -37,8 +37,10 @@ metadata:
 
 - `--template` 模板名：`minimal-tech`（简约科技·默认）/ `cyber-card`（卡片）/ `terminal-code`（终端风）/ `hud`（数据面板）/ `wechat-pai-essay`（微信派·文艺长文）
   / 茶系列：`tea-culture`（茶文化）/ `tea-scroll`（手卷）/ `tea-ware`（茶器）/ `tea-catalog`（图录）/ `tea-notes`（茶知识）/ `tea-almanac`（茶历）
+  / AI 科技：`ai-model`（大模型速写：元信息条 + 关键数字条 + 官方截图/榜单图各就位）
 - `--theme` 主题名：`dongpro`（DONGPro极简科技 · **排版推荐**·默认）/ `minimal-light`（极简白）/ `minimal-dark`（极简黑）/ `tech-blue`（科技蓝）/ `cyber-green`（赛博绿）/ `neon-purple`（霓虹紫）/ `taobao-flash`（淘宝闪购）/ `wechat-pai`（微信派）/ `qianwen`（千问）
   / 茶系列：`tea-garden`（茶席）/ `tea-atelier`（茶志 · 茶模板默认）
+  / AI 科技：`ai-lab`（AI 实验室 · 白底 + 靛蓝/松石 · ai-model 默认）
 - `[草稿]` 文章内容：文件路径，或直接内联
 
 不指定时自动用一个合理默认，并**明确告知所选模板/主题**，方便用户反悔重选。
@@ -53,6 +55,9 @@ metadata:
 >
 > **茶模式**：只要内容涉及茶（茶知识 / 茶文化 / 茶器 / 茶史 / 茶席 / 冲泡 / 存茶 / 茶单），
 > 直接切茶模板 + `tea-atelier`，不要用默认科技风；显式指令为「茶模型」或 `/chamo`。
+>
+> **AI 模式**：内容是 AI / 大模型（发布、选型、价格、榜单、参数）时，默认 `ai-model` + `ai-lab`；
+> 图片位分三类：官方定价或文档页、第三方榜单、模型卡参数页，各贴在对应论点后面，图下不写字。
 > 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
 > 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
 > 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。茶模式跳过第 1.5 步，第 2 步使用已选茶模板与 `tea-atelier`；维护规则不启动文章生成。

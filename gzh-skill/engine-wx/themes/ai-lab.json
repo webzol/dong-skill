@@ -1,0 +1,44 @@
+{
+  "name": "ai-lab",
+  "label": "AI 实验室",
+  "description": "白底 + 墨黑字 + 靛蓝主强调 + 松石次强调;无衬线标题 + 苹方正文 + 1.95 行高 + 两端对齐;为 AI 大模型速写设计的克制版式,官方页面截图、定价表、第三方榜单都能各就各位,不靠底色卡片堆叠。",
+  "colors": {
+    "bg": "#ffffff",
+    "text": "#15181d",
+    "muted": "#78808c",
+    "accent": "#2a55c7",
+    "accent2": "#0f8a7e",
+    "cardBg": "#ffffff",
+    "cardBorder": "#e7eaef",
+    "divider": "#eef1f5",
+    "codeBg": "#f5f7fa",
+    "codeText": "#2a55c7",
+    "titleBar": "#2a55c7",
+    "quoteBorder": "#2a55c7"
+  },
+  "typography": {
+    "bodyFontSize": "15px",
+    "titleFontSize": "17px",
+    "subtitleFontSize": "13px",
+    "bodyLineHeight": "1.95",
+    "titleLineHeight": "1.6",
+    "paragraphMargin": "18px",
+    "sectionGap": "36px",
+    "alignment": "justify",
+    "fontWeight": "400",
+    "titleWeight": "700",
+    "letterSpacing": ".3px",
+    "fontFamily": "\"PingFang SC\",-apple-system,\"Helvetica Neue\",\"Microsoft YaHei\",sans-serif",
+    "headingFontFamily": "-apple-system,\"Helvetica Neue\",\"Segoe UI\",Roboto,\"PingFang SC\",sans-serif"
+  },
+  "paletteNotes": {
+    "accent": "#2a55c7 靛蓝,栏目签 / 编号 / 表头 / 关键数字",
+    "accent2": "#0f8a7e 松石,次强调(对照项、第三方口径、英文微标)",
+    "text": "#15181d 墨黑,比纯黑略冷",
+    "muted": "#78808c 灰蓝,注释、表头标签、参数说明",
+    "cardBorder": "#e7eaef 冷灰细线,只用 1px",
+    "divider": "#eef1f5 极浅分隔线",
+    "codeBg": "#f5f7fa 冷调浅底,仅表头与行内代码",
+    "quoteBorder": "#2a55c7 引文竖线"
+  }
+}
