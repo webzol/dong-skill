@@ -70,3 +70,7 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 - 安装：整个 skill 目录复制到 AI 工具的 skill 目录，或直接运行本目录下的 `install.sh`（macOS/Linux）/ `install.ps1`（Windows）。
 - 升级与维护约定（含 engine-design 的 upstream 同步流程、engine-wx 的主仓库快照同步）见仓库根 `DEV_NOTES.md`。
 - 许可：`engine-design/` 为 AGPL-3.0（见其 LICENSE），`engine-wx/` 为 MIT（见其 LICENSE），许可文件随各自引擎目录保留。
+
+## 写稿口吻（2026-11-16）
+
+写 AI/模型稿时先读 `engine-wx/references/writing-style.md`，按题材选新智元/卡兹克/量子位/ASI 腔；样例 `writing-style-samples.md`，语料 `writing-style-corpus/`。排版流程不变。

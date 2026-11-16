@@ -205,6 +205,9 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 ## 4. 写稿骨架（沿用 Terra / WorkBuddy 那几篇）
 
+> **2026-11-16 起写稿口吻以 `references/writing-style.md` 为准**（新智元 / 卡兹克 / 量子位 / ASI 范文库）。开篇样例见 `references/writing-style-samples.md`，语料在 `references/writing-style-corpus/`。下面骨架仍有效；与旧「小标题可用问句」冲突时，**以 writing-style.md 为准：小标题用结论短句，不用问句**。
+
+
 ```html
 <!-- 公众号标题栏 / 文件名已有标题：正文禁止再放 h1 与其下分隔线 -->
 

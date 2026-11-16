@@ -59,7 +59,7 @@
    信源清单固定在 `DAILY_NEWS_WORKFLOW.md` §1.1（HF 模型卡 / OpenAI help center / 官方 blog / 官方 X / 媒体 / 第三方榜 / 社区）；
 3. 配图：`gzh-skill/engine-wx/scripts/xshot.ps1` 截公开推文/官方页面 → `bands.py` 探边界 → `crop.py` 裁切；
    各站截图参数与裁剪坐标写在 `DAILY_NEWS_WORKFLOW.md` §3.5，高清原图走推文页 `og:image`；
-4. 写稿：先硬事实、再解读，标注官方 / 媒体 / 社区三类口径，不编数字；**禁止单独灰字导语块**，**正文不要放 h1 大标题**（公众号标题栏已有），直接正文（可点题 / 幽默 / 对比写进第一段）；文内 `h2`/`h3` **不要直接写内容**（短钩子、不剧透要点；详见 `DAILY_NEWS_WORKFLOW.md` §4）；
+4. 写稿：口吻见 ``gzh-skill/engine-wx/references/writing-style.md``；先硬事实、再解读，标注官方 / 媒体 / 社区三类口径，不编数字；**禁止单独灰字导语块**，**正文不要放 h1 大标题**（公众号标题栏已有），直接正文（可点题 / 幽默 / 对比写进第一段）；文内 `h2`/`h3` **不要直接写内容**（短钩子、不剧透要点；详见 `DAILY_NEWS_WORKFLOW.md` §4）；
 5. 组装：`scripts/inject_images.py` → `engine-design/scripts/wrap_preview.py`，**串行**；
 6. 质检：无 `{{` 残留、`data:image` 数 = 图张数、目录只留成品；
 7. 写信源台账 `docs/sources/<date>.md`（哪个数字/哪张图 ← 哪个 URL 的哪一块；**入库**）；
