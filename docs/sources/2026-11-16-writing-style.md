@@ -38,3 +38,18 @@
 
 - 各入口 `grep -c writing-style`：`engine-wx/SKILL.md` 8、`engine-wx/AGENTS.md` 6、根 `AGENTS.md` 2、`chamo.md` 2、`SKILL.md`/`zaobao.md`/`DAILY_NEWS_WORKFLOW.md`/`CLAUDE.md`/`GEMINI.md`/`.cursorrules` 各 1。
 - 本次只改规则文档，未改任何文章源稿，按 `chamo.md` 约定**不重生成历史文章**。
+
+## 补记：已执行安装同步（2026-11-16）
+
+用户确认后执行 `powershell -ExecutionPolicy Bypass -File gzh-skill/install.ps1`（整包替换），结果：
+
+- 覆盖前核对：已装副本无「仓库里没有」的文件，覆盖**不丢任何东西**；两份已装副本（`.claude` / `.agents`）当时逐字节一致。
+- 写入：`~/.claude/skills/gzh-skill`、`~/.agents/skills/gzh-skill`（各 131 → 152 个文件）。
+- 命令：`~/.claude/commands/` 与 `~/.config/opencode/command/` 各装 `zaobao.md` + `chamo.md`（此前只有 zaobao.md）。
+- 核对：`references/writing-style.md`、`writing-style-samples.md`、`writing-style-corpus/`、7 套茶模板、`ai-model` 模板、`ai-lab` 主题、`tea-knowledge.md` 均已到位；副本与仓库逐字节一致（`diff -rq` 无输出）。
+- 已装副本内引用数：`SKILL.md` 1 / `engine-wx/SKILL.md` 8 / `engine-wx/AGENTS.md` 6 / `commands/chamo.md` 2 / `commands/zaobao.md` 1。
+
+## 已知未覆盖（不属本次范围）
+
+- `~/.config/opencode/skill/` 下仍是旧的 `gzh-design`（9-09）与 `draw`，**没有** `gzh-skill` 整包；`install.ps1` 不写这个目录。若要用 opencode 直接认到本技能，需另行安装或告知路径。
+- 全局入口 `~/.claude/CLAUDE.md` 等用户级指令文件不受 install 影响；仓库根的 `CLAUDE.md`/`GEMINI.md`/`.cursorrules` 只在本仓库工作时生效。
