@@ -53,3 +53,20 @@
 
 - `~/.config/opencode/skill/` 下仍是旧的 `gzh-design`（9-09）与 `draw`，**没有** `gzh-skill` 整包；`install.ps1` 不写这个目录。若要用 opencode 直接认到本技能，需另行安装或告知路径。
 - 全局入口 `~/.claude/CLAUDE.md` 等用户级指令文件不受 install 影响；仓库根的 `CLAUDE.md`/`GEMINI.md`/`.cursorrules` 只在本仓库工作时生效。
+
+## 补记：本机 4 份「全局指令」同步（仓库外，2026-11-16）
+
+本机用户级指令文件（不在本仓库内、不受 git 管理）此前**都没提** writing-style，且仍写着 **2026-10-30 已废除**的「12px 灰色居中图注」。经确认后已改，改前各留一份 `.bak-20261116-162724`：
+
+| 文件 | 改动 |
+|---|---|
+| `~/.config/opencode/AGENTS.md` | 新增「写稿口吻（凡是写正文，先读）」节；图注句改为「图下不写字」 |
+| `~/.claude/CLAUDE.md` | 同上 |
+| `~/.codex/AGENTS.md` | 在公众号段末追加「写稿口吻」要点；图注句改为「图下不写字」 |
+| `~/.gemini/GEMINI.md` | 同 opencode |
+
+写入内容统一为：写/改正文前读 `E:\dong-skill\gzh-skill\engine-wx\references\writing-style.md`（§2 定腔 + §1 配方 + §3 细则），样例 `writing-style-samples.md`，语料 `writing-style-corpus/`；硬约束（开篇不写日期、不放灰字导语块、小标题结论式短句不用问句、收尾一句判断后停）；该文件为写稿口径唯一出处、冲突以它为准、纯排版可跳过。
+
+核对：四份 `writing-style` 引用数 2 / 2 / 1 / 2，过期图注残留 0。
+
+> 注意：这些文件在仓库外，git 不跟踪；换机器需按本节重新同步。备份可随时回滚。
