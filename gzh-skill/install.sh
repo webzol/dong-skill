@@ -32,14 +32,15 @@ for t in "${targets[@]}"; do
   echo "    [写入] $t"
 done
 
-# 斜杠命令：/zaobao 跑每日热点
-if [ -f "$SRC/commands/zaobao.md" ]; then
+# 斜杠命令：/zaobao 跑每日热点、/chamo 走茶模型
+for c in zaobao.md chamo.md; do
+  [ -f "$SRC/commands/$c" ] || continue
   for d in "${HOME}/.claude/commands" "${HOME}/.config/opencode/command"; do
     mkdir -p "$d"
-    cp "$SRC/commands/zaobao.md" "$d/zaobao.md"
-    echo "    [命令] $d/zaobao.md"
+    cp "$SRC/commands/$c" "$d/$c"
+    echo "    [命令] $d/$c"
   done
-fi
+done
 
 echo ""
 echo "==> 完成。请重启你的 AI 会话使技能生效。"

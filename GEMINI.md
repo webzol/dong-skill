@@ -24,6 +24,12 @@
 主题固定 `tea-atelier`，模板六选一（`tea-notes` / `tea-almanac` / `tea-culture` / `tea-scroll` / `tea-ware` / `tea-catalog`），
 细则见 `gzh-skill/commands/chamo.md`。
 
+## 写稿口吻
+
+要**写正文**（不只是照排已定稿草稿）时，先读 `gzh-skill/engine-wx/references/writing-style.md`：
+按 §2 定腔（新智元 / 卡兹克 / 量子位 / ASI），套 §1 共用配方 + §3 该腔细则；样例 `writing-style-samples.md`。
+硬约束：开篇不写日期、不放灰字导语块；小标题结论式短句、**不用问句**；收尾一句判断后停。与其它文档冲突以该文件为准。
+
 ## 硬约束速记
 
 - 截图用 `gzh-skill/engine-wx/scripts/xshot.ps1`（本机 Chrome headless + 普通 UA），

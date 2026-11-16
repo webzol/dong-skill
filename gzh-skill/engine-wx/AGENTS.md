@@ -9,7 +9,7 @@
   AI 工具（Codex、Cursor、Claude Code、Gemini CLI、Copilot、Windsurf…）都可以把本项目当成技能用。
 - `templates/` —— 版式骨架：`minimal-tech` / `cyber-card` / `terminal-code` / `hud`。
 - `themes/` —— 色调色板：`themes.json` 注册表 + `minimal-light` / `minimal-dark` / `tech-blue` / `cyber-green` / `neon-purple`。
-- `references/` —— `wechat-compat.md`（微信编辑器兼容性铁律）+ `components.md`（可复用版式块）。
+- `references/` —— `wechat-compat.md`（微信编辑器兼容性铁律）+ `components.md`（可复用版式块）+ `writing-style.md`（写稿口吻四腔）+ `writing-style-samples.md` + `writing-style-corpus/`（范文语料）+ `tea-knowledge.md`（茶知识写作与核验）。
 - `examples/` —— 一段示例草稿，拿来跑一遍。
 - `preview/` —— 5 主题 × 4 模板共 20 种组合的预览画廊（浏览器打开对比）。
 
@@ -20,6 +20,16 @@
 1. 读 `SKILL.md`，按其工作流执行（读懂草稿 → 选模板+主题 → 生成内联样式、约 677px 宽、无 flex/grid 的 HTML）。
 2. 每个模板/主题的具体骨架与色值读取对应文件，**不要臆造**。
 3. 生成前务必看 `references/wechat-compat.md`，输出内联样式 HTML，禁 flex/grid/var()/伪元素/外部样式表。
+
+## 写作风格（写正文前必读）
+
+只要任务不只是「照排已定稿的草稿」，而是要**写 / 改正文**，先读 `references/writing-style.md`：
+
+- `writing-style.md` —— §1 共用配方 + §2 题材选腔（新智元 / 卡兹克 / 量子位 / ASI）+ §3 各腔细则；
+- `writing-style-samples.md` —— 开篇样例，学节奏、不整篇模仿；
+- `writing-style-corpus/` —— 范文语料（`*-body.txt` 正文、`*-style.json` 字号/颜色/结构摘要）。
+
+硬约束：标题爆点前置；开篇不写日期、不放灰字导语块；小标题**结论式短句，不用问句**；官方 / 媒体 / 社区口径分开标；收尾一句判断后停，不写「所以问题来了」。**与 `SKILL.md` / `DAILY_NEWS_WORKFLOW.md` 旧口径冲突时，以 `writing-style.md` 为准。**
 
 若你是用户来安装这个 skill，请直接看 `README.md` 即最简安装路径。
 

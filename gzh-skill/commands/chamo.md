@@ -22,6 +22,7 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 - 用户只给了「茶」+ 一篇稿：按稿子内容判断；判断不出按 `tea-notes` 走。
 - 已明确“茶知识”但没有选题或草稿：只问具体要解决的问题，不再追问三大方向。维护模板或技能的请求直接做维护，不自动写一篇文章。
 - 茶知识写作或审稿先读 `gzh-skill/engine-wx/references/tea-knowledge.md`，按其中的选题、事实核验、参数与台账口径执行。
+- **写正文前读 `gzh-skill/engine-wx/references/writing-style.md`**：茶稿同样守 §1 共用配方（开篇不写日期、不放灰字导语块、小标题结论式短句不用问句、收尾一句判断后停）；腔调按题材取——知识类偏量子位式信息密度，文化 / 器类偏卡兹克式从容。只做排版、草稿已定稿时可跳过。
 
 ## 硬规则
 
@@ -34,7 +35,7 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 
 ## 执行
 
-1. 读模板骨架：`gzh-skill/engine-wx/templates/<模板>.md`；主题：`themes/tea-atelier.json`；
+1. 读模板骨架：`gzh-skill/engine-wx/templates/<模板>.md`；主题：`themes/tea-atelier.json`；口吻：`gzh-skill/engine-wx/references/writing-style.md`；
 2. 写 `generated/<date>/<slug>/body.html`（内联样式，占位 `{{IMG_A}}`）；
 3. 配图放 `generated/<date>/<slug>/img/`，写 `images.json`；
 4. 所有正文文本按校验器要求包 `<span leaf="">`；串行跑 `validate_gzh_html.py` → `inject_images.py --allow-missing-captions` → 对注入后的正文再跑 `validate_gzh_html.py` → `wrap_preview.py`。任一步失败先修复，不能继续包装；校验对象是正文，不是带脚本的预览外壳；

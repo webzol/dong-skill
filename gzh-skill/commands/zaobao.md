@@ -10,7 +10,8 @@ argument-hint: "[可选：3 条头条线索，或要排版的稿件路径]"
 2. 用 websearch 复现可核验事实，不编数字，标注官方 / 媒体 / 社区三类口径；
 3. 配图：`scripts/xshot.ps1`（本机 Chrome headless + 普通 UA）→ `bands.py` 探边界 → `crop.py` 裁；
    参数与坐标见 §3.5，**不要**用浏览器工具开 x.com；
-4. 写稿：每篇 900–1600 汉字，图 2–5 张，**图下不加文字**；开头不写时间；
+4. 写稿：**先读 `gzh-skill/engine-wx/references/writing-style.md` 定腔调**（新智元/卡兹克/量子位/ASI），开篇样例见 `writing-style-samples.md`；
+   每篇 900–1600 汉字，图 2–5 张，**图下不加文字**；开头不写时间、不放灰字导语块；小标题用结论短句不用问句；
 5. 排版：模板 `minimal-tech` × 主题 `dongpro`；h1 16px / h2 17px / 小节标题不带中文序号；
 6. 组装：`inject_images.py --allow-missing-captions` → `wrap_preview.py`，串行；
 7. 落盘 `E:\WX\<YYYY-MM-DD>\`，备份 `generated\<date>\`，台账写 `docs\sources\<date>.md`；

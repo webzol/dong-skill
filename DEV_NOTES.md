@@ -178,3 +178,12 @@ git push origin main
 - 校验发现 wx 入口原顶层 version 不受 quick_validate 支持，移入 metadata 并保留 0.2.1。统一入口和 wx 入口均通过技能校验；git diff --check 通过。
 - 待验证：历史茶稿台账中的泛称来源需逐篇补证，未复测公众号粘贴。此次不新增茶学事实或改旧成品。
 - 同步到 codex/tea-knowledge-improvements 分支；main 推送按 TD 的先确认约定执行。
+
+## 2026-11-16 · 写作风格接入全部入口
+
+- 风格库 `engine-wx/references/writing-style.md`（四腔）此前只在 4 处被引用，而 agent 排版必读的 `engine-wx/SKILL.md` 零引用。本次把风格接到全部入口：engine-wx/SKILL.md（新增第 0 步）、engine-wx/AGENTS.md、commands/zaobao.md、commands/chamo.md、gzh-skill/SKILL.md、根 AGENTS.md、CLAUDE.md、GEMINI.md、.cursorrules。
+- `writing-style.md` 定为写稿口径唯一出处，冲突以它为准（最典型：小标题结论式短句、不用问句）。
+- install.ps1 / install.sh 斜杠命令补装 `chamo.md`（此前只装 zaobao.md）。
+- 订正 `writing-style.md` §5 虚报：语料实际只有 `*-body.txt` + `*-style.json`，无 `*-content.html` / `*-cover.jpg`；SpaceX 篇正文缺失仅存 style.json。
+- 本机 `~/.agents/skills/gzh-skill` 仍是 10-27 旧副本，**未跑 install.ps1**（整包替换，待确认）。
+- 台账 docs/sources/2026-11-16-writing-style.md。只改规则文档，未重生成历史文章。

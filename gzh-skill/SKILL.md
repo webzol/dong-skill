@@ -73,4 +73,6 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 ## 写稿口吻（2026-11-16）
 
-写 AI/模型稿时先读 `engine-wx/references/writing-style.md`，按题材选新智元/卡兹克/量子位/ASI 腔；样例 `writing-style-samples.md`，语料 `writing-style-corpus/`。排版流程不变。
+**凡涉及「写正文」（不只是照排已定稿草稿），不论题材，先读 `engine-wx/references/writing-style.md`**：按 §2 定腔调（新智元 / 卡兹克 / 量子位 / ASI），套 §1 共用配方 + §3 该腔细则；开篇样例 `writing-style-samples.md`，语料 `writing-style-corpus/`。该文件是写稿口径的唯一出处，与其它文档冲突时以它为准。排版流程不变。
+
+入口分工：`engine-wx/SKILL.md` 第 0 步为写稿口吻步（AI 稿）；`commands/zaobao.md`（每日热点）、`commands/chamo.md`（茶稿）各自在第 4 步 / 选模板段挂同一份风格文件。

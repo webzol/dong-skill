@@ -42,14 +42,15 @@ foreach ($t in $targets) {
     }
 }
 
-# 斜杠命令：/zaobao 跑每日热点
-$cmdSrc = Join-Path $src "commands\zaobao.md"
-if (Test-Path $cmdSrc) {
+# 斜杠命令：/zaobao 跑每日热点、/chamo 走茶模型
+foreach ($cmd in @("zaobao.md", "chamo.md")) {
+    $cmdSrc = Join-Path $src "commands\$cmd"
+    if (-not (Test-Path $cmdSrc)) { continue }
     foreach ($dir in @((Join-Path $HOME ".claude\commands"), (Join-Path $HOME ".config\opencode\command"))) {
         try {
             New-Item -ItemType Directory -Force -Path $dir | Out-Null
-            Copy-Item $cmdSrc (Join-Path $dir "zaobao.md") -Force
-            Write-Host "    [命令] $(Join-Path $dir 'zaobao.md')" -ForegroundColor Green
+            Copy-Item $cmdSrc (Join-Path $dir $cmd) -Force
+            Write-Host "    [命令] $(Join-Path $dir $cmd)" -ForegroundColor Green
         } catch {
             Write-Host "    [命令失败] $dir -> $($_.Exception.Message)" -ForegroundColor Red
         }

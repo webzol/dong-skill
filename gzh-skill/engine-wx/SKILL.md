@@ -58,9 +58,20 @@ metadata:
 >
 > **AI 模式**：内容是 AI / 大模型（发布、选型、价格、榜单、参数）时，默认 `ai-model` + `ai-lab`；
 > 图片位分三类：官方定价或文档页、第三方榜单、模型卡参数页，各贴在对应论点后面，图下不写字。
+>
+> **写稿口吻（凡是「写」而不只是「排」，都先读）**：动笔前必读 `references/writing-style.md`
+> （§1 共用配方 + §2 题材选腔 + §3 所选腔细则），开篇样例见 `references/writing-style-samples.md`。
+> 该文件是写稿口径的唯一出处；与本文档旧口径冲突时**以它为准**（尤其：小标题用结论短句，不用问句）。
+> 只做纯排版、草稿已定稿且无需改口吻时，可跳过。
 > 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
 > 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
 > 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。茶模式跳过第 1.5 步，第 2 步使用已选茶模板与 `tea-atelier`；维护规则不启动文章生成。
+
+### 第 0 步　写稿口吻（需要写正文时必做）
+- 读 `references/writing-style.md`：先按 §2 定一条主腔（新智元 / 卡兹克 / 量子位 / ASI），再套 §1 共用配方 + 该腔 §3 细则。
+- 需要感性认识时从 `references/writing-style-samples.md` 或 `references/writing-style-corpus/*-body.txt` 取 1～2 段开篇样例，**不要整篇模仿**，只学节奏。
+- 硬约束：标题爆点前置；开篇不写日期、不放灰字导语块；小标题结论式短句、**不用问句**；官方 / 媒体 / 社区口径分开标；收尾一句判断后停。
+- 草稿已定稿、本次只做排版时跳过本步。
 
 ### 第 1 步　读懂草稿
 - 若是文件，用 Read 读取；若是粘贴文本，直接读正文。
@@ -189,6 +200,7 @@ generated/
 ## 七、扩展与质量要求
 
 - 人名/机构名、专有名词不虚构；只排版，不增删用户原意与事实。
+- **口吻**：写正文（而非纯排版）时，先按 `references/writing-style.md` 选定腔调；开篇不放日期、不放灰字导语块，小标题结论式短句不用问句，收尾不写「所以问题来了」式反问。
 - 颜色遵循主题字典，禁止随手硬编码主题之外的色值。
 - 输出 HTML 前自查一遍兼容性铁律；如为效果必须破例，用 `<!-- wx-note: 此处降级说明 -->` 写明。
 - 长文如需分段交付，每段都是独立可粘贴的 section，全段首尾粘连即完整文章。
@@ -197,6 +209,10 @@ generated/
 
 - `templates/_index.md` 模板清单 —— 选骨架
 - `themes/themes.json` 主题注册表 —— 选色板
+- `references/writing-style.md` 写稿口吻（四腔 + 共用配方）—— **写正文前必读**（第 0 步）
+- `references/writing-style-samples.md` 开篇样例 —— 学节奏，不整篇模仿
+- `references/writing-style-corpus/` 范文语料（`*-body.txt` 正文 / `*-style.json` 结构摘要）
+- `references/tea-knowledge.md` 茶知识写作与核验 —— 茶稿必读
 - `references/wechat-compat.md` 兼容性铁律 —— **生成前必读**
 - `references/components.md` 版式块库 —— 拼版零件
 - `examples/sample-article.md` 示例草稿 —— 试跑一遍
