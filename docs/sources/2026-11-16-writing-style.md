@@ -44,7 +44,7 @@
 用户确认后执行 `powershell -ExecutionPolicy Bypass -File gzh-skill/install.ps1`（整包替换），结果：
 
 - 覆盖前核对：已装副本无「仓库里没有」的文件，覆盖**不丢任何东西**；两份已装副本（`.claude` / `.agents`）当时逐字节一致。
-- 写入：`~/.claude/skills/gzh-skill`、`~/.agents/skills/gzh-skill`（各 131 → 152 个文件）。
+- 写入：`~/.claude/skills/gzh-skill`、`~/.agents/skills/gzh-skill`（各 131 → 164 个文件）。
 - 命令：`~/.claude/commands/` 与 `~/.config/opencode/command/` 各装 `zaobao.md` + `chamo.md`（此前只有 zaobao.md）。
 - 核对：`references/writing-style.md`、`writing-style-samples.md`、`writing-style-corpus/`、7 套茶模板、`ai-model` 模板、`ai-lab` 主题、`tea-knowledge.md` 均已到位；副本与仓库逐字节一致（`diff -rq` 无输出）。
 - 已装副本内引用数：`SKILL.md` 1 / `engine-wx/SKILL.md` 8 / `engine-wx/AGENTS.md` 6 / `commands/chamo.md` 2 / `commands/zaobao.md` 1。
