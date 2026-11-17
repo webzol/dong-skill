@@ -267,6 +267,8 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 图下**不加图注**（2026-10-30；§13c 可上滑长图除外）。`inject_images.py` 的一图一注校验因此需要加 `--allow-missing-captions`。
 
+**长图一律滑动，不整张展示（铁律，2026-11-17 用户定版）**：成品图显示高度超过约 2.5 屏（≈2000px）或高宽比 > 4 的，一律套 `references/components.md` §13c 可滑动长图框（`height:320px` + `overflow-y:scroll` + 底部渐隐 mask + 框外 12px 引导行），矮图直展不套框；**不套框整张铺开的长图不得交付**，套了框的交付前必须做下方滑动自测。
+
 **§13c 滑动自测（2026-11-01）**：凡使用可上滑长图，交付前必须在预览页里对容器做真实滑动自测——确认裁切生效、底部「↑ 上滑…」提示可见、能滑到图底看完完整内容。自测未过不得交付。
 
 3. 正文容器：`max-width:677px;margin:0 auto;background:#ffffff;padding:24px 18px 56px;`。
@@ -306,12 +308,14 @@ PowerShell 5.1 用 `Set-Content -Encoding UTF8` 写出来会带 BOM，脚本已�
 | 4 | 残留 `{{` | 说明有图没配进 images.json |
 | 5 | **一图一注对不上** | 本仓库口径是「图下不写文字」，一律加 `--allow-missing-captions`；不带这个参数会报 5 |
 
-质检（三查）：
+质检（四查）：
 
 ```powershell
 Select-String final.html -Pattern '\{\{'          # 必须 0 命中
 Select-String final.html -Pattern 'data:image'   # 必须等于图片张数
 Get-ChildItem <dir>                              # 只留最终成品
+# 第四查（人工）：长图检查——显示高度超过 2.5 屏（≈2000px）或高宽比 > 4 的图，
+# 必须已套 §13c 滑动容器（height:320px + 渐隐 + 框外引导行），且滑动自测已过
 ```
 
 ---
