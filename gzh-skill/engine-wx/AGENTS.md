@@ -40,7 +40,7 @@
 1. 读 `DAILY_NEWS_WORKFLOW.md`，严格按里面 9 个环节执行；
 2. 产出 **3 篇** AI 大模型热点文章，模板 `minimal-tech` + 主题 `dongpro`；
 3. 配图必须**内嵌在对应正文位置**（`components.md` §13 样式），**图下不加任何文字**；
-   长截图不整张放，按 `-Scale 3` 截取后切段嵌入；
+   长截图优先切段；必须整张时用 §13c 可上滑长图（见 references/components.md）；
 4. 图片获取用 `scripts/xshot.ps1`（Chrome headless + 普通 UA）→ `scripts/bands.py` 探内容块边界 → `scripts/crop.py` 裁；
    各站截图参数、裁剪坐标、落点约定见 `DAILY_NEWS_WORKFLOW.md` §3.5 / §3.6，**不要**用 `browser.*` 去开 x.com（连不上）；
 5. 组装用 `scripts/inject_images.py` → `engine-design/scripts/wrap_preview.py`，串行执行；
@@ -66,3 +66,5 @@
 
 **生效条件**：本目录不在工作区时规则不会自动读入（需 `install.ps1` 装成 skill，或把路径告诉 AI）；
 在本仓库里被唤醒但用户没给具体任务时，先问一句「跑今天的早报，还是排版某篇稿子？」。
+
+- 正文两端对齐：`text-align:justify;`（2026-10-31）。

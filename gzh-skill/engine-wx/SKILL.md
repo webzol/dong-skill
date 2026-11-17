@@ -218,3 +218,7 @@ generated/
 - `examples/sample-article.md` 示例草稿 —— 试跑一遍
 - `preview/preview.html` 预览画廊 —— 对比 20 种组合
 - `generated/<YYYY-MM-DD>/` 当日产出归档 —— 一个带「复制」按钮的 HTML 成品
+
+## 可上滑长图（2026-10-31）
+
+Help Center / changelog 等必须整张保留的长截图：用 `references/components.md` **§13c**（`max-height:280px` + `overflow-y:auto` + 底部「↑ 上滑查看完整说明 · …」灰字）。普通配图仍图下无字；能切段的长图仍优先切段。

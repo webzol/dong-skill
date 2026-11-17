@@ -15,7 +15,7 @@
 6. **颜色唯一来源是 themes/*.json**，生成时禁止硬编码主题之外的色值。
 7. **theme JSON 可选 `typography` 字段**：当一个风格的视觉签名包含强 typography 习惯（行高/字号/字距/对齐/字体族）时，写进 theme.json 的 `typography` 子字段。生成时可读取覆盖默认节奏。
 8. **配图三件套（2026-10-08 定稿，TD 指定）**：①图片**内嵌对应正文位置**（不堆文末）；②每张图配 12px `muted` 居中图注（一句话点明图内容）；③`src` 一律 **base64 data URI 内嵌**保持单文件交付。样式与细则见 `references/components.md` §13，SKILL.md 第 3 步第 6 条已挂钩。参考成品：`generated/2026-09-29/dongpro-minimal-tech-devday2026-dots.html`。
-9. **配图改版（2026-10-30 定稿，TD 指定，覆盖第 8 条的②）**：图下**不再写任何文字**（取消 12px 灰图注），图与下文间距由 `margin:14px 0 20px` 提供；图要说明什么写进紧邻正文。长截图不整张放，按 `-Scale 3` 截取后切成 2–4 段嵌入；`inject_images.py` 因此需带 `--allow-missing-captions`。同批定版：开头不写时间、正文不点名平台（不写「X 上」、不挂 `@handle`）。
+9. **配图改版（2026-10-30 定稿，TD 指定，覆盖第 8 条的②）**：图下**不再写任何文字**（取消 12px 灰图注），图与下文间距由 `margin:14px 0 20px` 提供；图要说明什么写进紧邻正文。长截图优先切成 2–4 段嵌入；必须整张保留时用 references/components.md §13c 可上滑长图（max-height≈280px + 底部「↑ 上滑查看」灰字说明）；`inject_images.py` 因此需带 `--allow-missing-captions`。同批定版：开头不写时间、正文不点名平台（不写「X 上」、不挂 `@handle`）。
 
 ## 踩过的坑 / 注意点
 
@@ -86,3 +86,5 @@ v0.1.0 现有 4 个模板（minimal-tech / cyber-card / terminal-code / hud）�
 - `.ref/` 临时目录建议每次抓完分析就 `rm -rf`，避免被误 commit（已加 .gitignore）。
 - 归档目录 `generated/<YYYY-MM-DD>/` 可考虑加一个 `.schema.json` 自动校验三件套是否齐全（CI 友好）。
 - 归档 README.md 的「风格切换指南」可做成自动生成（读 themes.json 的色值表）而不是手写。
+
+10. **可上滑长图（2026-10-31，TD）**：Help Center / changelog 等整张长图用 §13c；仅此种允许图下 12px 灰提示，普通配图仍无图注。
