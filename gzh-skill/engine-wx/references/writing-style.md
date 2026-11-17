@@ -68,6 +68,7 @@
 ## 4. 排版对接（gzh-skill）
 
 - 引擎：默认 **wx / minimal-tech × dongpro**（用户现行约定）。
+- **版式随腔走**（2026-11-17 定版）：按 §2 选定主腔后，版式可与腔调匹配，不必一律 minimal-tech——**情报 / 爆料腔（ASI）→ `terminal-code × tech-blue`**（等宽标题 + `>` / `##` 前缀 + 编号英文微标，暗色情报稿气质）；发布 / 爆点揭秘（新智元）仍可 `minimal-tech` 或 `ai-model × ai-lab`；硬核审美（卡兹克）走 `minimal-tech`。正文与配图不因换版式而改动。
 - 正文 `text-align:justify`；文内 **禁止 h1**；禁止灰字导语块；禁止 lite 预览。
 - 配图：官方/原帖高清；禁止自绘信息卡；长图仅官网级超长用 §13c 滑动。
 - 成稿：`E:\WX\<YYYY-MM-DD>\` + `generated/<日期>/`；机器不在则云端 `/workspace/wx-cloud/<日期>/`。
