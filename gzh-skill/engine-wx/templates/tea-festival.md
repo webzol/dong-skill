@@ -27,7 +27,19 @@
 <p style="margin:0 0 22px;font-size:15px;line-height:1.95;letter-spacing:.5px;color:{{text}};text-align:justify;">{{第一段：从一个节日场景进入，说明这份节令茶单写给谁。}}
 ```
 
+### 当令茶提示条（可选，全篇一个）
+
+```html
+<section style="margin:14px 0 18px;padding:10px 14px;border-top:1px solid {{cardBorder}};border-bottom:1px solid {{cardBorder}};">
+  <p style="margin:0;font-size:13px;line-height:1.75;letter-spacing:.3px;color:{{text}};"><span style="color:{{accent}};font-weight:600;">{{当令}}</span>　{{冬至}} → <strong style="color:{{text}};">{{红茶、煮老白茶、熟普}}</strong></p>
+</section>
+```
+
+> 细节见 `components.md` §16e；中性时间提示，禁止写成「宜 / 忌」。
+
 ### 节令条目（节日 + 日期 + 茶）
+
+> 条目顶部可换 **节日题签**（`components.md` §16b：节日名 + 农历日期），替代「月.日」小签；农历与干支写法全篇统一。
 
 ```html
 <section style="margin:32px 0 0;padding-top:12px;border-top:1px solid {{cardBorder}};">

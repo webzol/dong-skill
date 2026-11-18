@@ -43,6 +43,9 @@
 
 ### 节气条目（节气/季节版，与时刻条目同构）
 
+> 条目顶部可换 **节气签**（`components.md` §16a：节气名 + 月.日 + 英文微标，26px 宋体），签下标题写动作句不重复节气名；
+> 签下可加 **三候条**（§16c，候名以《月令七十二候集解》为准，没把握整行删）；四季茶单用 **季签**（§16d）开段。
+
 ```html
 <section style="margin:32px 0 0;padding-top:12px;border-top:1px solid {{cardBorder}};">
   <p style="margin:0 0 4px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{11.22}}</p>

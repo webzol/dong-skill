@@ -191,6 +191,72 @@
 </section>
 ```
 
+## 16. 茶 · 节气与节令元素（2026-11-18 定版 · 配 `tea-almanac` / `tea-festival`）
+
+> 颜色全部用主题占位符（颜色唯一来源 `themes/*.json`）；日期统一「月.日」两位数；农历写「腊月三十」式；
+> **不写宜忌、不写吉凶**，节气是时间线索不是养生指令；候名/节俗没把握就删，不硬凑。
+
+### 16a 节气签（节气名 + 日期 + 英文微标）
+
+```html
+<p style="margin:0 0 6px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{11.22 · LIGHT SNOW}}</p>
+<h2 style="margin:0 0 10px;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{小雪}}</h2>
+```
+
+> 用在节气条目顶部，替代普通条目的「月.日」小签；英文微标 = 节气名意译大写（`LIGHT SNOW` / `WINTER SOLSTICE`）。
+> 用签时下面那行标题降级为「动作句」（如「围炉煮一壶老白茶」），不重复节气名。
+
+### 16b 节日题签（节日名 + 农历日期）
+
+```html
+<h2 style="margin:0 0 4px;font-size:24px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{除夕}}</h2>
+<p style="margin:0 0 10px;font-size:12px;line-height:1.6;letter-spacing:2px;color:{{muted}};">{{农历腊月三十 · 丁未年}}</p>
+```
+
+> 用在节日条目顶部，替代「月.日」小签；农历与年份干支可只写其一，全篇统一。
+
+### 16c 三候条（七十二候 · 三格）
+
+```html
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:13px;line-height:1.7;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};">
+  <tr>
+    <td style="width:33.3%;padding:10px 8px;text-align:center;border-right:1px solid {{divider}};">
+      <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">初候</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{蚯蚓结}}</p>
+    </td>
+    <td style="width:33.3%;padding:10px 8px;text-align:center;border-right:1px solid {{divider}};">
+      <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">二候</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{麋角解}}</p>
+    </td>
+    <td style="width:33.3%;padding:10px 8px;text-align:center;">
+      <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">三候</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{水泉动}}</p>
+    </td>
+  </tr>
+</table>
+```
+
+> 加在节气条目（`tea-almanac` §16a 签）之下、场景段之上；候名以《月令七十二候集解》为准，**没把握的格子整行删掉**，不编候名。
+
+### 16d 季签（季节一枚 + 当令一句）
+
+```html
+<p style="margin:0 0 8px;font-size:10px;line-height:1.6;letter-spacing:4px;color:{{accent}};text-transform:uppercase;">{{WINTER · 冬}}</p>
+<p style="margin:0 0 16px;font-size:14px;line-height:1.75;letter-spacing:.3px;color:{{muted}};"><span style="color:{{accent}};font-weight:600;">{{冬}}</span>　{{当令说明一句，如：茶台从绿茶换到老白茶与熟普。}}</p>
+```
+
+> 四季茶单的段首用（`tea-almanac`），一季一枚；季名后那句写茶台怎么换，不写身体怎么养。
+
+### 16e 当令茶提示条（节气/节日 + 茶，一行总览）
+
+```html
+<section style="margin:14px 0 18px;padding:10px 14px;border-top:1px solid {{cardBorder}};border-bottom:1px solid {{cardBorder}};">
+  <p style="margin:0;font-size:13px;line-height:1.75;letter-spacing:.3px;color:{{text}};"><span style="color:{{accent}};font-weight:600;">{{当令}}</span>　{{小雪}} → <strong style="color:{{text}};">{{煮老白茶、饮熟普}}</strong></p>
+</section>
+```
+
+> 放首段之后、第一个条目之前，给全篇一个总览；「当令」是中性时间提示，**禁止改写成「宜 / 忌」**。
+
 ## 组装口诀
 
 - **先外框，后内容**：全文只有一个 677px 外框。
