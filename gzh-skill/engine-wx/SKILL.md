@@ -37,6 +37,7 @@ metadata:
 
 - `--template` 模板名：`minimal-tech`（简约科技·默认）/ `cyber-card`（卡片）/ `terminal-code`（终端风）/ `hud`（数据面板）/ `wechat-pai-essay`（微信派·文艺长文）
   / 茶系列：`tea-culture`（茶文化）/ `tea-scroll`（手卷）/ `tea-ware`（茶器）/ `tea-catalog`（图录）/ `tea-notes`（茶知识）/ `tea-almanac`（茶历）
+  / `tea-festival`（节令茶单）/ `tea-industry`（行业观察）
   / AI 科技：`ai-model`（大模型速写：元信息条 + 关键数字条 + 官方截图/榜单图各就位）
 - `--theme` 主题名：`dongpro`（DONGPro极简科技 · **排版推荐**·默认）/ `minimal-light`（极简白）/ `minimal-dark`（极简黑）/ `tech-blue`（科技蓝）/ `cyber-green`（赛博绿）/ `neon-purple`（霓虹紫）/ `taobao-flash`（淘宝闪购）/ `wechat-pai`（微信派）/ `qianwen`（千问）
   / 茶系列：`tea-garden`（茶席）/ `tea-atelier`（茶志 · 茶模板默认）
@@ -67,7 +68,7 @@ metadata:
 > （§1 共用配方 + §2 题材选腔 + §3 所选腔细则），开篇样例见 `references/writing-style-samples.md`。
 > 该文件是写稿口径的唯一出处；与本文档旧口径冲突时**以它为准**（尤其：小标题用结论短句，不用问句）。
 > 只做纯排版、草稿已定稿且无需改口吻时，可跳过。
-> 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
+> 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／节日茶俗→`tea-festival`／行业信息→`tea-industry`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
 > 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
 > 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。茶模式跳过第 1.5 步，第 2 步使用已选茶模板与 `tea-atelier`；维护规则不启动文章生成。
 

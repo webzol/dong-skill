@@ -1,7 +1,7 @@
 # 模板：tea-almanac（茶志 · 茶历）
 
-> **定位**：按时间、节气、场景组织的喝茶建议。一天四泡、二十四节气、四季茶单。
-> **风格**：历书。时间点起行、短句为主、双线分栏，参数收在最后。
+> **定位**：按时间、节气、季节、场景组织的喝茶建议。一天四泡、二十四节气、四季茶单。
+> **风格**：历书。时间点起行、短句为主、双线分栏，参数收在最后。节气与季节用「节气条目」块组织（见下）。
 > **搭配**：`tea-atelier` 主题。
 > **写作前读**：`../references/tea-knowledge.md`；时间与节气是组织内容的线索，不构成健康建议。
 
@@ -41,6 +41,21 @@
 > 时间用 24 小时制、两位数字；标题写「时段 + 一个动作」，不写茶名堆叠。
 > 参数用一行小字收尾，不另开表。
 
+### 节气条目（节气/季节版，与时刻条目同构）
+
+```html
+<section style="margin:32px 0 0;padding-top:12px;border-top:1px solid {{cardBorder}};">
+  <p style="margin:0 0 4px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{11.22}}</p>
+  <h2 style="margin:0 0 12px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{小雪 · 围炉煮一壶老白茶}}</h2>
+  <p style="margin:0 0 14px;font-size:15px;line-height:1.95;letter-spacing:.5px;color:{{text}};text-align:justify;">{{这个节气的气候场景与茶位置，两句说完。}}</p>
+  <p style="margin:0 0 18px;font-size:13px;line-height:1.7;letter-spacing:.3px;color:{{muted}};">{{茶样与泡法；水温区间、茶量 g / 水量 mL、时间区间及计时口径}}</p>
+</section>
+```
+
+> 日期用「月.日」两位数（节气交节日按当日）；标题写「节气 + 一个动作」，不写茶名堆叠。
+> 四季茶单可用季签代替节气签：`{{秋 · 一季三泡}}`，条目结构不变。
+> 与时刻条目二选一成篇，不混排；跨月用双线分隔。
+
 ### 双线分隔（换半天用一次）
 
 ```html
@@ -77,4 +92,4 @@
 
 - 与 `tea-atelier` 主题配套。
 - 适合：一天四泡、二十四节气茶单、四季饮茶、办公室茶。
-- 不适合：器物拆解（改 `tea-catalog`）、茶史（改 `tea-scroll`）。
+- 不适合：器物拆解（改 `tea-catalog`）、茶史（改 `tea-scroll`）、传统节假日茶俗（改 `tea-festival`）。
