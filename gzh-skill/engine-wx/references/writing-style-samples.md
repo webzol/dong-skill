@@ -125,3 +125,15 @@ Claude Fable 5.2出来一天的时间了，然后，所有的社媒、社群都�
 随时可能掀翻牌桌
 
 员工心碎离职：老黄一走，信仰崩塌
+
+## Mio 官宣稿 · 开篇节奏（8 段内）
+
+今天凌晨，谷歌正式发布了 Gemini 4 Neon。
+
+皮查伊同步官宣：这是一款面向复杂软件工程、知识工作和科学流程的模型，主打前沿智力，又能较快把整条任务跑完。
+
+它被放在 Gemini 4 Carbon 和 Gemini 4 Hydrogen 之间。Carbon 负责最难、最长线的项目，Hydrogen 负责日常快执行，Neon 则盯着既要深度、又要效率的高频工作流。
+
+官方定价是，每百万 token 输入 3 美元、输出 15 美元，缓存输入 0.15 美元；上下文窗口 100 万 token，思考档位分为 low、medium、high、xhigh 四档。
+
+跑分不要混成一张总榜。下面先看 Artificial Analysis 的口径，再单独看 Arena 的 Agent Arena。

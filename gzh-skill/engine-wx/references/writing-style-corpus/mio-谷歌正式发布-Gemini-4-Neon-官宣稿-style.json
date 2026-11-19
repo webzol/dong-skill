@@ -1,0 +1,137 @@
+{
+  "account": "斜杠资源君",
+  "author": "Mio",
+  "title": "谷歌正式发布 Gemini 4 Neon：AA 编码智能体榜第一，xhigh 智能指数 61 分排第 3",
+  "source": "self-typeset official launch piece, 2026-11-19",
+  "cloud_article": "/workspace/wx-cloud/2026-11-19/谷歌正式发布 Gemini 4 Neon：AA 编码智能体榜第一，xhigh 智能指数 61 分排第 3.html",
+  "slug": "mio-谷歌正式发布-Gemini-4-Neon-官宣稿",
+  "engine": "gzh-skill / minimal-tech × dongpro",
+  "font_sizes": {
+    "15px": 31,
+    "17px": 6,
+    "13px": 16,
+    "12px": 5
+  },
+  "colors": {
+    "#141414": 37,
+    "#1F2F8F": 16,
+    "#8a8a8a": 5
+  },
+  "backgrounds": {
+    "#EEF0F7": 16,
+    "#ffffff": 1
+  },
+  "aligns": {
+    "justify": 31,
+    "center": 5
+  },
+  "images": 5,
+  "videos": 0,
+  "subheads": 6,
+  "strong_judgments": 3,
+  "no_h1": true,
+  "no_orange": true,
+  "no_gray_intro": true,
+  "no_gray_chapter_bar": true,
+  "section": {
+    "max_width": "677px",
+    "margin": "0 auto",
+    "background": "#ffffff",
+    "padding": "24px 18px 56px",
+    "font_family": "-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif",
+    "color": "#141414"
+  },
+  "body": {
+    "font_size": "15px",
+    "line_height": "1.95",
+    "color": "#141414",
+    "text_align": "justify",
+    "margin": "0 0 16px",
+    "padding": "0"
+  },
+  "h2": {
+    "font_size": "17px",
+    "font_weight": "700",
+    "line_height": "1.4",
+    "color": "#141414",
+    "margin": "28px 0 12px",
+    "style": "conclusion short hooks, never questions"
+  },
+  "emphasis_chip": {
+    "use": "模型名、榜单名等关键词，只标词不刷段",
+    "examples": [
+      "Gemini 4 Neon",
+      "Gemini 4 Carbon",
+      "Gemini 4 Hydrogen",
+      "Gemini 4 Neon",
+      "Artificial Analysis Intelligence Index",
+      "GPT-6.2 Astra",
+      "Claude Fable 5.2",
+      "Gemini 4 Carbon",
+      "Vals Index",
+      "Terminal-Bench 4.1",
+      "Terminal-Bench Science",
+      "Artificial Analysis Coding Agent Index",
+      "Antigravity",
+      "Agent Arena Index",
+      "Gemini 4 Neon",
+      "Google Antigravity"
+    ],
+    "color": "#1F2F8F",
+    "background": "#EEF0F7",
+    "font_size": "13px",
+    "font_family": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono','Courier New',monospace",
+    "padding": "2px 5px",
+    "margin": "0 2px",
+    "border_radius": "0"
+  },
+  "judgment_bold": {
+    "tag": "strong",
+    "use": "关键判断短句，可单独成段",
+    "examples": [
+      "这是这条编码智能体榜的第一，不是全球所有榜单的第一。",
+      "token 单价和单任务成本，不是同一笔账。",
+      "开放范围要写准，现在不是免费，也不是 API 无门槛全面铺开。"
+    ]
+  },
+  "caption": {
+    "font_size": "12px",
+    "line_height": "1.6",
+    "color": "#8a8a8a",
+    "text_align": "center",
+    "margin": "0 0 20px",
+    "length": "5-10 Chinese characters",
+    "examples": [
+      "AA智能指数榜",
+      "AA编码智能体榜",
+      "Agent Arena榜",
+      "勃朗峰滑雪模拟",
+      "十万格表格实验"
+    ]
+  },
+  "image": {
+    "display": "block",
+    "width": "100%",
+    "margin": "14px 0 8px",
+    "border": "1px solid rgba(0,0,0,0.08)",
+    "rule": "官方图或评测原图原样放入，不自绘、不加译、不改表"
+  },
+  "subheads_list": [
+    "智能指数 61 分，排在第 3",
+    "编码智能体榜是第一",
+    "单价和单任务成本不是一回事",
+    "这是智能体榜，不是聊天总榜",
+    "滑雪模拟，还有十万格表格",
+    "编排器已能把两者绑在一起"
+  ],
+  "opening_preview": [
+    "今天凌晨，谷歌正式发布了 Gemini 4 Neon 。",
+    "皮查伊同步官宣：这是一款面向复杂软件工程、知识工作和科学流程的模型，主打前沿智力，又能较快把整条任务跑完。",
+    "它被放在 Gemini 4 Carbon 和 Gemini 4 Hydrogen 之间。Carbon 负责最难、最长线的项目，Hydrogen 负责日常快执行，Neon 则盯着既要深度、又要效率的高频工作流。",
+    "官方定价是，每百万 token 输入 3 美元、输出 15 美元，缓存输入 0.15 美元；上下文窗口 100 万 token，思考档位分为 low、medium、high、xhigh 四档。",
+    "跑分不要混成一张总榜。下面先看 Artificial Analysis 的口径，再单独看 Arena 的 Agent Arena。",
+    "## 智能指数 61 分，排在第 3",
+    "评测机构 Artificial Analysis 原帖写明： Gemini 4 Neon 在 xhigh 思考档拿到 Artificial Analysis Intelligence Index 61 分，总分第 3，排在 GPT-6.2 Astra （max）和 Claude Fable 5.2 （max）后面，比 Gemini 4 Carbon 的 high 档高 1 分。",
+    "AA智能指数榜"
+  ]
+}
