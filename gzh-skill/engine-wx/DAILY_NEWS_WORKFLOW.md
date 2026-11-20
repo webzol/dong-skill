@@ -194,6 +194,7 @@ $r = Invoke-WebRequest "https://x.com/<user>/status/<id>" -UseBasicParsing `
 | OpenAI help 套餐表 | `-W 1200 -H 4200` | 正文中段，y≈715–950 | `28 715 790 950` |
 | OpenAI help 变更条款 | `-W 1200 -H 4200` | y≈1340–1600 | `28 1340 760 1600` |
 | 推文原图（最高清） | 不截图 | HTML `<meta property="og:image">` | 直接下载，`?format=jpg&name=orig` |
+| 官方演示视频取帧 | pyppeteer `deviceScaleFactor: 3`，`video.screenshot()` | 打开推文页，`v.pause(); v.currentTime=<秒>`，等 1.5s 后对 `<video>` 元素截图 | 裁掉底部约 11.5% 的播放器控件条（进度条/静音/全屏） |
 
 各站版心参考：X 窄窗 640 时左留白 ≈52–60px，右侧贴边；HF 1500 宽时左右各留 ≈78px；help center 1200 宽时左留白 ≈28px。
 
@@ -212,6 +213,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
   - 纯文字推文 → 自制双语卡片（上英文黑字、下中文灰字，重点词两边同步加粗）。
 - **所有推文截图一律裁掉底部「时间戳 · 日期 · 浏览数」行和互动栏**（回复/转发/点赞/收藏/分享），中文博主截图同样适用；DOM `<time>` / 引用块 y 坐标切底优先，无 time 元素用像素行探测兜底（方法细节见 `AGENTS.md` 英文发言细则）。
 - 质检加三条：模糊图判不合格；纯英文没翻译的图判不合格；截图底部带时间行/互动栏判不合格。
+- **官方演示视频（如 ChatGPT/模型发布 demo）**：发布推文只挂视频、没有配图时，不走截图，直接逐帧取：pyppeteer 打开推文页 → `<video>.pause()` + `currentTime=<秒>` → 对 video 元素截图（DPR 3），取 1s / 中段 / 尾段三帧，裁掉播放器控件条。视频帧算高清原图，图下不写字，说明写进正文。
 
 ### 3.7 落点约定（哪些是交付物）
 
