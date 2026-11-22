@@ -31,7 +31,7 @@
 | `<style>` 里的类选择器 | `<style>` 可能保留但**类的匹配不可靠**，避免用 class 控制样式 |
 | 外部 `<link>` 样式表 | 失效 → 全部内联 |
 | `backdrop-filter` / `filter` / `transform` | 失效 → 避免 |
-| `clip` / `mask` / 复杂渐变 | 多数失效 → 用纯色 + 边框 |
+| `clip` / `mask` / 复杂渐变 | 多数失效 → 渐变优先烘进图片（双语卡片底衬即此做法）；必须用 CSS 渐变时按 components.md §13c 三行兜底写法：纯色 → `-webkit-linear-gradient` → `linear-gradient`（2026-11-22 定版） |
 
 ## 三、降级 / 风险提示（⚠️ 注意）
 

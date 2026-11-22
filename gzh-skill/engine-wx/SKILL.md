@@ -120,6 +120,7 @@ metadata:
    - 每张图**下方不写文字**（2026-10-30 定版），说明写进紧邻的正文段落
    - 图片样式固定：`max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;`
    - `src` 一律 **base64 data URI 内嵌**（成品保持单文件）；用户没给图的位置用 §13b 占位框
+   - 英文推文双语卡片、长图滑动框（含渐变底衬）见文末「双语卡片底衬与可滑动长图」一节
 
 **产出：一段 `<section style="max-width:677px;margin:0 auto;">…</section>` 包裹的 HTML**，
 全部内联样式，**禁止** flex / grid / `var()` / `:hover` / `@media` / 伪元素 / class 选择器依赖 / 外部样式表。
@@ -224,6 +225,10 @@ generated/
 - `preview/preview.html` 预览画廊 —— 对比 20 种组合
 - `generated/<YYYY-MM-DD>/` 当日产出归档 —— 一个带「复制」按钮的 HTML 成品
 
-## 可上滑长图（2026-10-31）
+## 双语卡片底衬与可滑动长图（2026-11-22 定版）
 
-Help Center / changelog 等必须整张保留的长截图：用 `references/components.md` **§13c**（`max-height:280px` + `overflow-y:auto` + 底部「↑ 上滑查看完整说明 · …」灰字）。普通配图仍图下无字；能切段的长图仍优先切段。
+**双语卡片**（英文推文翻译卡）：白底大圆角卡浮于**横向渐变底衬**上——渐变直接烘进图片（`linear-gradient(to right,#8f94fb,#4e54c8)`，四边 ≈18px@1x 渐变框），公众号内零兼容风险；卡上真实头像 + 昵称 + 认证徽章 + @handle **原样不动**，上英文黑字、下中文灰字，重点词两边同步加粗，emoji 彩色渲染、词边界断行。生成脚本：`scripts/tweet_cards.py`（仓库内，支持双语卡片 / 认证徽章 / 引用推文块 / 中文还原截图四种形态）。
+
+**可滑动长图**：Help Center / changelog / 官帖全文等必须整张保留的长截图，以及**竖排多行文字类长图（还原截图 / 长推文全文 / 榜单列表）一律套滑动框，不看 2.5 屏阈值**。规格以 `references/components.md` §13c 为准：`height:320px` + `overflow-y:scroll` + 引导行，外包**同款渐变底衬 wrapper**（`padding:18px` + 三行兜底写法：纯色 → `-webkit-linear-gradient` → `linear-gradient`），引导行放 wrapper 内白字 `#ffffff`；**禁用渐隐 mask**（框内文字一律实色）。能切段的长截图仍优先切段；交付前必须滑动自测（框内能滑、能滑到图底看完）。
+
+普通配图仍图下无字；正文重点词芯片（浅底 `#EEF0F7` + 深蓝 `#1F2F8F`）口径见 `references/writing-style.md` §1。

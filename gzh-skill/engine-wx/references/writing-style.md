@@ -93,7 +93,10 @@
 
 - 引擎：默认 **wx / minimal-tech × dongpro**（用户现行约定）。当前官宣稿落地见 `mio-谷歌正式发布-Gemini-4-Neon-官宣稿-style.json`：正文 15px / 行高 1.95 / `#141414` / justify；h2 17px/700；关键词芯片 `#EEF0F7` + `#1F2F8F` 13px；图注 12px `#8a8a8a` 居中。
 - 正文 `text-align:justify`；文内 **禁止 h1**；禁止灰字导语块；禁止 lite 预览。
-- 配图：官方/原帖高清；禁止自绘信息卡；长图仅官网级超长用 §13c 滑动。
+- **重点词标注（2026-11-22 定版落地）**：模型名 / 元素名 / 竞品名等关键词一律上芯片——`background:#EEF0F7;color:#1F2F8F;font-size:13px;padding:2px 5px;margin:0 2px`；判断句 / 金句用短句加粗；不用橙色。
+- **双语卡片渐变底衬（2026-11-22 用户定版）**：白底大圆角卡浮于横向渐变底上——`linear-gradient(to right,#8f94fb,#4e54c8)`，四边 ≈18px@1x 渐变框，渐变烘进图片；卡上头像 / 昵称 / 认证徽章 / @handle 原样不动。生成脚本 `gzh-skill/engine-wx/scripts/tweet_cards.py`。
+- **长图滑动框（2026-11-22 用户定版）**：竖排多行文字类长图（还原截图 / 长推文全文 / 榜单列表）一律套 §13c 滑动框——`height:320px` + `overflow-y:scroll` + 同款渐变底衬 wrapper（18px）+ 白字引导行，**禁渐隐 mask**，不看 2.5 屏阈值；规格唯一出处 `engine-wx/references/components.md` §13c。
+- 配图：官方/原帖高清；禁止自绘信息卡；长图处理见上面「长图滑动框」条。
 - 成稿：`E:\WX\<YYYY-MM-DD>\` + `generated/<日期>/`；机器不在则云端 `/workspace/wx-cloud/<日期>/`。
 - 详细排版步骤仍读：`engine-wx/SKILL.md`、`DAILY_NEWS_WORKFLOW.md` §5–§7、`references/components.md`。
 
