@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""把已校验的公众号正文包成单文件预览，支持已排好的同稿备选版式。"""
+"""把同题材的 1–2 种写作风格打包成单文件预览，首个风格默认显示。"""
 
 import argparse
 import re
@@ -52,8 +52,14 @@ def share_images(content, original_sources, path):
 
 
 def render_picker(default_label, variants, content):
+    picker = '<div class="gzh-picker" role="group" aria-label="风格选择"><span class="gzh-picker-label">风格选择</span>\n'
     if not variants:
-        return "", ""
+        return picker + f'<span class="gzh-current">{escape(default_label)} · 默认</span></div>', ""
+
+    if len(variants) > 1:
+        raise ValueError("每篇最多两种风格：一个默认风格和一个备选风格。")
+    if variants[0][0].strip() == default_label.strip():
+        raise ValueError("默认与备选须使用不同的风格名称。")
 
     original_sources = ArticleImages(content).sources
     labels = [default_label]
@@ -78,7 +84,6 @@ def render_picker(default_label, variants, content):
             f'aria-pressed="{active}"><span class="gzh-option-name">{escape(label)}</span>'
             f"<small>{badge}</small></button>"
         )
-    picker = '<div class="gzh-picker" role="group" aria-label="版式选择">\n'
     return picker + "\n".join(buttons) + "\n</div>", "\n".join(templates)
 
 
@@ -87,10 +92,10 @@ def main():
     parser.add_argument("source", type=Path, help="已排版的默认正文 HTML")
     parser.add_argument("output", type=Path, nargs="?", help="单文件成品路径")
     parser.add_argument("--title", help="浏览器标题，缺省使用默认正文的文件名")
-    parser.add_argument("--default-label", default="原排版", help="默认版式的显示名称")
+    parser.add_argument("--default-label", default="原稿", help="默认写作风格名，纯排版默认为原稿")
     parser.add_argument(
-        "--variant", action="append", nargs=2, metavar=("版式名称", "正文HTML"),
-        help="添加同一篇稿件的备选正文，可以重复指定",
+        "--variant", action="append", nargs=2, metavar=("风格名称", "正文HTML"),
+        help="添加一个按另一种写作风格撰写的正文",
     )
     args = parser.parse_args()
 
@@ -112,7 +117,7 @@ def main():
 
     print(f"✓ 已生成带「复制」按钮的预览页: {out}")
     if args.variant:
-        print("  预览默认版和备选版，复制时以当前显示版式为准。")
+        print("  切换写作风格后，复制当前显示的正文。")
     print("  用浏览器打开它，点右上角「复制到公众号」，再去公众号编辑器 Ctrl/⌘+V 粘贴。")
 
 

@@ -59,6 +59,8 @@
     cursor:pointer;
   }
   .gzh-option-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .gzh-picker-label,.gzh-current{flex:none;font-size:13px;color:#5c527b;}
+  .gzh-current{font-weight:600;}
   .gzh-option small{flex:none;color:#5c527b;font-size:12px;font-weight:500;}
   .gzh-option:hover{background:#eeebfa;}
   .gzh-option[aria-pressed="true"]{background:#e9e5fb;border-color:#aaa0df;color:#372778;}
@@ -89,7 +91,7 @@
 <!--GZH_VARIANTS-->
 <script>
   const gzhPicker=document.querySelector('.gzh-picker');
-  if(gzhPicker){
+  if(gzhPicker && gzhPicker.querySelector('button')){
     const content=document.getElementById('gzh-content');
     const original=document.createDocumentFragment();
     const imageSources=Array.from(content.querySelectorAll('img'), image=>image.getAttribute('src'));

@@ -9,7 +9,7 @@
   AI 工具（Codex、Cursor、Claude Code、Gemini CLI、Copilot、Windsurf…）都可以把本项目当成技能用。
 - `templates/` —— 版式骨架：`minimal-tech` / `cyber-card` / `terminal-code` / `hud`。
 - `themes/` —— 色调色板：`themes.json` 注册表 + `minimal-light` / `minimal-dark` / `tech-blue` / `cyber-green` / `neon-purple`。
-- `references/` —— `wechat-compat.md`（微信编辑器兼容性铁律）+ `components.md`（可复用版式块）+ `writing-style.md`（写稿口吻四腔）+ `writing-style-samples.md` + `writing-style-corpus/`（范文语料）+ `tea-knowledge.md`（茶知识写作与核验）。
+- `references/` —— `wechat-compat.md`（微信编辑器兼容性铁律）+ `components.md`（可复用版式块）+ `writing-style.md`（写作风格库）+ `writing-style-samples.md` + `writing-style-corpus/`（范文语料）+ `tea-knowledge.md`（茶知识写作与核验）。
 - `examples/` —— 一段示例草稿，拿来跑一遍。
 - `preview/` —— 5 主题 × 4 模板共 20 种组合的预览画廊（浏览器打开对比）。
 
@@ -25,7 +25,7 @@
 
 只要任务不只是「照排已定稿的草稿」，而是要**写 / 改正文**，先读 `references/writing-style.md`：
 
-- `writing-style.md` —— §1 共用配方 + §2 题材选腔（新智元 / 卡兹克 / 量子位 / ASI）+ §3 各腔细则；
+- `writing-style.md` —— §1 共用配方 + §2 题材选腔+ §3 各腔细则；
 - `writing-style-samples.md` —— 开篇样例，学节奏、不整篇模仿；
 - `writing-style-corpus/` —— 范文语料（`*-body.txt` 正文、`*-style.json` 字号/颜色/结构摘要）。
 
@@ -38,7 +38,7 @@
 当用户说 **`早报` / `今天的热点` / `每日 3 篇` / `按每日流程跑`**，或直接贴 X「Today's News」截图时：
 
 1. 读 `DAILY_NEWS_WORKFLOW.md`，严格按里面 9 个环节执行；
-2. 产出 **3 篇** AI 大模型热点文章，默认 `minimal-tech × dongpro`，每篇另排适合题材的备选；
+2. 产出 **3 篇** AI 大模型热点文章，默认 `minimal-tech × dongpro`，每篇使用一个默认写作风格，可加一个同题材的备选口吻；
 3. 配图必须**内嵌在对应正文位置**（`components.md` §13 样式），**图下不加任何文字**；
    长截图优先切段；必须整张时用 §13c 可上滑长图（见 references/components.md）；
 4. 图片获取用 `scripts/xshot.ps1`（Chrome headless + 普通 UA）→ `scripts/bands.py` 探内容块边界 → `scripts/crop.py` 裁；
@@ -46,7 +46,7 @@
 5. 组装时逐版注入和检查，再用 `engine-design/scripts/wrap_preview.py` 一次打包同稿各版，参数见每日流程 §6；
 6. 落盘 `E:\WX\<YYYY-MM-DD>\`，并在 `generated/<date>/` 留一份备份；
 7. 写信源台账 `generated/<date>/sources.md`（结论/配图 ← URL + 页面位置），格式见 §7.1；
-8. 交付三句用法，提示成品里切换后复制当前版，结尾标出默认组合；
+8. 交付三句用法，提示成品里切换后复制当前版，结尾标出默认写作风格；
 9. **铁律**：每次改完立刻 `git add -A` → `commit` → `push`，回复报 commit 短号，工作区不留未提交改动。
 
 细节、坑位与命令示例都在 `DAILY_NEWS_WORKFLOW.md`，不要凭记忆简化。

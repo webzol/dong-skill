@@ -8,7 +8,7 @@
 
 ## 0. 一次交付的定义
 
-**产出 3 篇**，每篇含默认版和适合题材的备选，全部落到 `E:\WX\<YYYY-MM-DD>\`：
+**产出 3 篇**，每篇含 1–2 种写作风格，标出一个默认风格，全部落到 `E:\WX\<YYYY-MM-DD>\`：
 
 | 项 | 规格 |
 |---|---|
@@ -232,7 +232,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 ## 4. 写稿骨架（沿用 Terra / WorkBuddy 那几篇）
 
-> **2026-11-16 起写稿口吻以 `references/writing-style.md` 为准**（新智元 / 卡兹克 / 量子位 / ASI 范文库）。开篇样例见 `references/writing-style-samples.md`，语料在 `references/writing-style-corpus/`。下面骨架仍有效；与旧「小标题可用问句」冲突时，**以 writing-style.md 为准：小标题用结论短句，不用问句**。
+> **2026-11-16 起写稿口吻以 `references/writing-style.md` 为准**。开篇样例见 `references/writing-style-samples.md`，语料在 `references/writing-style-corpus/`。下面骨架仍有效；与旧「小标题可用问句」冲突时，**以 writing-style.md 为准：小标题用结论短句，不用问句**。
 
 
 ```html
@@ -248,7 +248,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 <p>（文末不加页脚、不加来源列表，最后一句写完就结束）</p>
 ```
 
-写作口吻：**一律读 `references/writing-style.md`（唯一出处，不再维护第二套）**——§2 按题材选腔（新智元 / 卡兹克 / 量子位 / ASI），套 §1 共用配方 + §3 该腔细则；开篇样例见 `references/writing-style-samples.md`，语料在 `references/writing-style-corpus/`。先硬事实后解读，不编数字/日期；软消息标「社区 / 截图 / 未官宣」。
+写作口吻：**一律读 `references/writing-style.md`（唯一出处，不再维护第二套）**——§2 按题材选腔，套 §1 共用配方 + §3 该腔细则；开篇样例见 `references/writing-style-samples.md`，语料在 `references/writing-style-corpus/`。先硬事实后解读，不编数字/日期；软消息标「社区 / 截图 / 未官宣」。
 
 **硬禁令（重复强调）**：开篇不插灰字导语、不堆清单（硬事实放背景段或清单段）；h2 短钩子不点题、不带「一、二、三、」；标题只写在公众号标题栏 / 文件名，**成稿 HTML 正文禁止再放 `h1`**。
 
@@ -282,7 +282,7 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 ## 6. 组装（串行，别并行）
 
-先按默认组合排版，再用同一正文、同一图片和图序生成 1–2 个备选版。各版分别检查 §5 的排版规则。使用同一份 `images.json` 注入，检查各版图片与正文完整后一次打包，成品内共享图片资源。
+按题材从写作风格库选 1–2 种口吻，总数含默认项。用户指定的风格优先，否则以最贴题的一种为默认。若有备选，用同一事实和图片另写一版正文，保持信源口径、图序和版式一致。纯排已定稿时保留原稿一个风格。各版分别检查 §5 的排版规则。使用同一份 `images.json` 注入，检查各版图片与正文完整后一次打包，成品内共享图片资源。
 
 ```powershell
 $env:PYTHONIOENCODING='utf-8'
@@ -294,13 +294,13 @@ if ($LASTEXITCODE -ne 0) { throw '默认版图片注入失败' }
 python .\scripts\inject_images.py body-alternate.html images.json out-alternate.html --allow-missing-captions
 if ($LASTEXITCODE -ne 0) { throw '备选版图片注入失败' }
 
-# 逐版检查注入后的完整正文，再按实际组合填入标签
-python ..\engine-design\scripts\wrap_preview.py out.html final.html --default-label "minimal-tech × dongpro" --variant "wechat-pai-essay × dongpro" out-alternate.html
+# 逐版检查注入后的完整正文，再用实际写作风格名填入标签
+python ..\engine-design\scripts\wrap_preview.py out.html final.html --default-label "新智元" --variant "量子位" out-alternate.html
 if ($LASTEXITCODE -ne 0) { throw '预览打包失败' }
 Remove-Item -LiteralPath out.html, out-alternate.html
 ```
 
-每增加一个备选，再传一次 `--variant "模板 × 主题" 对应正文.html`。用户明确只要一版时，注入并检查这一版，使用 `wrap_preview.py out.html final.html`。
+双风格按上例打包。单风格只注入并校验默认正文，使用 `wrap_preview.py out.html final.html --default-label "实际风格名"`。
 
 `images.json` 形如 `{"{{IMG_A}}": "C:\\path\\a.png", "{{IMG_B}}": "C:\\path\\b.png"}`。
 PowerShell 5.1 用 `Set-Content -Encoding UTF8` 写出来会带 BOM，脚本已用 `utf-8-sig` 读，不用手改。
@@ -334,8 +334,8 @@ Get-ChildItem <dir>                        # 交付目录只留最终成品
   例：`OpenAI 把 Pro 200 的 Codex 额度砍半 - 10 月 30 日起 20 倍变 10 倍.html`
 - 预览：`browser.preview` 打开成品；万一文件名仍带全角字符打不开，复制 ASCII 副本到 `.tmp-preview\`：
   `Copy-Item "<成品>" "E:\dong-skill\.tmp-preview\<slug>.html"`（交付的仍是原文件）
-- 交付话术固定三句：① 浏览器打开成品，按需切换版式 → ② 点「复制到公众号」复制当前版 → ③ 公众号编辑器新建图文后粘贴
-- 结尾写「默认版 = 模板 X + 主题 Y」（单版写「本版」），按实际组合填写。
+- 交付话术固定三句：① 浏览器打开成品，按需切换写作风格 → ② 点「复制到公众号」复制当前版 → ③ 公众号编辑器新建图文后粘贴
+- 结尾写「默认风格 = 实际口吻名」。
 
 ### 7.1 信源台账（每天必写一份）
 

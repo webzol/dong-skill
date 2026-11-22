@@ -73,7 +73,7 @@ metadata:
 > 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。默认版和备选都使用茶模板与 `tea-atelier`。维护规则不启动文章生成。
 
 ### 第 0 步　写稿口吻（需要写正文时必做）
-- 读 `references/writing-style.md`：先按 §2 定一条主腔（新智元 / 卡兹克 / 量子位 / ASI），再套 §1 共用配方 + 该腔 §3 细则。
+- 读 `references/writing-style.md`：先按 §2 定一条主腔，再套 §1 共用配方 + 该腔 §3 细则。
 - 需要感性认识时从 `references/writing-style-samples.md` 或 `references/writing-style-corpus/*-body.txt` 取 1～2 段开篇样例，**不要整篇模仿**，只学节奏。
 - 硬约束：标题爆点前置；开篇不写日期、不放灰字导语块；小标题结论式短句、**不用问句**；官方 / 媒体 / 社区口径分开标；收尾一句判断后停。
 - 草稿已定稿、本次只做排版时跳过本步。
@@ -82,10 +82,10 @@ metadata:
 - 若是文件，用 Read 读取；若是粘贴文本，直接读正文。
 - 识别文章结构：标题 / 小节 / 正文段落 / 引用强调 / 代码 / 列表 / 要点卡片 / 数据指标 / 结尾关注。
 
-### 第 2 步　确定默认版和备选
+### 第 2 步　确定排版与写作风格
 - 读 `templates/_index.md` 与 `themes/themes.json`，看清单与各自风格一句话说明。
 - **先按用户指定或项目约定排默认版**。茶模式按题材选茶模板并固定 `tea-atelier`，普通稿默认 `minimal-tech × dongpro`，AI 模型稿按上方约定选型。
-- 模板决定**版式骨架**，主题决定**颜色**。用同一正文、同一图片及图序独立排出 1–2 个适合题材的备选，遵循用户指定的固定项。完整成品里可以直接切换。
+- 模板决定**版式骨架**，主题决定**颜色**。按题材从写作风格库选 1–2 种口吻，总数含默认项。用户指定的风格优先，否则以最贴题的一种为默认。若有备选，用同一事实和图片另写一版正文，保持信源口径、图序和版式一致。纯排已定稿时保留原稿一个风格。
 - 用户明确要先看样式时，打开 [模板 × 主题选择页](preview/selection.html) 看样稿。用户明确只要一版时，完成所选版即可。
 
 ### 第 3 步　生成微信兼容 HTML（核心）
@@ -106,9 +106,9 @@ metadata:
 正文宽度统一 677px（微信桌面容器）；深色主题里文字用浅色，对比度 ≥ 4.5:1。各版分别检查正文、图片及长图滑动容器，校验通过后统一打包。
 
 ### 第 4 步　交付
-- 产出写入**当天日期目录** `generated/<YYYY-MM-DD>/`（见第 4.5 步），每篇交付一个含默认版与备选的 HTML 成品。用户明确要看源码时可提供正文代码。
-- 浏览器打开成品，按需切换版式 → 点「复制到公众号」复制当前版 → 到公众号编辑器新建图文并粘贴。
-- 结尾写「默认版 = 模板 X + 主题 Y」（单版写「本版」），按实际组合填写。
+- 产出写入**当天日期目录** `generated/<YYYY-MM-DD>/`（见第 4.5 步），每篇交付一个含 1–2 种写作风格的 HTML 成品。用户明确要看源码时可提供正文代码。
+- 浏览器打开成品，按需切换写作风格 → 点「复制到公众号」复制当前版 → 到公众号编辑器新建图文并粘贴。
+- 结尾写「默认风格 = 实际口吻名」。
 
 ### 第 4.5 步　输出归档（每次必做）
 
@@ -125,10 +125,10 @@ generated/
 - **只交付一个文件**。在本引擎目录用统一预览脚本打包。按钮和脚本位于预览外壳，复制时仅取当前版正文。
 
   ```text
-  python ../engine-design/scripts/wrap_preview.py default.html final.html --default-label "默认模板 × 主题" --variant "备选模板 × 主题" alternate.html
+  python ../engine-design/scripts/wrap_preview.py default.html final.html --default-label "新智元" --variant "量子位" alternate.html
   ```
 
-  每个备选传一次 `--variant`，同序图片打包时共享。单版沿用原来的两个位置参数。
+  有备选时传一次 `--variant`，同序图片在打包时共享。单风格用 `--default-label "风格名"` 标出默认项。
 - `source.md` / `README.md` 归档三件套**不再默认生成**（用户明确要求时才附）
 - `generated/` 不入 git（.gitignore 已忽略）；与 `examples/` 的边界：examples 是长期示例，generated 是当日产出
 
@@ -196,7 +196,7 @@ generated/
 
 - `templates/_index.md` 模板清单 —— 选骨架
 - `themes/themes.json` 主题注册表 —— 选色板
-- `references/writing-style.md` 写稿口吻（四腔 + 共用配方）—— **写正文前必读**（第 0 步）
+- `references/writing-style.md` 写稿口吻（题材选腔 + 共用配方）—— **写正文前必读**（第 0 步）
 - `references/writing-style-samples.md` 开篇样例 —— 学节奏，不整篇模仿
 - `references/writing-style-corpus/` 范文语料（`*-body.txt` 正文 / `*-style.json` 结构摘要）
 - `references/tea-knowledge.md` 茶知识写作与核验 —— 茶稿必读

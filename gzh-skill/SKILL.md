@@ -34,10 +34,10 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 - **两引擎资产互不混用**：不要拿 wx 的主题 JSON 去填 design 的组件库，也不要把 design 的组件 HTML 塞进 wx 的模板骨架。
 - 校验脚本用绝对路径调用：`<本 skill 安装根目录>/engine-design/scripts/validate_gzh_html.py`。
 
-## 默认版与备选
+## 成品风格选择
 
-- **先排版，再在成品里选择**。用用户指定或项目约定的模板与主题作为默认版。普通 wx 稿默认 `minimal-tech × dongpro`，茶稿按 `commands/chamo.md` 选茶模板并固定 `tea-atelier`。缺少已有偏好时，按正文题材确定适合的组合。
-- 用同一篇正文、同一批图片和图序独立生成 1–2 个合适的备选。wx 引擎按模板骨架生成各版，design 引擎按各自主题组件库生成各版。每版先完成内联样式和兼容性检查，再打包。
+- 各风格共用用户指定或项目约定的模板与主题。普通 wx 稿默认 `minimal-tech × dongpro`，茶稿按 `commands/chamo.md` 选茶模板并固定 `tea-atelier`。缺少已有偏好时，按正文题材确定适合的组合。
+- 按题材从写作风格库选 1–2 种口吻，总数含默认项。用户指定的风格优先，否则以最贴题的一种为默认。若有备选，用同一事实和图片另写一版正文，保持信源口径、图序和版式一致。纯排已定稿时保留原稿一个风格。每版先完成内联样式和兼容性检查，再打包。
 - 用户明确要先看样式时，可打开 [design 主题画廊](engine-design/docs/gallery/index.html) 或 [wx 版式选择页](engine-wx/preview/selection.html)。用户明确只要一版时，按单版流程交付。
 
 ## 输出归档约定（两引擎文档已同步此约定，此处为总纲）
@@ -48,12 +48,12 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 2. **每篇交付一个 HTML 成品**。design 各版干净正文以 `validate_gzh_html.py` 校验到 0 ERROR 0 WARNING，wx 各版按 `engine-wx/references/wechat-compat.md` 逐项检查。校验通过后用统一预览脚本打包。
 
    ```text
-   python engine-design/scripts/wrap_preview.py default.html final.html --default-label "默认模板 × 主题" --variant "备选模板 × 主题" alternate.html
+   python engine-design/scripts/wrap_preview.py default.html final.html --default-label "新智元" --variant "量子位" alternate.html
    ```
 
-   每增加一个备选再传一次 `--variant`。同序图片在打包时共享。单版沿用 `wrap_preview.py <正文.html> <成品.html>`。茶稿与本仓库稿件的各版正文源文件、图片映射和源图保留在稿件子目录，供后续修订。
+   有备选时传一次 `--variant`。同序图片在打包时共享。单版使用 `--default-label "风格名"`，省略 `--variant`。茶稿与本仓库稿件的各版正文源文件、图片映射和源图保留在稿件子目录，供后续修订。
 3. `generated/` 不入库：仓库根 `.gitignore` 已忽略该目录。
-4. 交付说明固定三句：浏览器打开成品并按需切换版式 → 点「复制到公众号」复制当前版 → 到公众号编辑器粘贴。正文含 `{{作者名}}` 等占位时提醒替换。
+4. 交付说明固定三句：浏览器打开成品并按需切换写作风格 → 点「复制到公众号」复制当前版 → 到公众号编辑器粘贴。正文含 `{{作者名}}` 等占位时提醒替换。
 
 ## 平台共性红线（两引擎一致，完整规则以各自引擎文件为准）
 
@@ -69,6 +69,6 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 ## 写稿口吻（2026-11-16）
 
-**凡涉及「写正文」（不只是照排已定稿草稿），不论题材，先读 `engine-wx/references/writing-style.md`**：按 §2 定腔调（新智元 / 卡兹克 / 量子位 / ASI），套 §1 共用配方 + §3 该腔细则；开篇样例 `writing-style-samples.md`，语料 `writing-style-corpus/`。该文件是写稿口径的唯一出处，与其它文档冲突时以它为准。排版流程不变。
+**凡涉及「写正文」（不只是照排已定稿草稿），不论题材，先读 `engine-wx/references/writing-style.md`**：按 §2 定腔调，套 §1 共用配方 + §3 该腔细则；开篇样例 `writing-style-samples.md`，语料 `writing-style-corpus/`。该文件是写稿口径的唯一出处，与其它文档冲突时以它为准。排版流程不变。
 
 入口分工：`engine-wx/SKILL.md` 第 0 步为写稿口吻步（AI 稿）；`commands/zaobao.md`（每日热点）、`commands/chamo.md`（茶稿）各自在第 4 步 / 选模板段挂同一份风格文件。
