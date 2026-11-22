@@ -157,11 +157,11 @@
 > 交付前必须自测：框内能滑、底部渐隐可见、能滑到图底看完。
 
 ```html
-<section style="margin:14px 0 8px;">
+<section style="margin:14px 0 8px;padding:18px;background:#4e54c8;background:-webkit-linear-gradient(to right,#8f94fb,#4e54c8);background:linear-gradient(to right,#8f94fb,#4e54c8);">
   <section style="height:320px;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;mask-image:linear-gradient(rgb(0,0,0) 88%, rgba(0,0,0,0.55) 100%);-webkit-mask-image:linear-gradient(rgb(0,0,0) 88%, rgba(0,0,0,0.55) 100%);border:1px solid #e5e5e5;border-radius:0;box-sizing:border-box;text-align:center;background:#ffffff;">
     <img src="{{base64或图片URL}}" style="max-width:100%;width:100%;display:block;margin:0 auto;border:none;border-radius:0;box-shadow:none;box-sizing:border-box;" alt="{{描述}}"/>
   </section>
-  <p style="margin:8px 0 0;padding:0;font-size:12px;line-height:1.6;letter-spacing:.5px;color:#7b786f;text-align:center;">{{短说明}} · {{往下划引导}}</p>
+  <p style="margin:8px 0 0;padding:0;font-size:12px;line-height:1.6;letter-spacing:.5px;color:#ffffff;text-align:center;">{{短说明}} · {{往下划引导}}</p>
 </section>
 ```
 
@@ -170,9 +170,10 @@
 > 2. **`overflow-y:scroll` + `scrollbar-width:none`**（隐藏滚动条）；可加 `-ms-overflow-style:none`。
 > 3. **底部渐隐**：`mask-image` / `-webkit-mask-image: linear-gradient(rgb(0,0,0) 88%, rgba(0,0,0,0.55) 100%)`，提示下面还有内容。
 > 4. **边框** `1px solid #e5e5e5`，`border-radius:0`；图本身不要再加圆角/阴影。
-> 5. **说明在框外下方**：12px、`#7b786f`、居中；文案用「{{短说明}} · {{往下划引导}}」（例：`Cat Wu 官宣加入 OpenAI · 官宣帖全文，往下划看她怎么夸 OpenAI`）。
+> 5. **说明在渐变底衬内、图框下方**：12px、白字 `#ffffff`、居中；文案用「{{短说明}} · {{往下划引导}}」（例：`Cat Wu 官宣加入 OpenAI · 官宣帖全文，往下划看她怎么夸 OpenAI`）。
 > 6. **禁止**再用旧版「↑ 上滑查看完整说明 · …」灰字；禁止把引导字叠在图上。
 > 7. 图 `src` 仍一律 base64 内嵌（同 §13）。
+> 8. **渐变底衬（2026-11-22 用户定版）**：滑动框外包一层渐变 wrapper——`padding:18px` + `background:#4e54c8` + `background:-webkit-linear-gradient(to right,#8f94fb,#4e54c8)` + `background:linear-gradient(to right,#8f94fb,#4e54c8)`（三行按此顺序写死，前者兜底），白色滑动框与引导行都放 wrapper 内；与双语卡片渐变底衬同款。旧「无底衬 + 灰字引导」形态作废。
 
 ## 14. 数据指标（单条）
 
