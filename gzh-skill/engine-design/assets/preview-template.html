@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="gzh-toolbar">
-  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button>
+  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:7px;" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="gzhCopyLabel">复制到公众号</span></button>
 </div>
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
@@ -51,8 +51,9 @@
     var btn=document.getElementById('gzhCopyBtn');
     if(ok){
       gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
-      var old=btn.textContent;btn.textContent='✅ 已复制';
-      setTimeout(function(){btn.textContent=old;},2200);
+      var lbl=document.getElementById('gzhCopyLabel');
+      var old=lbl.textContent;lbl.textContent='✅ 已复制';
+      setTimeout(function(){lbl.textContent=old;},2200);
     }else{
       gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
     }
