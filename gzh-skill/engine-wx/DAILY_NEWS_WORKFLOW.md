@@ -8,7 +8,7 @@
 
 ## 0. 一次交付的定义
 
-**产出 3 篇**，同一套模板与主题，全部落到 `E:\WX\<YYYY-MM-DD>\`：
+**产出 3 篇**，每篇含默认版和适合题材的备选，全部落到 `E:\WX\<YYYY-MM-DD>\`：
 
 | 项 | 规格 |
 |---|---|
@@ -18,7 +18,7 @@
 | 配图 | 每篇 2–5 张（证据特别多可到 6，再多就拆篇），**内嵌在对应正文位置**，不堆文末 |
 | 图注 | 普通配图**不写**（2026-10-30）。**例外**：§13c 可滑动长图**框外下方** 12px 引导行「短说明 · 往下划…」（旧版「↑ 上滑」灰字已废，见 components.md §13c） |
 | 资源 | 单文件 HTML，图片一律 `data:image/png;base64,...` |
-| 外壳 | `wrap_preview.py` 包一层，右上角「复制到公众号」按钮 |
+| 外壳 | `wrap_preview.py` 打包同稿各版，打开成品即可切换并复制当前版 |
 | 归档 | 同时存一份 `E:\dong-skill\generated\<date>\`（gitignored） |
 
 ### 0.1 什么时候才会真的跑
@@ -58,7 +58,7 @@
 | 配图 | **高清图片 + 高清截图两类齐全（铁律，2026-11-18 重申，快讯不豁免）**：带媒体推文 og:image 原图直取（`?format=jpg&name=orig`）；纯文字推文 DPR≥2 高清截图（说话部分）或双语卡片；同一条推文不重复放原图+截图；成品图合计 ≤6 张；长图铁律照旧 |
 | 双语 | **照 §3.6 全套执行，不豁免**：英文推文截图 / 卡片一律上英下中，纯英文没翻译的图不交付；限时只压缩 websearch 与篇幅，不压缩图与翻译 |
 | 腔调与版式 | `writing-style.md` §2「快讯」行：新智元腔短句砸场；默认 `minimal-tech × dongpro` |
-| 不减的工序 | 串行组装（inject → wrap）、质检四查、台账 `docs/sources/<date>.md`、**commit + push** 一条不少 |
+| 不减的工序 | 串行组装（各版注入 → 一次打包）、质检四查、台账 `docs/sources/<date>.md`、**commit + push** 一条不少 |
 
 ---
 
@@ -282,18 +282,25 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 ## 6. 组装（串行，别并行）
 
+先按默认组合排版，再用同一正文、同一图片和图序生成 1–2 个备选版。各版分别检查 §5 的排版规则。使用同一份 `images.json` 注入，检查各版图片与正文完整后一次打包，成品内共享图片资源。
+
 ```powershell
 $env:PYTHONIOENCODING='utf-8'
 # 仍在 gzh-skill\engine-wx 目录下执行
 
-# 1) 正文 HTML 写占位符 {{IMG_A}} {{IMG_B}} ...
-# 2) 注入 base64 并包预览壳（必须串行，曾因并行竞态留下未替换占位符）
+# 默认版与备选版正文使用同一套图片占位符
 python .\scripts\inject_images.py body.html images.json out.html --allow-missing-captions
-if ($LASTEXITCODE -eq 0) {
-  python ..\engine-design\scripts\wrap_preview.py out.html final.html
-  if ($LASTEXITCODE -eq 0) { Remove-Item body.html, out.html -Force }
-}
+if ($LASTEXITCODE -ne 0) { throw '默认版图片注入失败' }
+python .\scripts\inject_images.py body-alternate.html images.json out-alternate.html --allow-missing-captions
+if ($LASTEXITCODE -ne 0) { throw '备选版图片注入失败' }
+
+# 逐版检查注入后的完整正文，再按实际组合填入标签
+python ..\engine-design\scripts\wrap_preview.py out.html final.html --default-label "minimal-tech × dongpro" --variant "wechat-pai-essay × dongpro" out-alternate.html
+if ($LASTEXITCODE -ne 0) { throw '预览打包失败' }
+Remove-Item -LiteralPath out.html, out-alternate.html
 ```
+
+每增加一个备选，再传一次 `--variant "模板 × 主题" 对应正文.html`。用户明确只要一版时，注入并检查这一版，使用 `wrap_preview.py out.html final.html`。
 
 `images.json` 形如 `{"{{IMG_A}}": "C:\\path\\a.png", "{{IMG_B}}": "C:\\path\\b.png"}`。
 PowerShell 5.1 用 `Set-Content -Encoding UTF8` 写出来会带 BOM，脚本已用 `utf-8-sig` 读，不用手改。
@@ -309,11 +316,11 @@ PowerShell 5.1 用 `Set-Content -Encoding UTF8` 写出来会带 BOM，脚本已�
 质检（四查）：
 
 ```powershell
-Select-String final.html -Pattern '\{\{'          # 必须 0 命中
-Select-String final.html -Pattern 'data:image'   # 必须等于图片张数
-Get-ChildItem <dir>                              # 只留最终成品
-# 第四查（人工）：长图检查——显示高度超过 2.5 屏（≈2000px）或高宽比 > 4 的图，
-# 必须已套 §13c 滑动容器（height:320px + 渐变底衬 + 白字引导行，禁渐隐），且滑动自测已过
+Select-String final.html -Pattern '\{\{'   # 必须 0 命中
+(Select-String final.html -Pattern 'data:image' -AllMatches | ForEach-Object { $_.Matches } | Measure-Object).Count
+# 上一条必须等于默认版图片张数
+Get-ChildItem <dir>                        # 交付目录只留最终成品
+# 第四查（人工）切换各版，检查正文、图片及复制结果；各版长图都按 §13c 进行滑动自测
 ```
 
 ---
@@ -327,8 +334,8 @@ Get-ChildItem <dir>                              # 只留最终成品
   例：`OpenAI 把 Pro 200 的 Codex 额度砍半 - 10 月 30 日起 20 倍变 10 倍.html`
 - 预览：`browser.preview` 打开成品；万一文件名仍带全角字符打不开，复制 ASCII 副本到 `.tmp-preview\`：
   `Copy-Item "<成品>" "E:\dong-skill\.tmp-preview\<slug>.html"`（交付的仍是原文件）
-- 交付话术固定三句：① 浏览器打开成品 → ② 点右上角「复制到公众号」 → ③ 公众号编辑器新建图文后粘贴
-- 结尾必须写：**本版 = 模板 `minimal-tech` + 主题 `dongpro`**
+- 交付话术固定三句：① 浏览器打开成品，按需切换版式 → ② 点「复制到公众号」复制当前版 → ③ 公众号编辑器新建图文后粘贴
+- 结尾写「默认版 = 模板 X + 主题 Y」（单版写「本版」），按实际组合填写。
 
 ### 7.1 信源台账（每天必写一份）
 

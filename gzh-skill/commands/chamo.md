@@ -38,13 +38,13 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 ## 执行
 
 1. 读模板骨架：`gzh-skill/engine-wx/templates/<模板>.md`；主题：`themes/tea-atelier.json`；口吻：`gzh-skill/engine-wx/references/writing-style.md`；
-2. 写 `generated/<date>/<slug>/body.html`（内联样式，占位 `{{IMG_A}}`）；
+2. 写 `generated/<date>/<slug>/body.html`，用同一正文和图序另排适合的备选。各版用茶模板和 `tea-atelier`，图片共用 `{{IMG_A}}` 等占位符；
 3. 配图放 `generated/<date>/<slug>/img/`，写 `images.json`；
-4. 所有正文文本按校验器要求包 `<span leaf="">`；串行跑 `validate_gzh_html.py` → `inject_images.py --allow-missing-captions` → 对注入后的正文再跑 `validate_gzh_html.py` → `wrap_preview.py`。任一步失败先修复，不能继续包装；校验对象是正文，不是带脚本的预览外壳；
+4. 各版文本按校验器要求包 `<span leaf="">`，逐版先校验、再注入图片、再校验注入后的正文。全部通过后按 [统一打包流程](../SKILL.md) 用 `wrap_preview.py` 打包默认版和备选；
 5. 落盘 `E:\WX\<YYYY-MM-DD>\`，备份 `generated\<date>\<slug>\`；
 6. 台账 `docs/sources/<date>-<slug>.md`（事实出处、适用条件、配图来源与修订记录），在 `docs/sources/<date>.md` 链接；保留 `body.html`、`images.json` 和源图用于后续改稿，交付目录只放成品；
 7. `git add` → `commit` → `push`，回复报 commit 短号；
-8. 交付三句用法 + 「本版 = 模板 X + 主题 tea-atelier」。
+8. 交付三句用法。打开成品并按需切换模板 → 点「复制到公众号」→ 到公众号编辑器粘贴。结尾写「默认版 = 模板 X + 主题 tea-atelier」。
 
 仅维护规则、未修改文章源稿时，不重生成历史文章；在台账与 `DEV_NOTES.md` 说明变更范围、验证结果及旧稿待核验项。提交推送遵守仓库授权边界；主分支推送未获确认时使用 `codex/` 分支。
 

@@ -18,7 +18,7 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 
 ## 路由规则（按顺序判定，命中即停）
 
-0. **茶类稿件或「茶模型」/ `/chamo`** → **wx 引擎**，先读 `commands/chamo.md`；默认茶模板 × `tea-atelier`，跳过主题选择。茶知识补写或审稿还须读 `engine-wx/references/tea-knowledge.md`。若输入是 Word/PDF，先提取内容再回到茶模板。维护茶类规则时只做所请求的维护。
+0. **茶类稿件或「茶模型」/ `/chamo`** → **wx 引擎**，先读 `commands/chamo.md`。默认版和备选均用茶模板 × `tea-atelier`。茶知识补写或审稿还须读 `engine-wx/references/tea-knowledge.md`。若输入是 Word/PDF，先提取内容再回到茶模板。维护茶类规则时只做所请求的维护。
 
 1. 用户**点名 wx 引擎的模板或主题名**——模板：`minimal-tech` / `cyber-card` / `terminal-code` / `hud` / `wechat-pai-essay`；主题：`minimal-light` / `minimal-dark` / `tech-blue` / `cyber-green` / `neon-purple` / `taobao-flash` / `wechat-pai` / `qianwen`；或要求「模板 × 配色自由组合 / 换模板 / 换配色」→ **wx 引擎**
 2. 输入是 **.docx 或 .pdf** → **design 引擎**（走其 format-normalize + extract_docx 流程）
@@ -34,30 +34,26 @@ description: 微信公众号文章排版统一 Skill（由 gzh-design 与 wxskil
 - **两引擎资产互不混用**：不要拿 wx 的主题 JSON 去填 design 的组件库，也不要把 design 的组件 HTML 塞进 wx 的模板骨架。
 - 校验脚本用绝对路径调用：`<本 skill 安装根目录>/engine-design/scripts/validate_gzh_html.py`。
 
-## 主题选择约定（覆盖两引擎的默认主题行为，用户体验第一）
+## 默认版与备选
 
-- **茶模式及项目约定优先**：茶稿执行 `commands/chamo.md`，本仓库普通稿默认 `minimal-tech × dongpro`；已有用户偏好不重复询问。以下选主题流程仅适用于没有项目默认或已知偏好的其他稿件。
-- **用户没指定主题时，必须立即自动弹出交互式风格选择框让用户点选，不得自行默认，也不得只列纯文本清单等用户打字回复**。清单范围 = 两引擎全部主题：design 引擎 6 套（摸鱼绿 / 橄榄手记 / 摸鱼票据风 / 红白色系 / 石墨极简风 / 留白禅意风）+ wx 引擎 8 套色板（minimal-light 极简白 / minimal-dark 极简黑 / tech-blue 科技蓝 / cyber-green 赛博绿 / neon-purple 霓虹紫 / taobao-flash 淘宝闪购 / wechat-pai 微信派 / qianwen 千问）。
-- **弹框体验要求（UX 优先）**：
-  - 用 AI 工具的交互选择组件（如 Claude Code 的 AskUserQuestion / ZCode 的 AskUserQuestion）弹出，用户点选即回，**不打字、不来回追问**。
-  - 选项数超过弹框上限（通常 4 个）时两步走：第一层弹「design 主题 / wx 色板 / 看画廊再选」，第二层弹该组内全部主题；或第一层直接放 4 个最契合题材的（标注「推荐」）+「看全部 14 套」兜底项。
-  - 每个选项带一句话风格描述；题材契合的标「推荐」放第一位，但不替用户定。
-  - 选题与问其他问题（如确认结构）**合并成一轮**，能一次问完的不拆两次。
-  - 用户选 wx 色板后，模板选择框**紧接着弹出**（minimal-tech / cyber-card / terminal-code / hud / wechat-pai-essay），除非已一并点名。
-  - 可在弹框中附画廊路径供先看效果：design 画廊 `engine-design/docs/gallery/index.html`、wx 画廊 `engine-wx/preview/preview.html`。
-- **其他免选情形**：用户明确说「直接排 / 一键 / 不用问」放弃选择时，才自动选最契合的主题（wx 引擎用其默认组合）并在交付时说明理由。
-- 两引擎文档中与此冲突的默认规则（design 引擎「默认首选第一行」、wx 引擎「缺省用默认组合」），以本节为准。
+- **先排版，再在成品里选择**。用用户指定或项目约定的模板与主题作为默认版。普通 wx 稿默认 `minimal-tech × dongpro`，茶稿按 `commands/chamo.md` 选茶模板并固定 `tea-atelier`。缺少已有偏好时，按正文题材确定适合的组合。
+- 用同一篇正文、同一批图片和图序独立生成 1–2 个合适的备选。wx 引擎按模板骨架生成各版，design 引擎按各自主题组件库生成各版。每版先完成内联样式和兼容性检查，再打包。
+- 用户明确要先看样式时，可打开 [design 主题画廊](engine-design/docs/gallery/index.html) 或 [wx 版式选择页](engine-wx/preview/selection.html)。用户明确只要一版时，按单版流程交付。
 
 ## 输出归档约定（两引擎文档已同步此约定，此处为总纲）
 
 每次排版产出统一按本节执行：
 
 1. **先建当天文件夹**：在当前工作目录下新建 `generated/<YYYY-MM-DD>/`（本地日期），当次产物只放这一个文件夹；同一天多次排版共用同一天的文件夹。
-2. **只交付一个成品文件**：文件夹里最终只留**一个**带「复制」按钮、可直接粘贴公众号编辑器的 HTML（文件名用简短主题概括，如 `两个AI排版skill合并复盘.html`）。
-   - design 引擎：干净 `<section>` 正文只作为校验中间产物——`validate_gzh_html.py` 跑到 0 ERROR 0 WARNING 后，用 `engine-design/scripts/wrap_preview.py <干净正文> <成品文件名>` 包出带「复制」按钮的成品，交付目录只放成品；茶稿与本仓库稿件的 `body.html`、图片映射和源图保留在稿件子目录，供后续修订。
-   - wx 引擎：生成内联 HTML 后，同样用 `engine-design/scripts/wrap_preview.py` 包一层带「复制」按钮的预览外壳再交付；`source.md` / `README.md` 归档三件套不再默认生成（用户明确要求时才附）。
+2. **每篇交付一个 HTML 成品**。design 各版干净正文以 `validate_gzh_html.py` 校验到 0 ERROR 0 WARNING，wx 各版按 `engine-wx/references/wechat-compat.md` 逐项检查。校验通过后用统一预览脚本打包。
+
+   ```text
+   python engine-design/scripts/wrap_preview.py default.html final.html --default-label "默认模板 × 主题" --variant "备选模板 × 主题" alternate.html
+   ```
+
+   每增加一个备选再传一次 `--variant`。同序图片在打包时共享。单版沿用 `wrap_preview.py <正文.html> <成品.html>`。茶稿与本仓库稿件的各版正文源文件、图片映射和源图保留在稿件子目录，供后续修订。
 3. `generated/` 不入库：仓库根 `.gitignore` 已忽略该目录。
-4. 交付说明固定三句：浏览器打开成品 HTML → 点右上角「复制到公众号」→ 到公众号编辑器粘贴；正文含 `{{作者名}}` 等占位时提醒替换。
+4. 交付说明固定三句：浏览器打开成品并按需切换版式 → 点「复制到公众号」复制当前版 → 到公众号编辑器粘贴。正文含 `{{作者名}}` 等占位时提醒替换。
 
 ## 平台共性红线（两引擎一致，完整规则以各自引擎文件为准）
 

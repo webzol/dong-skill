@@ -12,11 +12,11 @@ argument-hint: "[可选：3 条头条线索，或要排版的稿件路径]"
    参数与坐标见 §3.5，**不要**用浏览器工具开 x.com；
 4. 写稿：**先读 `gzh-skill/engine-wx/references/writing-style.md` 定腔调**（新智元/卡兹克/量子位/ASI），开篇样例见 `writing-style-samples.md`；
    每篇 900–1600 汉字，图 2–5 张，**图下不加文字**；开头不写时间、不放灰字导语块；小标题用结论短句不用问句；
-5. 排版：模板 `minimal-tech` × 主题 `dongpro`；h1 16px / h2 17px / 小节标题不带中文序号；
-6. 组装：`inject_images.py --allow-missing-captions` → `wrap_preview.py`，串行；
+5. 排版默认用 `minimal-tech × dongpro`，另排 1–2 个备选。正文直接开篇，小节标题 17px；
+6. 各版注入并检查同一批图片，按 §6 一次打包同稿备选；
 7. 落盘 `E:\WX\<YYYY-MM-DD>\`，备份 `generated\<date>\`，台账写 `docs\sources\<date>.md`；
 8. 文件名禁用全角「：」「／」；
-9. 交付三句用法 + 「本版 = 模板 minimal-tech + 主题 dongpro」，并附交付清单（文件 / 大小 / 图数 / 字数）。
+9. 交付三句用法。打开成品按需切换版式 → 点「复制到公众号」→ 公众号编辑器粘贴。结尾写实际默认组合，并附文件、大小、图数、字数。
 
 用户这次给的线索：
 $ARGUMENTS

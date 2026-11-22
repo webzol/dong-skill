@@ -17,20 +17,110 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  .gzh-toolbar:has(.gzh-picker){
+    position:sticky;
+    height:auto;
+    min-height:64px;
+    box-sizing:border-box;
+    justify-content:space-between;
+    gap:16px;
+    padding:8px max(16px, calc((100% - 1000px) / 2));
+    border-bottom:1px solid #e9e7f5;
+    box-shadow:0 2px 12px rgba(40,31,86,.07);
+  }
+  .gzh-picker{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    min-width:0;
+    padding:3px;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:thin;
+    scrollbar-color:#cbc7e2 transparent;
+  }
+  .gzh-option{
+    display:flex;
+    flex:none;
+    align-items:center;
+    gap:7px;
+    max-width:220px;
+    min-height:42px;
+    box-sizing:border-box;
+    padding:8px 11px;
+    border:1px solid transparent;
+    border-radius:8px;
+    background:#f6f5fb;
+    color:#3b3655;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:600;
+    line-height:1.4;
+    cursor:pointer;
+  }
+  .gzh-option-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .gzh-option small{flex:none;color:#5c527b;font-size:12px;font-weight:500;}
+  .gzh-option:hover{background:#eeebfa;}
+  .gzh-option[aria-pressed="true"]{background:#e9e5fb;border-color:#aaa0df;color:#372778;}
+  .gzh-option:focus-visible,.gzh-copy:focus-visible{outline:2px solid #403288;outline-offset:2px;}
+  .gzh-toolbar:has(.gzh-picker) .gzh-copy{flex:none;}
+  body:has(.gzh-picker) .gzh-stage{margin-top:26px;}
+  body:has(.gzh-picker) .gzh-toast{top:auto;bottom:24px;}
+  @media(max-width:540px){
+    .gzh-toolbar:has(.gzh-picker){flex-wrap:wrap;justify-content:flex-end;gap:6px;padding:8px 12px;}
+    .gzh-picker{flex-basis:100%;width:100%;box-sizing:border-box;}
+    .gzh-option{min-height:40px;}
+    body:has(.gzh-picker) .gzh-stage{margin-top:16px;}
+  }
   @media(max-width:520px){.gzh-hint{max-width:150px;}}
 </style>
 </head>
 <body>
 <div class="gzh-toolbar">
+<!--GZH_PICKER-->
   <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:7px;" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span id="gzhCopyLabel">复制到公众号</span></button>
 </div>
-<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-toast" id="gzhToast" role="status"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
 <!--GZH_CONTENT-->
   </div>
 </div>
+<!--GZH_VARIANTS-->
 <script>
+  const gzhPicker=document.querySelector('.gzh-picker');
+  if(gzhPicker){
+    const content=document.getElementById('gzh-content');
+    const original=document.createDocumentFragment();
+    const imageSources=Array.from(content.querySelectorAll('img'), image=>image.getAttribute('src'));
+    let selected=gzhPicker.querySelector('[aria-pressed="true"]');
+
+    gzhPicker.addEventListener('click', function(event){
+      const option=event.target.closest('button[data-gzh-variant]');
+      if(!option || option===selected) return;
+
+      const variant=option.dataset.gzhVariant;
+      let next=original;
+      if(variant!=='0'){
+        const template=document.querySelector('template[data-gzh-content="'+variant+'"]');
+        if(!template) return;
+        next=template.content.cloneNode(true);
+        for(const image of next.querySelectorAll('img[data-gzh-src]')){
+          const source=imageSources[Number(image.dataset.gzhSrc)];
+          if(source==null) return;
+          image.setAttribute('src',source);
+          image.removeAttribute('data-gzh-src');
+        }
+      }
+
+      if(selected.dataset.gzhVariant==='0') original.append(...content.childNodes);
+      content.replaceChildren(next);
+      selected.setAttribute('aria-pressed','false');
+      option.setAttribute('aria-pressed','true');
+      selected=option;
+    });
+  }
+
   function gzhShowToast(msg){
     var t=document.getElementById('gzhToast');
     t.textContent=msg;t.classList.add('show');
