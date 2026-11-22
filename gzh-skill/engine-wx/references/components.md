@@ -154,11 +154,11 @@
 
 > 范文：https://mp.weixin.qq.com/s/pTY1Wm0eFdbWX4XbfomHBA（mdnice 长图滑动）
 > 适用：整张 Help / changelog / 官帖全文 / 榜单等**过高**的图；矮图仍用 §13 直展，不要套滑动框。
-> 交付前必须自测：框内能滑、底部渐隐可见、能滑到图底看完。
+> 交付前必须自测：框内能滑、能滑到图底看完（2026-11-22 起渐隐已禁用，不再查渐隐）。
 
 ```html
 <section style="margin:14px 0 8px;padding:18px;background:#4e54c8;background:-webkit-linear-gradient(to right,#8f94fb,#4e54c8);background:linear-gradient(to right,#8f94fb,#4e54c8);">
-  <section style="height:320px;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;mask-image:linear-gradient(rgb(0,0,0) 88%, rgba(0,0,0,0.55) 100%);-webkit-mask-image:linear-gradient(rgb(0,0,0) 88%, rgba(0,0,0,0.55) 100%);border:1px solid #e5e5e5;border-radius:0;box-sizing:border-box;text-align:center;background:#ffffff;">
+  <section style="height:320px;overflow-y:scroll;scrollbar-width:none;-ms-overflow-style:none;border:1px solid #e5e5e5;border-radius:0;box-sizing:border-box;text-align:center;background:#ffffff;">
     <img src="{{base64或图片URL}}" style="max-width:100%;width:100%;display:block;margin:0 auto;border:none;border-radius:0;box-shadow:none;box-sizing:border-box;" alt="{{描述}}"/>
   </section>
   <p style="margin:8px 0 0;padding:0;font-size:12px;line-height:1.6;letter-spacing:.5px;color:#ffffff;text-align:center;">{{短说明}} · {{往下划引导}}</p>
@@ -168,7 +168,7 @@
 > **固定用法（以后一律如此）：**
 > 1. **高度用 `height:320px`**（固定高，不是 `max-height:280px`）。
 > 2. **`overflow-y:scroll` + `scrollbar-width:none`**（隐藏滚动条）；可加 `-ms-overflow-style:none`。
-> 3. **底部渐隐**：`mask-image` / `-webkit-mask-image: linear-gradient(rgb(0,0,0) 88%, rgba(0,0,0,0.55) 100%)`，提示下面还有内容。
+> 3. **禁用渐隐（2026-11-22 用户定版）**：滚动框内文字一律实色显示，**不得加 `mask-image` / `-webkit-mask-image` 渐隐**——可下滑的提示交给引导行。
 > 4. **边框** `1px solid #e5e5e5`，`border-radius:0`；图本身不要再加圆角/阴影。
 > 5. **说明在渐变底衬内、图框下方**：12px、白字 `#ffffff`、居中；文案用「{{短说明}} · {{往下划引导}}」（例：`Cat Wu 官宣加入 OpenAI · 官宣帖全文，往下划看她怎么夸 OpenAI`）。
 > 6. **禁止**再用旧版「↑ 上滑查看完整说明 · …」灰字；禁止把引导字叠在图上。
