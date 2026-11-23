@@ -63,7 +63,7 @@
 <img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
-> 无边框、无圆角、图下不写字。黑白照片与手卷最合。
+> 无边框、无圆角、可按组件库 §13a 加简短图注。黑白照片与手卷最合。
 
 ### 收尾
 

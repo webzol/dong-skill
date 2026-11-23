@@ -121,7 +121,7 @@
 </section>
 ```
 
-> 真图样式：`display:block;width:100%;margin:14px 0 20px;`，**不加 border、不加圆角、图下不写文字**。
+> 真图样式：`display:block;width:100%;margin:14px 0 20px;`，**不加 border、不加圆角、可按组件库 §13a 加简短图注**。
 
 ### 收尾（不加页脚、不加来源列表）
 

@@ -70,7 +70,7 @@ metadata:
 > 只做纯排版、草稿已定稿且无需改口吻时，可跳过。
 > 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／节日茶俗→`tea-festival`／行业信息→`tea-industry`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
 > 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
-> 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。默认版和备选都使用茶模板与 `tea-atelier`。维护规则不启动文章生成。
+> 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。默认版和备选都使用茶模板与 `tea-atelier`。茶稿图下可按 `references/components.md` §13a 加一句简短图注。维护规则不启动文章生成。
 
 ### 第 0 步　写稿口吻（需要写正文时必做）
 - 读 `references/writing-style.md`：先按 §2 定一条主腔，再套 §1 共用配方 + 该腔 §3 细则。
@@ -140,7 +140,7 @@ generated/
 - ❌ **禁止**：`Flexbox`、`Grid`、`position`、`z-index`、`var(--x)`、`:hover/:before/:after`、
   `@media`、`@font-face`、依赖 class 选择器的 `<style>`、外部 `<link>`、`backdrop-filter`、`filter`、`transform`
 - ⚠️ **谨慎**：`box-shadow`、`border-radius`、`letter-spacing`（多数版本可用，个别机型失效；**布局切勿依赖**）
-- `img` 必须有 `src`：交付成品一律 **base64 data URI 内嵌**（本地 `file://` 路径无效）；宽度 `width:100%`，样式与「内嵌对应位置、图下不写字」规范见 `references/components.md` §13；不要用背景图承载关键内容
+- `img` 必须有 `src`：交付成品一律 **base64 data URI 内嵌**（本地 `file://` 路径无效）；宽度 `width:100%`，样式与「内嵌对应位置」及普通图样式见 `references/components.md` §13；不要用背景图承载关键内容
 - 字距、行高、留白是「简约科技感」的灵魂——优先用 `letter-spacing`、`line-height`、`margin/padding` 的节奏，而不是复杂装饰
 
 ---

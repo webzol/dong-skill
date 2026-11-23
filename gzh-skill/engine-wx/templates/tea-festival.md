@@ -77,7 +77,7 @@
 <img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
-> 图下不写字；整图超过约 2000px 或高宽比 > 4 套 `components.md` §13c 滑动框，交付前自测。
+> 可按组件库 §13a 加简短图注；整图超过约 2000px 或高宽比 > 4 套 `components.md` §13c 滑动框，交付前自测。
 
 ### 使用提醒（短，三条以内）
 

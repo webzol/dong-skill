@@ -41,7 +41,7 @@
 <img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{器物描述}}"/>
 ```
 
-> 图放小节标题后、正文前；无边框、无圆角、图下不写字。
+> 图放小节标题后、正文前；无边框、无圆角、可按组件库 §13a 加简短图注。
 
 ### 材质对照表（三列以内）
 

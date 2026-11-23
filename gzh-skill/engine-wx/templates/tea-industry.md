@@ -91,7 +91,7 @@
 <img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
-> 图下不写字；截图必须高清（DPR ≥ 2、无时间行/互动栏）；长图套 `components.md` §13c 滑动框并自测。
+> 可按组件库 §13a 加简短图注；截图必须高清（DPR ≥ 2、无时间行/互动栏）；长图套 `components.md` §13c 滑动框并自测。
 
 ### 收尾
 

@@ -29,7 +29,7 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 ## 硬规则
 
 1. 正文**不放 h1**（公众号标题栏已有）、**不放灰字导语**、文末**不加页脚、不加来源列表**；
-2. 图**内嵌在对应正文位置**，`display:block;width:100%;max-width:100%;height:auto;margin:14px 0 20px;`，**无边框、无圆角、图下不写字**；
+2. 图**内嵌在对应正文位置**，`display:block;width:100%;max-width:100%;height:auto;margin:14px 0 20px;`，**无边框、无圆角**。可按 [组件库 §13a](../engine-wx/references/components.md#13a-茶稿图注可选) 在图下加一句简短图注，建议 10–24 字；
 3. 图片保留原始宽高比，长文字图按组件库 §13c 套滑动框；图片一律 base64，交付单文件 HTML（带右上角「复制到公众号」按钮）；
 4. 不用底色卡片、圆角、阴影；表头底色只允许 `#f7f3ea`。表格用满栏固定布局，单元格顶对齐、正文允许换行，普通单元格内边距为 `9px 7px`。建议两列或三列，四列及以上或说明较长时拆成两列参数表或正文条目；
 5. 宋体标题 + 苹方正文，15px / 1.95 行高 / 两端对齐；
@@ -40,7 +40,7 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 1. 读模板骨架：`gzh-skill/engine-wx/templates/<模板>.md`；主题：`themes/tea-atelier.json`；口吻：`gzh-skill/engine-wx/references/writing-style.md`；
 2. 写 `generated/<date>/<slug>/body.html`，按题材选一个默认写作风格，可用同一事实和图序另写一个备选。各版共用选定的茶模板和 `tea-atelier`，纯排定稿交付原稿一版，图片共用 `{{IMG_A}}` 等占位符；
 3. 配图放 `generated/<date>/<slug>/img/`，写 `images.json`；
-4. 各版文本按校验器要求包 `<span leaf="">`，逐版先校验、再注入图片、再校验注入后的正文。全部通过后按 [统一打包流程](../SKILL.md) 用 `wrap_preview.py` 打包默认版和备选；
+4. 各版文本按校验器要求包 `<span leaf="">`，逐版先校验、再用 `inject_images.py --allow-missing-captions` 注入图片、再校验注入后的正文。全部通过后按 [统一打包流程](../SKILL.md) 用 `wrap_preview.py` 打包默认版和备选；
 5. 落盘 `E:\WX\<YYYY-MM-DD>\`，备份 `generated\<date>\<slug>\`；
 6. 台账 `docs/sources/<date>-<slug>.md`（事实出处、适用条件、配图来源与修订记录），在 `docs/sources/<date>.md` 链接；保留 `body.html`、`images.json` 和源图用于后续改稿，交付目录只放成品；
 7. `git add` → `commit` → `push`，回复报 commit 短号；

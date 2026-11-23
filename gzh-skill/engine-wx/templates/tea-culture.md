@@ -80,7 +80,7 @@
 
 > 对照表：表上方加**题签**（宋体 `{{accent}}` 居中，11px、字距 4px、「· 四字名 ·」），表顶部一条 `2px solid {{accent}}` 书衣线；单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px。两列并列对照（宋 / 明这类）正文格一律同 weigh，不加重首列；首列加重只用于「行头式」对照表（如材质表）。
 
-### 图片位（真图无边框无圆角，图下不写字）
+### 图片位（真图无边框无圆角，可按组件库 §13a 加简短图注）
 
 ```html
 <img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
