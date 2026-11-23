@@ -93,7 +93,7 @@
 | 茶知识 · 风味 / 参数 / 冲泡 / 存茶 | `tea-notes` | `tea-almanac` |
 | 茶知识 · 时间 / 节气 / 一天四泡 | `tea-almanac` | `tea-notes` |
 | 茶文化 · 茶史 / 点茶 / 茶礼 / 茶书茶画 | `tea-culture` | `tea-scroll` |
-| 茶文化 · 公案 / 茶人 / 茶席随笔 | `tea-scroll` | `tea-culture` |
+| 茶文化 · 公案 / 茶人 / 茶席随笔 / 日常茶空间 | `tea-scroll` | `tea-culture` |
 | 茶器 · 多器对比 / 怎么选 | `tea-ware` | `tea-catalog` |
 | 茶器 · 单件拆解 / 部位 / 手感 | `tea-catalog` | `tea-ware` |
 | 节日茶俗 · 春节/清明/端午/中秋/冬至等 | `tea-festival` | `tea-scroll` |
