@@ -70,7 +70,7 @@ metadata:
 > 只做纯排版、草稿已定稿且无需改口吻时，可跳过。
 > 选模板：茶知识→`tea-notes`／时间节气→`tea-almanac`／节日茶俗→`tea-festival`／行业信息→`tea-industry`／茶史茶礼→`tea-culture`／公案随笔→`tea-scroll`／
 > 多器对比→`tea-ware`／单件拆解→`tea-catalog`；方向不明先问「茶知识、茶文化，还是茶器？」。
-> 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。默认版和备选都使用茶模板与 `tea-atelier`。茶稿图下可按 `references/components.md` §13a 加一句简短图注。维护规则不启动文章生成。
+> 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。生成或改写茶稿固定交付两个写作风格，默认版和备选均使用同一茶模板与 `tea-atelier`；纯排定稿保留原稿一版。茶稿图下可按 `references/components.md` §13a 加一句简短图注。维护规则不启动文章生成。
 
 ### 第 0 步　写稿口吻（需要写正文时必做）
 - 读 `references/writing-style.md`：先按 §2 定一条主腔，再套 §1 共用配方 + 该腔 §3 细则。
@@ -106,7 +106,7 @@ metadata:
 正文宽度统一 677px（微信桌面容器）；深色主题里文字用浅色，对比度 ≥ 4.5:1。各版分别检查正文、图片及长图滑动容器，校验通过后统一打包。
 
 ### 第 4 步　交付
-- 产出写入**当天日期目录** `generated/<YYYY-MM-DD>/`（见第 4.5 步），每篇交付一个含 1–2 种写作风格的 HTML 成品。用户明确要看源码时可提供正文代码。
+- 产出写入**当天日期目录** `generated/<YYYY-MM-DD>/`（见第 4.5 步），每篇交付一个含 1–2 种写作风格的 HTML 成品，生成或改写茶稿固定为两种。用户明确要看源码时可提供正文代码。
 - 浏览器打开成品，按需切换写作风格 → 点「复制到公众号」复制当前版 → 到公众号编辑器新建图文并粘贴。
 - 结尾写「默认风格 = 实际口吻名」。
 

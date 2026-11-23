@@ -5,7 +5,7 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 
 # 茶模型
 
-凡涉及茶的内容，一律走这条线：主题固定 `tea-atelier`，模板从下面六套里选。
+凡涉及茶的内容，一律走这条线：主题固定 `tea-atelier`，模板按下表选择。
 
 ## 选模板
 
@@ -38,9 +38,9 @@ argument-hint: "[茶稿路径或一句主题；也可只写『茶知识』『茶
 ## 执行
 
 1. 读模板骨架：`gzh-skill/engine-wx/templates/<模板>.md`；主题：`themes/tea-atelier.json`；口吻：`gzh-skill/engine-wx/references/writing-style.md`；
-2. 写 `generated/<date>/<slug>/body.html`，按题材选一个默认写作风格，可用同一事实和图序另写一个备选。各版共用选定的茶模板和 `tea-atelier`，纯排定稿交付原稿一版，图片共用 `{{IMG_A}}` 等占位符；
+2. 生成或改写茶稿固定交付两种写作风格：按题材和用户指定选默认风格，写入 `generated/<date>/<slug>/body.html`，再从风格库选一种不同口吻，另写 `body-alt.html`。两版共用信源口径、事实、图片、图序、图注及同一茶模板和 `tea-atelier`，图片共用 `{{IMG_A}}` 等占位符。仅为定稿排版时保留原稿一版；
 3. 配图放 `generated/<date>/<slug>/img/`，写 `images.json`；
-4. 各版文本按校验器要求包 `<span leaf="">`，逐版先校验、再用 `inject_images.py --allow-missing-captions` 注入图片、再校验注入后的正文。全部通过后按 [统一打包流程](../SKILL.md) 用 `wrap_preview.py` 打包默认版和备选；
+4. 各版文本按校验器要求包 `<span leaf="">`，逐版先校验、再用 `inject_images.py --allow-missing-captions` 注入图片、再校验注入后的正文。全部通过后按 [统一打包流程](../SKILL.md) 用 `wrap_preview.py` 一次打包。双风格使用 `--default-label "默认风格名" --variant "备选风格名" <已注图的备选正文>`，打开显示默认版，点击切换查看并复制当前版；
 5. 落盘 `E:\WX\<YYYY-MM-DD>\`，备份 `generated\<date>\<slug>\`；
 6. 台账 `docs/sources/<date>-<slug>.md`（事实出处、适用条件、配图来源与修订记录），在 `docs/sources/<date>.md` 链接；保留 `body.html`、`images.json` 和源图用于后续改稿，交付目录只放成品；
 7. `git add` → `commit` → `push`，回复报 commit 短号；
