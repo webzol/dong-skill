@@ -141,7 +141,7 @@
 
 ```html
 <img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 6px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
-<p style="margin:0 0 20px;padding:0 8px;font-size:12px;line-height:1.6;color:#8a8a8a;text-align:center;"><span leaf="">{{简短图注}}</span></p>
+<p align="center" style="display:block;box-sizing:border-box;width:100%;margin:0 0 20px;padding:0 8px;font-size:12px;line-height:1.6;color:#8a8a8a;text-align:center;"><span leaf="" style="display:block;text-align:center;">{{简短图注}}</span></p>
 ```
 
 无图注时用 §13 的 `margin:14px 0 20px`。长图的可选图注放在 §13c 外层滑动组件之后，组件中的滑动提示照常保留。
