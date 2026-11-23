@@ -53,16 +53,16 @@
 
 ```html
 <p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 六大茶类 ·</p>
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 22px;font-size:13px;line-height:1.7;letter-spacing:.2px;border-top:2px solid {{accent}};">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:10px 0 22px;font-size:13px;line-height:1.7;letter-spacing:.2px;border-top:2px solid {{accent}};">
   <tr>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">茶类</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">关键一步</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">氧化程度</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">茶类</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">关键一步</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">氧化程度</th>
   </tr>
   <tr>
-    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{绿茶}}</td>
-    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{杀青}}</td>
-    <td style="padding:12px 14px;color:{{muted}};border-bottom:1px solid {{divider}};">{{尽量不氧化}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{绿茶}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{杀青}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{muted}};border-bottom:1px solid {{divider}};">{{尽量不氧化}}</td>
   </tr>
 </table>
 ```
@@ -72,18 +72,18 @@
 ### 冲泡参数面板（三列，无填充）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:20px 0 8px;font-size:13px;line-height:1.7;">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:20px 0 8px;font-size:13px;line-height:1.7;">
   <tr>
-    <td style="padding:10px 14px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};width:30%;">{{水温}}</td>
-    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{80–85℃}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};width:30%;">{{水温}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{80–85℃}}</td>
   </tr>
   <tr>
-    <td style="padding:10px 14px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{投茶比}}</td>
-    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{投茶比}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{1:50}}</td>
   </tr>
   <tr>
-    <td style="padding:10px 14px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};">{{出汤}}</td>
-    <td style="padding:10px 14px;color:{{text}};">{{1–2 分钟}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};">{{出汤}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};">{{1–2 分钟}}</td>
   </tr>
 </table>
 <p style="margin:0 0 22px;font-size:12px;line-height:1.7;letter-spacing:.3px;color:{{muted}};">{{注：比例以 150ml 水为基准，器具容量不同按同比例换算。}}</p>
@@ -103,10 +103,10 @@
 ### 说法对照（左竖线两列）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:18px 0 22px;font-size:14px;line-height:1.8;">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:18px 0 22px;font-size:14px;line-height:1.8;">
   <tr>
-    <td style="padding:10px 14px;width:34%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{常见说法}}</td>
-    <td style="padding:10px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{实际怎么回事}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:34%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{常见说法}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{实际怎么回事}}</td>
   </tr>
 </table>
 ```

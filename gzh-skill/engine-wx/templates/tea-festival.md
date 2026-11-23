@@ -74,7 +74,7 @@
 ### 图片（每个节令最多一张）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;" alt="{{描述}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
 > 图下不写字；整图超过约 2000px 或高宽比 > 4 套 `components.md` §13c 滑动框，交付前自测。

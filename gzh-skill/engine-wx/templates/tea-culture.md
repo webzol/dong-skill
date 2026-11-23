@@ -40,11 +40,11 @@
 ### 步骤条（五步之内，横向编号）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 10px;font-size:13px;line-height:1.75;">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:22px 0 10px;font-size:13px;line-height:1.75;">
   <tr>
-    <td style="padding:10px 14px;width:14%;vertical-align:top;color:{{accent}};font-family:'Songti SC','STSong',serif;border-bottom:1px solid {{divider}};">壹</td>
-    <td style="padding:10px 14px;width:22%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{炙}}</td>
-    <td style="padding:10px 14px;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{微火烘乾茶饼，去水气与青气}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:14%;vertical-align:top;color:{{accent}};font-family:'Songti SC','STSong',serif;border-bottom:1px solid {{divider}};">壹</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:22%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{炙}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{微火烘乾茶饼，去水气与青气}}</td>
   </tr>
 </table>
 ```
@@ -66,14 +66,14 @@
 
 ```html
 <p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 宋明对照 ·</p>
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
   </tr>
   <tr>
-    <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
-    <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
   </tr>
 </table>
 ```
@@ -83,7 +83,7 @@
 ### 图片位（真图无边框无圆角，图下不写字）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:16px 0 22px;box-sizing:border-box;" alt="{{描述}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
 > 图要说明什么，写进它上面或下面的正文，不挂在图底下。

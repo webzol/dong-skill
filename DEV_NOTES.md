@@ -187,3 +187,7 @@ git push origin main
 - 订正 `writing-style.md` §5 虚报：语料实际只有 `*-body.txt` + `*-style.json`，无 `*-content.html` / `*-cover.jpg`；SpaceX 篇正文缺失仅存 style.json。
 - 本机 `~/.agents/skills/gzh-skill` 仍是 10-27 旧副本，**未跑 install.ps1**（整包替换，待确认）。
 - 台账 docs/sources/2026-11-16-writing-style.md。只改规则文档，未重生成历史文章。
+
+### 2026-11-23 茶模板图片与表格
+
+统一九套茶模板中的真图样式与表格布局，修复模板间图片留白不一致和窄屏表格横向留白偏大的问题。静态检查覆盖图片比例、表格固定布局和单元格换行。公众号实机粘贴待验证，历史稿未重生成。
