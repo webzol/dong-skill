@@ -12,7 +12,7 @@
 ### 页眉：单行小标签 + 大标题 + 副标题
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};color:{{text}};padding:32px 22px;box-sizing:border-box;font-family:'PingFang SC','PingFang SC NEW',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};color:{{text}};padding:32px 22px;box-sizing:border-box;font-family:PingFang SC,PingFang SC NEW,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;">
   <p style="margin:0 0 18px;font-size:12px;letter-spacing:3px;color:{{accent}};text-transform:uppercase;">{{分类标签 · 如 BRAND / STORY}}</p>
   <h1 style="margin:0 0 14px;font-size:24px;line-height:1.4;font-weight:700;letter-spacing:1px;color:{{text}};">{{标题}}</h1>
   <p style="margin:0 0 24px;font-size:14px;letter-spacing:1px;color:{{muted}};">{{副标题 · 一句话引子}}</p>

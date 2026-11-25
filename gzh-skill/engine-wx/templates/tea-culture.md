@@ -9,7 +9,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:28px 20px 48px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:28px 20px 48px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文**不放 h1**（公众号标题栏已有）；**不放灰字导语**；第一段直接进事件或判断。
@@ -31,7 +31,7 @@
 
 ```html
 <p style="margin:38px 0 0;font-size:10px;line-height:1.6;letter-spacing:2.6px;color:{{accent2}};text-transform:uppercase;">{{01}} · {{PROCESS}}</p>
-<h2 style="margin:4px 0 16px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{短钩子 · 不剧透答案}}</h2>
+<h2 style="margin:4px 0 16px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{短钩子 · 不剧透答案}}</h2>
 ```
 
 > 编号用 `01 / 02 / 03`，古铜或青灰小字；标题不带「一、二、三、」中文序号。
@@ -40,11 +40,11 @@
 ### 步骤条（五步之内，横向编号）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:22px 0 10px;font-size:13px;line-height:1.75;">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:22px 0 10px;font-size:13px;line-height:1.75;">
   <tr>
-    <td style="padding:10px 14px;width:14%;vertical-align:top;color:{{accent}};font-family:'Songti SC','STSong',serif;border-bottom:1px solid {{divider}};">壹</td>
-    <td style="padding:10px 14px;width:22%;vertical-align:top;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{炙}}</td>
-    <td style="padding:10px 14px;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{微火烘乾茶饼，去水气与青气}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:14%;vertical-align:top;color:{{accent}};font-family:Songti SC,STSong,serif;border-bottom:1px solid {{divider}};">壹</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:22%;vertical-align:top;font-family:Songti SC,STSong,SimSun,serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{炙}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{muted}};border-bottom:1px solid {{divider}};">{{微火烘乾茶饼，去水气与青气}}</td>
   </tr>
 </table>
 ```
@@ -55,7 +55,7 @@
 
 ```html
 <section style="margin:28px 0 30px;padding:2px 0 2px 18px;border-left:2px solid {{quoteBorder}};">
-  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">「{{引文}}」</p>
+  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">「{{引文}}」</p>
   <p style="margin:0;font-size:12px;line-height:1.6;letter-spacing:.4px;color:{{muted}};">{{— 作者《书名·篇目》}}</p>
 </section>
 ```
@@ -65,25 +65,25 @@
 ### 对照表（两种做法 / 两个时代）
 
 ```html
-<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 宋明对照 ·</p>
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;text-align:center;">· 宋明对照 ·</p>
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{宋}}</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{明}}</th>
   </tr>
   <tr>
-    <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
-    <td style="padding:12px 14px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{团茶 · 碾末 · 点汤击拂}}</td>
+    <td style="word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;vertical-align:top;color:{{text}};border-bottom:1px solid {{divider}};">{{散茶 · 全叶 · 壶泡杯瀹}}</td>
   </tr>
 </table>
 ```
 
 > 对照表：表上方加**题签**（宋体 `{{accent}}` 居中，11px、字距 4px、「· 四字名 ·」），表顶部一条 `2px solid {{accent}}` 书衣线；单元格四向 padding（横向 ≥14px），文字不贴边；表头宋体 + `{{accent}}` + 字距 2px。两列并列对照（宋 / 明这类）正文格一律同 weigh，不加重首列；首列加重只用于「行头式」对照表（如材质表）。
 
-### 图片位（真图无边框无圆角，图下不写字）
+### 图片位（真图无边框无圆角，可按组件库 §13a 加简短图注）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:16px 0 22px;box-sizing:border-box;" alt="{{描述}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
 > 图要说明什么，写进它上面或下面的正文，不挂在图底下。

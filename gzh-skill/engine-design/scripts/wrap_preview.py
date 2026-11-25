@@ -8,6 +8,22 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
+STYLE_RE = re.compile(r'style="([^"]*)"')
+
+
+def sanitize_style_quotes(html):
+    """去掉内联 style 里的 ASCII 单引号（字体名不加引号）。
+
+    公众号草稿箱 API / Muse 遇到 style 内的 `'` 会清空整条 style，
+    手动粘贴则更宽松，所以本地看不出问题。
+    """
+    def repl(match):
+        value = match.group(1)
+        return match.group(0) if "'" not in value else 'style="' + value.replace("'", "") + '"'
+
+    return STYLE_RE.sub(repl, html)
+
+
 class ArticleImages(HTMLParser):
     """收集图片标签的属性和源码位置，确保其余正文逐字保留。"""
 
@@ -66,7 +82,7 @@ def render_picker(default_label, variants, content):
     templates = []
     for index, (label, filename) in enumerate(variants, start=1):
         path = Path(filename)
-        variant = path.read_text(encoding="utf-8-sig").strip()
+        variant = sanitize_style_quotes(path.read_text(encoding="utf-8-sig").strip())
         if not variant:
             raise ValueError(f"{path} 没有正文。")
         if re.search(r"</?template\b", variant, re.IGNORECASE):
@@ -100,7 +116,7 @@ def main():
     args = parser.parse_args()
 
     try:
-        content = args.source.read_text(encoding="utf-8-sig").strip()
+        content = sanitize_style_quotes(args.source.read_text(encoding="utf-8-sig").strip())
         template = Path(__file__).resolve().parent.parent / "assets" / "preview-template.html"
         shell = template.read_text(encoding="utf-8")
         picker, variants = render_picker(args.default_label, args.variant, content)

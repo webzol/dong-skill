@@ -80,14 +80,14 @@
 
 ```html
 <section style="background:{{codeBg}};border-left:3px solid {{accent}};border-radius:6px;padding:14px 16px;margin:16px 0;">
-  <p style="margin:0;color:{{codeText}};font-size:14px;line-height:1.7;font-family:'Menlo','Consolas','Courier New',monospace;white-space:pre-wrap;">{{代码}}</p>
+  <p style="margin:0;color:{{codeText}};font-size:14px;line-height:1.7;font-family:Menlo,Consolas,Courier New,monospace;white-space:pre-wrap;">{{代码}}</p>
 </section>
 ```
 
 ## 10. 行内代码
 
 ```html
-<code style="background:{{codeBg}};color:{{codeText}};font-family:'Menlo','Consolas',monospace;padding:2px 5px;border-radius:4px;">{{code}}</code>
+<code style="background:{{codeBg}};color:{{codeText}};font-family:Menlo,Consolas,monospace;padding:2px 5px;border-radius:4px;">{{code}}</code>
 ```
 
 ## 11. 按钮 / 行动号召
@@ -128,12 +128,23 @@
 > **固定用法（TD 定稿，以后一律如此）：**
 > 1. **内嵌位置**：图片放在正文里**与它对应的内容之后**——原帖链接后、基准数据后、宣传图对应段落后。
 >    **禁止把配图统一堆到文末**。
-> 2. **图下不写文字**（2026-10-30 定版，取消 12px 灰图注）：图要说明什么，写进紧邻的正文段落；
+> 2. **普通稿图下不写文字**（茶稿可用 §13a）：图要说明什么，写进紧邻的正文段落；
 >    图与下文的间距由 `margin:14px 0 20px` 提供。
 > 3. **长截图两种处理**（2026-10-31 增补）：优先切成 2–4 段高清裁图按序嵌入；若必须保留整张长图（如 Help Center / changelog 全文），改用 **§13c 可上滑长图**，不要整页撑开。
 > 4. **src 一律 base64 内嵌**：`data:image/png;base64,…` 直接写进 `src`，保证成品单文件、开箱即复制。
 >    本地文件路径（`file://`）无效；原稿只给了公网 URL 时也先下载转 base64 内嵌。`.gif` 同样支持。
 > 5. 图片还没准备好时改用 §13b 占位框，不要留空。
+
+## 13a. 茶稿图注（可选）
+
+图片满栏等比显示，图下留 6px 再接居中的短图注，图注后留 20px。建议 10–24 字，交代图中的器物、茶样、局部细节或必要的来源，如「朱泥壶的壶口与盖沿」。窄屏允许自然换行。
+
+```html
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 6px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
+<p align="center" style="display:block;box-sizing:border-box;width:100%;margin:0 0 20px;padding:0 8px;font-size:12px;line-height:1.6;color:#8a8a8a;text-align:center;"><span leaf="" style="display:block;text-align:center;">{{简短图注}}</span></p>
+```
+
+无图注时用 §13 的 `margin:14px 0 20px`。长图的可选图注放在 §13c 外层滑动组件之后，组件中的滑动提示照常保留。
 
 ## 13b. 图片占位（预留上传位置，默认排版必须留）
 
@@ -201,7 +212,7 @@
 
 ```html
 <p style="margin:0 0 6px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{11.22 · LIGHT SNOW}}</p>
-<h2 style="margin:0 0 10px;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{小雪}}</h2>
+<h2 style="margin:0 0 10px;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{小雪}}</h2>
 ```
 
 > 用在节气条目顶部，替代普通条目的「月.日」小签；英文微标 = 节气名意译大写（`LIGHT SNOW` / `WINTER SOLSTICE`）。
@@ -210,7 +221,7 @@
 ### 16b 节日题签（节日名 + 农历日期）
 
 ```html
-<h2 style="margin:0 0 4px;font-size:24px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{除夕}}</h2>
+<h2 style="margin:0 0 4px;font-size:24px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{除夕}}</h2>
 <p style="margin:0 0 10px;font-size:12px;line-height:1.6;letter-spacing:2px;color:{{muted}};">{{农历腊月三十 · 丁未年}}</p>
 ```
 
@@ -223,15 +234,15 @@
   <tr>
     <td style="width:33.3%;padding:10px 8px;text-align:center;border-right:1px solid {{divider}};">
       <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">初候</p>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{蚯蚓结}}</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{蚯蚓结}}</p>
     </td>
     <td style="width:33.3%;padding:10px 8px;text-align:center;border-right:1px solid {{divider}};">
       <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">二候</p>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{麋角解}}</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{麋角解}}</p>
     </td>
     <td style="width:33.3%;padding:10px 8px;text-align:center;">
       <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">三候</p>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{水泉动}}</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{水泉动}}</p>
     </td>
   </tr>
 </table>

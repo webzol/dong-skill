@@ -25,6 +25,8 @@ import os
 import re
 import sys
 
+from wx_sanitize import sanitize_styles
+
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
@@ -55,6 +57,10 @@ def main():
         left = html[html.index('{{'):html.index('{{') + 40]
         print(f'✗ 仍有未替换占位符: {left}')
         sys.exit(4)
+
+    # Muse / 公众号草稿箱 API 会因 style 里的单引号清空整条样式，注入时一并清理
+    html, fixed = sanitize_styles(html)
+    print(f'✓ 清理 style 内单引号 {fixed} 条（防 Muse / 草稿箱 API 清空样式）')
 
     # 结构检查：每张图后面（下一张图之前）必须紧跟一条 12px #8a8a8a 图注
     imgs = [m.end() for m in re.finditer(r'<img\b[^>]*>', html)]

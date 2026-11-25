@@ -9,7 +9,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:28px 20px 48px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:28px 20px 48px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文不放 h1、不放灰字导语、文末不加页脚。
@@ -30,7 +30,7 @@
 
 ```html
 <p style="margin:38px 0 0;font-size:10px;line-height:1.6;letter-spacing:2.6px;color:{{accent2}};text-transform:uppercase;">01 · {{PORCELAIN}}</p>
-<h2 style="margin:4px 0 16px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{白瓷不争味，所以最稳}}</h2>
+<h2 style="margin:4px 0 16px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{白瓷不争味，所以最稳}}</h2>
 ```
 
 > 每个器物一节：材质特性 → 适合什么茶 → 不适合什么茶。三段以内说完。
@@ -38,25 +38,25 @@
 ### 器物图（紧跟小节标题）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:4px 0 22px;box-sizing:border-box;" alt="{{器物描述}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{器物描述}}"/>
 ```
 
-> 图放小节标题后、正文前；无边框、无圆角、图下不写字。
+> 图放小节标题后、正文前；无边框、无圆角、可按组件库 §13a 加简短图注。
 
 ### 材质对照表（三列以内）
 
 ```html
-<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 材质对照 ·</p>
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;text-align:center;">· 材质对照 ·</p>
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">材质</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">香气</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">温度</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">材质</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">香气</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">温度</th>
   </tr>
   <tr>
-    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">白瓷</td>
-    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">不吸香</td>
-    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">散热中等</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:Songti SC,STSong,SimSun,serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">白瓷</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">不吸香</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">散热中等</td>
   </tr>
 </table>
 ```
@@ -75,7 +75,7 @@
 
 ```html
 <section style="margin:28px 0 30px;padding:2px 0 2px 18px;border-left:2px solid {{quoteBorder}};">
-  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">「{{引文}}」</p>
+  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">「{{引文}}」</p>
   <p style="margin:0;font-size:12px;line-height:1.6;letter-spacing:.4px;color:{{muted}};">{{— 作者《书名·篇目》}}</p>
 </section>
 ```

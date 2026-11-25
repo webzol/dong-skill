@@ -10,7 +10,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:30px 22px 50px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:30px 22px 50px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文不放 h1、不放灰字导语、文末不加页脚。
@@ -44,7 +44,7 @@
 ```html
 <section style="margin:32px 0 0;padding-top:12px;border-top:1px solid {{cardBorder}};">
   <p style="margin:0 0 4px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{腊月三十}}</p>
-  <h2 style="margin:0 0 12px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{除夕 · 守岁煮一壶老白茶}}</h2>
+  <h2 style="margin:0 0 12px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{除夕 · 守岁煮一壶老白茶}}</h2>
   <p style="margin:0 0 14px;font-size:15px;line-height:1.95;letter-spacing:.5px;color:{{text}};text-align:justify;">{{这个节令的家宴场景与茶位置，两句说完。}}</p>
   <p style="margin:0 0 18px;font-size:13px;line-height:1.7;letter-spacing:.3px;color:{{muted}};">{{茶样与泡法；水温区间、茶量 g / 水量 mL、时间区间及计时口径}}</p>
 </section>
@@ -57,7 +57,7 @@
 
 ```html
 <section style="margin:16px 0 20px;padding:2px 0 2px 16px;border-left:3px solid {{quoteBorder}};">
-  <p style="margin:0;font-size:14px;line-height:1.85;letter-spacing:.3px;color:{{muted}};font-family:'Songti SC','STSong','SimSun',serif;">{{俗谚或古籍引文一句}}</p>
+  <p style="margin:0;font-size:14px;line-height:1.85;letter-spacing:.3px;color:{{muted}};font-family:Songti SC,STSong,SimSun,serif;">{{俗谚或古籍引文一句}}</p>
   <p style="margin:6px 0 0;font-size:12px;line-height:1.6;letter-spacing:.4px;color:{{muted}};">{{— 出处《书名·篇目》}}</p>
 </section>
 ```
@@ -74,10 +74,10 @@
 ### 图片（每个节令最多一张）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;" alt="{{描述}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
-> 图下不写字；整图超过约 2000px 或高宽比 > 4 套 `components.md` §13c 滑动框，交付前自测。
+> 可按组件库 §13a 加简短图注；整图超过约 2000px 或高宽比 > 4 套 `components.md` §13c 滑动框，交付前自测。
 
 ### 使用提醒（短，三条以内）
 

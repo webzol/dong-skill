@@ -9,7 +9,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:30px 20px 50px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:30px 20px 50px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文不放 h1、不放灰字导语、文末不加页脚。
@@ -29,14 +29,14 @@
 ### 器物全图（开篇一张，满栏）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:6px 0 24px;box-sizing:border-box;" alt="{{器物全图}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{器物全图}}"/>
 ```
 
 ### 条目头（大编号 + 部位名）
 
 ```html
 <section style="margin:36px 0 14px;border-top:1px solid {{cardBorder}};padding-top:14px;">
-  <p style="margin:0 0 2px;font-size:24px;line-height:1.2;letter-spacing:1px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;">01</p>
+  <p style="margin:0 0 2px;font-size:24px;line-height:1.2;letter-spacing:1px;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;">01</p>
   <p style="margin:0;font-size:11px;line-height:1.6;letter-spacing:2.4px;color:{{accent2}};text-transform:uppercase;">{{SPOUT}} · 壶嘴</p>
 </section>
 ```
@@ -53,10 +53,10 @@
 ### 规格行（三条以内，无表头）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:4px 0 8px;font-size:13px;line-height:1.7;">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:4px 0 8px;font-size:13px;line-height:1.7;">
   <tr>
-    <td style="padding:10px 14px;width:26%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{看什么}}</td>
-    <td style="padding:10px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{出水是否成线}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:26%;font-family:Songti SC,STSong,SimSun,serif;color:{{muted}};border-bottom:1px solid {{divider}};">{{看什么}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{出水是否成线}}</td>
   </tr>
 </table>
 ```
@@ -65,14 +65,14 @@
 ### 局部图（可选，紧贴对应条目）
 
 ```html
-<img src="{{IMG_B}}" style="max-width:100%;width:100%;display:block;margin:14px 0 22px;box-sizing:border-box;" alt="{{局部}}"/>
+<img src="{{IMG_B}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{局部}}"/>
 ```
 
 ### 引文（末尾一条）
 
 ```html
 <section style="margin:32px 0 30px;padding:2px 0 2px 18px;border-left:2px solid {{quoteBorder}};">
-  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">「{{引文}}」</p>
+  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">「{{引文}}」</p>
   <p style="margin:0;font-size:12px;line-height:1.6;letter-spacing:.4px;color:{{muted}};">{{— 出处}}</p>
 </section>
 ```
@@ -95,3 +95,5 @@
 - 与 `tea-atelier` 主题配套。
 - 适合：壶的五个部位、盖碗的六个部位、茶则 / 茶针 / 公道杯拆解。
 - 不适合：多器对比（改 `tea-ware`）、茶史（改 `tea-culture`）。
+
+> 茶稿图片可按组件库 §13a 加一句简短图注。

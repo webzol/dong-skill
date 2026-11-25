@@ -10,7 +10,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:26px 20px 46px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:26px 20px 46px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文**不放 h1**（公众号标题栏已有），**不放灰字导语**，文末**不加页脚、不加来源列表**。
@@ -96,11 +96,11 @@
 ### 对照表（题签 + 书衣线 + 四向留白）
 
 ```html
-<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· {{对照名}} ·</p>
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;text-align:center;">· {{对照名}} ·</p>
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{列一}}</th>
-    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{列二}}</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{列一}}</th>
+    <th style="padding:10px 14px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">{{列二}}</th>
   </tr>
   <tr>
     <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{行一}}</td>

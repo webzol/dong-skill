@@ -10,7 +10,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:30px 22px 50px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:30px 22px 50px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文不放 h1、不放灰字导语、文末不加页脚、不放来源列表。
@@ -30,18 +30,18 @@
 ### 关键数字条（三格，本期最硬的三个数）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:13px;line-height:1.7;">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:14px 0 20px;font-size:13px;line-height:1.7;">
   <tr>
-    <td style="width:33.3%;padding:14px 8px;text-align:center;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};border-right:1px solid {{divider}};">
-      <p style="margin:0 0 4px;font-size:22px;line-height:1.2;font-weight:700;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;">{{12.5%}}</p>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;width:33.3%;padding:14px 8px;text-align:center;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};border-right:1px solid {{divider}};">
+      <p style="margin:0 0 4px;font-size:22px;line-height:1.2;font-weight:700;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;">{{12.5%}}</p>
       <p style="margin:0;font-size:12px;line-height:1.6;color:{{muted}};">{{同比 · 口径与时间}}</p>
     </td>
-    <td style="width:33.3%;padding:14px 8px;text-align:center;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};border-right:1px solid {{divider}};">
-      <p style="margin:0 0 4px;font-size:22px;line-height:1.2;font-weight:700;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;">{{数值}}</p>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;width:33.3%;padding:14px 8px;text-align:center;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};border-right:1px solid {{divider}};">
+      <p style="margin:0 0 4px;font-size:22px;line-height:1.2;font-weight:700;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;">{{数值}}</p>
       <p style="margin:0;font-size:12px;line-height:1.6;color:{{muted}};">{{指标 · 口径与时间}}</p>
     </td>
-    <td style="width:33.3%;padding:14px 8px;text-align:center;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};">
-      <p style="margin:0 0 4px;font-size:22px;line-height:1.2;font-weight:700;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;">{{数值}}</p>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;width:33.3%;padding:14px 8px;text-align:center;border-top:2px solid {{accent}};border-bottom:1px solid {{divider}};">
+      <p style="margin:0 0 4px;font-size:22px;line-height:1.2;font-weight:700;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;">{{数值}}</p>
       <p style="margin:0;font-size:12px;line-height:1.6;color:{{muted}};">{{指标 · 口径与时间}}</p>
     </td>
   </tr>
@@ -55,7 +55,7 @@
 ```html
 <section style="margin:32px 0 0;padding-top:12px;border-top:1px solid {{cardBorder}};">
   <p style="margin:0 0 4px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{11.18}}</p>
-  <h2 style="margin:0 0 12px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{事件一句话标题}}</h2>
+  <h2 style="margin:0 0 12px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{事件一句话标题}}</h2>
   <p style="margin:0 0 14px;font-size:15px;line-height:1.95;letter-spacing:.5px;color:{{text}};text-align:justify;">{{事实段：谁、做了什么、多少数字。}}</p>
   <p style="margin:0 0 18px;font-size:15px;line-height:1.95;letter-spacing:.5px;color:{{text}};text-align:justify;">{{解读段：影响在哪、边界在哪，两句。}}</p>
   <p style="margin:0 0 18px;font-size:13px;line-height:1.7;letter-spacing:.3px;color:{{muted}};">口径：{{官方 / 媒体 / 行情}} · {{来源与采集时间}}</p>
@@ -68,16 +68,16 @@
 ### 行情小表（价格/指数类，可选，全篇最多一个）
 
 ```html
-<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
+<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
-    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{品类/产区}}</td>
-    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{价格/指数}}</td>
-    <td style="padding:12px 14px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{环比/同比}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:Songti SC,STSong,SimSun,serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{品类/产区}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:Songti SC,STSong,SimSun,serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{价格/指数}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:Songti SC,STSong,SimSun,serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">{{环比/同比}}</td>
   </tr>
   <tr>
-    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{行 1}}</td>
-    <td style="padding:12px 14px;color:{{text}};border-bottom:1px solid {{divider}};">{{数值 + 单位}}</td>
-    <td style="padding:12px 14px;color:{{muted}};border-bottom:1px solid {{divider}};">{{方向 + 时间}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{行 1}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{数值 + 单位}}</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{muted}};border-bottom:1px solid {{divider}};">{{方向 + 时间}}</td>
   </tr>
 </table>
 <p style="margin:0 0 22px;font-size:12px;line-height:1.7;letter-spacing:.4px;color:{{muted}};">{{数据口径：采集市场、采集时间、是否含税。}}</p>
@@ -88,10 +88,10 @@
 ### 图片（政策原文/展会现场/产区实拍，最多两张）
 
 ```html
-<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;margin:14px 0 20px;box-sizing:border-box;" alt="{{描述}}"/>
+<img src="{{IMG_A}}" style="max-width:100%;width:100%;display:block;height:auto;margin:14px 0 20px;border:0;border-radius:0;box-sizing:border-box;" alt="{{描述}}"/>
 ```
 
-> 图下不写字；截图必须高清（DPR ≥ 2、无时间行/互动栏）；长图套 `components.md` §13c 滑动框并自测。
+> 可按组件库 §13a 加简短图注；截图必须高清（DPR ≥ 2、无时间行/互动栏）；长图套 `components.md` §13c 滑动框并自测。
 
 ### 收尾
 

@@ -68,3 +68,6 @@
 在本仓库里被唤醒但用户没给具体任务时，先问一句「跑今天的早报，还是排版某篇稿子？」。
 
 - 正文两端对齐：`text-align:justify;`（2026-10-31）。
+- **字体名不加引号**（2026-11-25）：`font-family:Songti SC,STSong,SimSun,serif`。style 里出现 `'` 时，
+  Muse / 公众号草稿箱 API 会清空整条 style，排版整体塌掉（手动粘贴看不出来）。`inject_images.py` /
+  `wrap_preview.py` 已自动清理，`validate_gzh_html.py` 见到即报 ERROR。
