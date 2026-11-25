@@ -10,7 +10,7 @@
 ### 外框
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:28px 20px 48px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:28px 20px 48px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文不放 h1、不放灰字导语、文末不加页脚、不放来源列表。
@@ -31,7 +31,7 @@
 
 ```html
 <p style="margin:38px 0 0;font-size:10px;line-height:1.6;letter-spacing:2.6px;color:{{accent2}};text-transform:uppercase;">01 · {{UMAMI}}</p>
-<h2 style="margin:4px 0 16px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{这一口，差在哪}}</h2>
+<h2 style="margin:4px 0 16px;font-size:17px;line-height:1.6;font-weight:700;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{这一口，差在哪}}</h2>
 ```
 
 > 每节回答一个问题：现象 → 经核验的解释 → 可尝试的动作及边界；物质机制需有来源，不把示例当结论。
@@ -39,15 +39,15 @@
 ### 变量表（三列：变量 / 调高会怎样 / 调低会怎样）
 
 ```html
-<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">· 变量与滋味 ·</p>
+<p style="margin:26px 0 0;font-size:11px;line-height:1.6;letter-spacing:4px;color:{{accent}};font-family:Songti SC,STSong,SimSun,serif;text-align:center;">· 变量与滋味 ·</p>
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:10px 0 12px;font-size:13px;line-height:1.75;border-top:2px solid {{accent}};">
   <tr>
-    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">变量</th>
-    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调高</th>
-    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:'Songti SC','STSong','SimSun',serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调低</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">变量</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调高</th>
+    <th style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;text-align:left;font-weight:600;font-family:Songti SC,STSong,SimSun,serif;letter-spacing:2px;color:{{accent}};background:{{codeBg}};border-bottom:1px solid {{cardBorder}};">调低</th>
   </tr>
   <tr>
-    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:'Songti SC','STSong','SimSun',serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">水温</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;font-family:Songti SC,STSong,SimSun,serif;font-weight:600;color:{{text}};border-bottom:1px solid {{divider}};">水温</td>
     <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{调高后的变化及适用条件}}</td>
     <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{调低后的变化及适用条件}}</td>
   </tr>
@@ -71,15 +71,15 @@
 ```html
 <table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;margin:22px 0 8px;font-size:13px;line-height:1.75;">
   <tr>
-    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:30%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">水温</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:30%;font-family:Songti SC,STSong,SimSun,serif;color:{{muted}};border-bottom:1px solid {{divider}};">水温</td>
     <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{建议水温区间与测量口径}}</td>
   </tr>
   <tr>
-    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:30%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};border-bottom:1px solid {{divider}};">投茶比</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:30%;font-family:Songti SC,STSong,SimSun,serif;color:{{muted}};border-bottom:1px solid {{divider}};">投茶比</td>
     <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};border-bottom:1px solid {{divider}};">{{投茶量 g / 实际注水量 mL，注明质量与体积比例}}</td>
   </tr>
   <tr>
-    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:30%;font-family:'Songti SC','STSong','SimSun',serif;color:{{muted}};">出汤</td>
+    <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;width:30%;font-family:Songti SC,STSong,SimSun,serif;color:{{muted}};">出汤</td>
     <td style="vertical-align:top;word-wrap:break-word;overflow-wrap:break-word;padding:9px 7px;color:{{text}};">{{建议时间区间，注明泡次及计时起止}}</td>
   </tr>
 </table>

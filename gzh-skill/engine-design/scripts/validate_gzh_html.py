@@ -33,6 +33,8 @@ FORBIDDEN = [
     (re.compile(r"@import", re.I), "ERROR", "@import 不被支持"),
     (re.compile(r"display\s*:\s*grid", re.I), "ERROR", "display:grid 不被支持，请用 flex"),
     (re.compile(r"var\s*\(\s*--", re.I), "ERROR", "CSS 变量 var(--x) 不被支持，请写死值"),
+    (re.compile(r'style="[^"]*\'[^"]*"'), "ERROR",
+     "style 内出现单引号（字体名不要加引号）；草稿箱 API / Muse 会整段清空该 style"),
     (re.compile(r"url\s*\(\s*['\"]?https?://[^)]*\.(woff2?|ttf|otf|eot)", re.I),
      "ERROR", "外部字体不被支持"),
 ]

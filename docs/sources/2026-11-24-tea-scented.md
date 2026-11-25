@@ -36,3 +36,12 @@
 - 茶稿图注：图下各一句 12px 居中短注（12–24 字），符合 §13a。
 - `validate_gzh_html.py` 两版均通过（各 58 处 `span leaf`）；`inject_images.py` 两版各 2 图全部带图注；成品 `img` 4 处、`data:image` 2 处（同图共享）、`{{` 残留 0、`<h1` 0、占位框 0。
 - 成品：`E:\WX\2026-11-24\认识花茶 · 香气是窨进去的，不是拌进去的.html`，备份同目录 `generated\2026-11-24\tea-scented\`。
+
+## 修订记录
+
+- 2026-11-25：修复「茶模板进 Muse 排版后样式塌掉」。根因是内联 `style` 里的字体名带 ASCII 单引号
+  （`font-family:'Songti SC','STSong'...`），Muse / 公众号草稿箱 API 会因此清空**整条** style；
+  公众号后台手动粘贴更宽松，所以此前本地预览与粘贴都正常。处理：
+  ① 全部茶模板与 `components.md` 的字体名去引号；② 新增 `scripts/wx_sanitize.py`，
+  并接入 `inject_images.py` / `wrap_preview.py` 自动清理；③ `validate_gzh_html.py` 新增 style 单引号 ERROR；
+  ④ 本稿两版重新注入与打包，成品 `data:image` 2、`img` 4、`{{` 0、style 含单引号 0。图序、事实、文字未改。

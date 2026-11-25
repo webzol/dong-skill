@@ -32,11 +32,15 @@
 | 外部 `<link>` 样式表 | 失效 → 全部内联 |
 | `backdrop-filter` / `filter` / `transform` | 失效 → 避免 |
 | `clip` / `mask` / 复杂渐变 | 多数失效 → 渐变优先烘进图片（双语卡片底衬即此做法）；必须用 CSS 渐变时按 components.md §13c 三行兜底写法：纯色 → `-webkit-linear-gradient` → `linear-gradient`（2026-11-22 定版） |
+| `style` 值里的 ASCII 单引号 `'` | **草稿箱 API / Muse 路径会静默清空整条 style**，整段退回默认字体字号（手动粘贴则看不出来）→ 字体名一律不加引号：`font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif`。`wx_sanitize.py` 自动清理，`validate_gzh_html.py` 会报 ERROR（2026-11-25 定版） |
 
 ## 三、降级 / 风险提示（⚠️ 注意）
 
 - `box-shadow`、`border-radius`、`letter-spacing`：**多版本可用**，但个别机型（尤其 iOS 部分版本）会弱化。
   可作为「锦上添花」，但**布局与可读性不要依赖它们**——即去掉它们页面照样成立。
+- **字体名不加引号**：`font-family:Songti SC,STSong,SimSun,serif`。只要 style 里出现 `'`，
+  Muse / 草稿箱 API 会把这条 style 整条丢掉；本地预览和手动粘贴都正常，所以必须靠脚本兜底
+  （`inject_images.py` 与 `wrap_preview.py` 已内置 `wx_sanitize` 清理）。
 - `white-space:pre-wrap`（代码保留换行）：多数可用，配合 `<br>` 更稳。
 - 背景图：`background-image` 上传到微信编辑器的图不太稳；**关键内容用 `<img>`**，别放背景图。
 

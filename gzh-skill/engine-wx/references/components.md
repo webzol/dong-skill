@@ -80,14 +80,14 @@
 
 ```html
 <section style="background:{{codeBg}};border-left:3px solid {{accent}};border-radius:6px;padding:14px 16px;margin:16px 0;">
-  <p style="margin:0;color:{{codeText}};font-size:14px;line-height:1.7;font-family:'Menlo','Consolas','Courier New',monospace;white-space:pre-wrap;">{{代码}}</p>
+  <p style="margin:0;color:{{codeText}};font-size:14px;line-height:1.7;font-family:Menlo,Consolas,Courier New,monospace;white-space:pre-wrap;">{{代码}}</p>
 </section>
 ```
 
 ## 10. 行内代码
 
 ```html
-<code style="background:{{codeBg}};color:{{codeText}};font-family:'Menlo','Consolas',monospace;padding:2px 5px;border-radius:4px;">{{code}}</code>
+<code style="background:{{codeBg}};color:{{codeText}};font-family:Menlo,Consolas,monospace;padding:2px 5px;border-radius:4px;">{{code}}</code>
 ```
 
 ## 11. 按钮 / 行动号召
@@ -212,7 +212,7 @@
 
 ```html
 <p style="margin:0 0 6px;font-size:11px;line-height:1.6;letter-spacing:3px;color:{{accent2}};">{{11.22 · LIGHT SNOW}}</p>
-<h2 style="margin:0 0 10px;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{小雪}}</h2>
+<h2 style="margin:0 0 10px;font-size:26px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{小雪}}</h2>
 ```
 
 > 用在节气条目顶部，替代普通条目的「月.日」小签；英文微标 = 节气名意译大写（`LIGHT SNOW` / `WINTER SOLSTICE`）。
@@ -221,7 +221,7 @@
 ### 16b 节日题签（节日名 + 农历日期）
 
 ```html
-<h2 style="margin:0 0 4px;font-size:24px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{除夕}}</h2>
+<h2 style="margin:0 0 4px;font-size:24px;line-height:1.3;font-weight:700;letter-spacing:2px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{除夕}}</h2>
 <p style="margin:0 0 10px;font-size:12px;line-height:1.6;letter-spacing:2px;color:{{muted}};">{{农历腊月三十 · 丁未年}}</p>
 ```
 
@@ -234,15 +234,15 @@
   <tr>
     <td style="width:33.3%;padding:10px 8px;text-align:center;border-right:1px solid {{divider}};">
       <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">初候</p>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{蚯蚓结}}</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{蚯蚓结}}</p>
     </td>
     <td style="width:33.3%;padding:10px 8px;text-align:center;border-right:1px solid {{divider}};">
       <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">二候</p>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{麋角解}}</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{麋角解}}</p>
     </td>
     <td style="width:33.3%;padding:10px 8px;text-align:center;">
       <p style="margin:0 0 3px;font-size:11px;line-height:1.6;color:{{muted}};">三候</p>
-      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">{{水泉动}}</p>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">{{水泉动}}</p>
     </td>
   </tr>
 </table>

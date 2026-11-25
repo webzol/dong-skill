@@ -9,7 +9,7 @@
 ### 外框（比常规窄 40px）
 
 ```html
-<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:34px 26px 52px;box-sizing:border-box;font-family:'PingFang SC',-apple-system,'Helvetica Neue','Microsoft YaHei',sans-serif;color:{{text}};">
+<section style="max-width:677px;margin:0 auto;background:{{bg}};padding:34px 26px 52px;box-sizing:border-box;font-family:PingFang SC,-apple-system,Helvetica Neue,Microsoft YaHei,sans-serif;color:{{text}};">
 ```
 
 > 正文不放 h1、不放灰字导语、文末不加页脚、不放来源列表。
@@ -24,7 +24,7 @@
 ### 题记（宋体居中，全篇唯一的大字）
 
 ```html
-<p style="margin:0 0 30px;font-size:19px;line-height:1.9;letter-spacing:1px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">{{一句题记 · 不超过 18 字}}</p>
+<p style="margin:0 0 30px;font-size:19px;line-height:1.9;letter-spacing:1px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;text-align:center;">{{一句题记 · 不超过 18 字}}</p>
 <section style="height:1px;background:{{divider}};margin:0 0 30px;"></section>
 ```
 
@@ -45,14 +45,14 @@
 ### 短句独立段（节奏换气）
 
 ```html
-<p style="margin:0 0 26px;font-size:17px;line-height:1.9;letter-spacing:.8px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;text-align:center;">{{一句短判断 · 独立成段}}</p>
+<p style="margin:0 0 26px;font-size:17px;line-height:1.9;letter-spacing:.8px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;text-align:center;">{{一句短判断 · 独立成段}}</p>
 ```
 
 ### 引文（居中，无竖线）
 
 ```html
 <section style="margin:30px 0 32px;padding:0 6px;text-align:center;">
-  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:'Songti SC','STSong','SimSun',serif;">「{{引文}}」</p>
+  <p style="margin:0 0 10px;font-size:16px;line-height:1.95;letter-spacing:.6px;color:{{text}};font-family:Songti SC,STSong,SimSun,serif;">「{{引文}}」</p>
   <p style="margin:0;font-size:12px;line-height:1.6;letter-spacing:.4px;color:{{muted}};">{{— 出处}}</p>
 </section>
 ```

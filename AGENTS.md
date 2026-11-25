@@ -22,6 +22,9 @@
 - 配图规范：图片**内嵌在对应正文位置**，不堆文末；**普通稿图下不写文字，茶稿可按第四节加简短图注**，
   间距固定为 `display:block;margin:14px 0 20px`——图要说明什么，写进它上面或下面的正文，不要挂在图底下；
   图片一律 base64 内嵌，交付单文件 HTML（含右上角「复制到公众号」按钮）；**图片不加边框和圆角**，铺满栏宽即可。
+- **style 里不写 ASCII 单引号（2026-11-25 定版）**：字体名一律不加引号（`font-family:Songti SC,STSong,SimSun,serif`）。
+  只要内联 style 出现 `'`，Muse / 公众号草稿箱 API 会静默清空整条 style，正文退回默认字体字号、整篇塌版（手动粘贴看不出来）。
+  `inject_images.py` / `wrap_preview.py` 已自动清理，`validate_gzh_html.py` 见到即报 ERROR。
 - 能拿到原图就用原图：推文配图走 `https://pbs.twimg.com/media/<id>?format=jpg&name=large`
   （`<id>` 从推文页 HTML 里 `pbs.twimg.com/media/` 抓，`Invoke-WebRequest` 可用，`curl` 走 schannel 会握手失败）。
   只有「帖子本身」才截图；截正文里的图会带白边和页面边框。
