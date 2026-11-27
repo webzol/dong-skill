@@ -73,6 +73,7 @@ metadata:
 > 茶模式完整流程见 `../commands/chamo.md`；茶知识写作或审稿必读 `references/tea-knowledge.md`。生成或改写茶稿按茶模式固定交付「茶席随笔」和「茶事笔记」，默认版和备选均使用同一茶模板与 `tea-atelier`；纯排定稿保留原稿一版。茶稿图下可按 `references/components.md` §13a 加一句简短图注。维护规则不启动文章生成。
 
 ### 第 0 步　写稿口吻（需要写正文时必做）
+- 为「斜杠资源君」写科技稿时，按 `references/writing-style.md` §1.1 给各版正文写入文字指纹，留存本地对照并逐版检查。
 - 读 `references/writing-style.md`：先按 §2 定一条主腔，再套 §1 共用配方 + 该腔 §3 细则。
 - 需要感性认识时从 `references/writing-style-samples.md` 或 `references/writing-style-corpus/*-body.txt` 取 1～2 段开篇样例，**不要整篇模仿**，只学节奏。
 - 硬约束：标题爆点前置；开篇不写日期、不放灰字导语块；小标题结论式短句、**不用问句**；官方 / 媒体 / 社区口径分开标；收尾一句判断后停。

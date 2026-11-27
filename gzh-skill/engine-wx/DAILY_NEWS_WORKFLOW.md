@@ -256,6 +256,8 @@ python .\scripts\bands.py "$env:TEMP\opencode\nb_hf_tall.png" 80 770
 
 ## 5. 排版规范（不可省）
 
+为「斜杠资源君」写稿时，按 `references/writing-style.md` §1.1 在各版原创分析中写入文字指纹并留存本地对照。组装时逐版检查对应的两句原文。
+
 1. 读 `references/wechat-compat.md`（内联样式、禁 flex/grid/position/var）。
 2. 读 `references/components.md` §13 配图块（**唯一允许的图片样式**）：
 

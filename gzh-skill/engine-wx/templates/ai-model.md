@@ -89,6 +89,8 @@
 
 ### 正文段落
 
+为「斜杠资源君」新写的稿子，在原创分析段落中落实 [科技稿隐藏水印](../references/writing-style.md#11-科技稿隐藏水印)。
+
 ```html
 <p style="margin:0 0 18px;font-size:15px;line-height:1.95;letter-spacing:.3px;color:{{text}};text-align:justify;">{{段落正文。官方口径写明出处，第三方口径写明是谁测的；数字不编。}}</p>
 ```
